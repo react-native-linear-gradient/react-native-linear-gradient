@@ -24,7 +24,7 @@ A `<LinearGradient>` component for react-native, as seen in
 
 The following code will produce something like this:
 
-![https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example.png]
+![Example code result](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example.png)
 
 ```javascript
 // Within your render function

@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
+#import "RCTView.h"
 
-@interface BVLinearGradient : UIView
+@interface BVLinearGradient : RCTView
 
 @end

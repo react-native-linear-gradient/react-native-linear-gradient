@@ -1,34 +1,27 @@
 #import "BVLinearGradient.h"
+#import "RCTConvert.h"
+#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @implementation BVLinearGradient
+
++ (Class)layerClass
 {
-  CAGradientLayer *_layer;
+  return [CAGradientLayer class];
 }
 
-- (id)init
+- (CAGradientLayer *)gradientLayer
 {
-  if ((self = [super init])) {
-    NSArray *colors = [NSArray arrayWithObjects:
-                       (id)[UIColor whiteColor].CGColor,
-                       (id)[UIColor redColor].CGColor,
-                       nil];
-    *_layer = [CAGradientLayer _layer];
-    [_layer setColors:colors];
-    [layer setFrame:self.bounds];
-    [self.layer insertSublayer:_layer atIndex:0];
-    self.clipToBounds = YES; 
+  return (CAGradientLayer *)self.layer;
+}
+
+- (void)setColors:(NSArray *)colorStrings
+{
+  NSMutableArray *colors = [NSMutableArray arrayWithCapacity:colorStrings.count];
+  for (NSString *colorString in colorStrings) {
+    [colors addObject:[RCTConvert UIColor:colorString].CGColor];
   }
-  return self;
-}
-
-- (void)setColors:(NSArray *)colors
-{
-}
-
-- (void)layoutSubviews
-{
-  [super layoutSubviews];
-  [layer setFrame:self.bounds];
+  self.gradientLayer.colors = colors;
 }
 
 @end

@@ -12,7 +12,7 @@
 }
 
 RCT_EXPORT_VIEW_PROPERTY(colors, NSArray);
-// Start point, end point, type
+// Start point, end point
 
 - (NSDictionary *)constantsToExport
 {

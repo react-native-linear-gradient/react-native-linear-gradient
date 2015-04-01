@@ -72,7 +72,3 @@ props:
 
 ### An example app
 You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/index.ios.js).
-
-## TODOS
-
-- [ ] Radial gradient?

@@ -68,7 +68,7 @@ props:
 </LinearGradient>
 ```
 
-![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example.png)
+![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example-other-props.png)
 
 ### An example app
 You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/index.ios.js).

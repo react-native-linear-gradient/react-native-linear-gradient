@@ -11,6 +11,9 @@ var merge = require('merge');
 var LinearGradient = React.createClass({
   propTypes: {
     colors: PropTypes.array,
+    start: PropTypes.array,
+    end: PropTypes.array,
+    locations: PropTypes.array,
   },
 
   mixins: [NativeMethodsMixin],
@@ -22,7 +25,6 @@ var LinearGradient = React.createClass({
 
   render: function() {
     var style = flattenStyle([styles.base, this.props.style]);
-    var colors = this.props.colors;
 
     var nativeProps = merge(this.props, {
       style,
@@ -33,7 +35,7 @@ var LinearGradient = React.createClass({
 });
 
 var BVLinearGradient = createReactIOSNativeComponentClass({
-  validAttributes: merge(ReactIOSViewAttributes.UIView, {colors: true}),
+  validAttributes: merge(ReactIOSViewAttributes.UIView, {colors: true, start: true, end: true, locations: true}),
   uiViewClassName: 'BVLinearGradient',
 });
 

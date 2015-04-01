@@ -52,9 +52,27 @@ var styles = StyleSheet.create({
 });
 ```
 
-See the example in context [here](https://github.com/brentvatne/react-native-login/blob/master/index.ios.js).
+You can also use start and end points, as well as specify the locations
+for the gradient color changes with the `start`, `end` and `locations`
+props:
+
+```javascript
+<LinearGradient
+  start={[0,0.25]} end={[0.5,1]}
+  locations={[0,0.5,0.6]}
+  colors={['#4c669f', '#3b5998', '#192f6a']}
+  style={styles.linearGradient}>
+  <Text style={styles.buttonText}>
+    Sign in with Facebook
+  </Text>
+</LinearGradient>
+```
+
+![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example.png)
+
+### An example app
+You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/index.ios.js).
 
 ## TODOS
 
-- [ ] Support start/end points, angles
-- [ ] Radial gradient
+- [ ] Radial gradient?

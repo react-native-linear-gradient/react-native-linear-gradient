@@ -12,7 +12,9 @@
 }
 
 RCT_EXPORT_VIEW_PROPERTY(colors, NSArray);
-// Start point, end point
+RCT_EXPORT_VIEW_PROPERTY(start, NSArray);
+RCT_EXPORT_VIEW_PROPERTY(end, NSArray);
+RCT_EXPORT_VIEW_PROPERTY(locations, NSArray);
 
 - (NSDictionary *)constantsToExport
 {

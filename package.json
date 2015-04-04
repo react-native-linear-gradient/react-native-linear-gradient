@@ -8,6 +8,10 @@
     "email": "brentvatne@gmail.com",
     "url": "https://github.com/brentvatne"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:brentvatne/react-native-linear-gradient.git"
+  },
   "dependencies": {
     "react-native": "^0.3.1"
   },

@@ -20,7 +20,7 @@ A `<LinearGradient>` component for react-native, as seen in
 5. Whenever you want to use it within React code now you can: `var LinearGradient =
    require('react-native-linear-gradient');`
 
-## Example
+## Examples
 
 The following code will produce something like this:
 
@@ -69,6 +69,11 @@ props:
 ```
 
 ![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example-other-props.png)
+
+Check out [Examples/AnimatedGradient] (`git clone` this project, cd into it, npm install, open in XCode and run) to see how this is done:
+
+![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example-animated.gif)
+*This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
 
 ### An example app
 You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/index.ios.js).

@@ -7,6 +7,7 @@ var PropTypes = require('ReactPropTypes');
 var NativeMethodsMixin = require('NativeMethodsMixin');
 var flattenStyle = require('flattenStyle');
 var merge = require('merge');
+var deepDiffer = require('deepDiffer');
 
 var LinearGradient = React.createClass({
   propTypes: {
@@ -34,14 +35,12 @@ var LinearGradient = React.createClass({
   },
 });
 
-var strictEquality = (a, b) => { return a !== b; };
-
 var BVLinearGradient = createReactIOSNativeComponentClass({
   validAttributes: merge(ReactIOSViewAttributes.UIView, {
-    colors:    {diff: strictEquality},
-    start:     {diff: strictEquality},
-    end:       {diff: strictEquality},
-    locations: {diff: strictEquality},
+    colors:    {diff: deepDiffer},
+    start:     {diff: deepDiffer},
+    end:       {diff: deepDiffer},
+    locations: {diff: deepDiffer},
   }),
   uiViewClassName: 'BVLinearGradient',
 });

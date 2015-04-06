@@ -22,6 +22,9 @@ A `<LinearGradient>` component for react-native, as seen in
 
 ## Examples
 
+
+### Simple
+
 The following code will produce something like this:
 
 ![Example code result](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example.png)
@@ -52,6 +55,8 @@ var styles = StyleSheet.create({
 });
 ```
 
+### Additional props
+
 You can also use start and end points, as well as specify the locations
 for the gradient color changes with the `start`, `end` and `locations`
 props:
@@ -70,9 +75,12 @@ props:
 
 ![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example-other-props.png)
 
+### Updating the values for fun
+
 Check out [Examples/AnimatedGradient] (`git clone` this project, cd into it, npm install, open in XCode and run) to see how this is done:
 
 ![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example-animated.gif)
+
 *This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
 
 ### An example app

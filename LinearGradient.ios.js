@@ -34,10 +34,18 @@ var LinearGradient = React.createClass({
   },
 });
 
+var strictEquality = (a, b) => { return a !== b; };
+
 var BVLinearGradient = createReactIOSNativeComponentClass({
-  validAttributes: merge(ReactIOSViewAttributes.UIView, {colors: true, start: true, end: true, locations: true}),
+  validAttributes: merge(ReactIOSViewAttributes.UIView, {
+    colors:    {diff: strictEquality},
+    start:     {diff: strictEquality},
+    end:       {diff: strictEquality},
+    locations: {diff: strictEquality},
+  }),
   uiViewClassName: 'BVLinearGradient',
 });
+
 
 var styles = StyleSheet.create({
   base: { },

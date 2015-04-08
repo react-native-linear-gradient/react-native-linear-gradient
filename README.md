@@ -84,4 +84,4 @@ Check out [Examples/AnimatedGradient] (`git clone` this project, cd into it, npm
 *This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
 
 ### An example app
-You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/index.ios.js).
+You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/App/Screens/LoginScreen.js#L70-L73).

@@ -1,11 +1,12 @@
-var React = require('React');
-var NativeModules = require('NativeModules');
+/**
+ * @providesModule LinearGradient
+ * @flow
+ */
+
+'use strict';
+
 var ReactIOSViewAttributes = require('ReactIOSViewAttributes');
-var StyleSheet = require('StyleSheet');
 var createReactIOSNativeComponentClass = require('createReactIOSNativeComponentClass');
-var PropTypes = require('ReactPropTypes');
-var NativeMethodsMixin = require('NativeMethodsMixin');
-var flattenStyle = require('flattenStyle');
 var merge = require('merge');
 var deepDiffer = require('deepDiffer');
 

@@ -1,0 +1,32 @@
+[ignore]
+
+# We fork some components by platform.
+.*/*.web.js
+.*/*.android.js
+
+# Some modules have their own node_modules with overlap
+.*/node_modules/node-haste/.*
+
+# Ignore react-tools where there are overlaps, but don't ignore anything that
+# react-native relies on
+.*/node_modules/react-tools/src/vendor/core/ExecutionEnvironment.js
+.*/node_modules/react-tools/src/browser/eventPlugins/ResponderEventPlugin.js
+.*/node_modules/react-tools/src/browser/ui/React.js
+.*/node_modules/react-tools/src/core/ReactInstanceHandles.js
+.*/node_modules/react-tools/src/event/EventPropagators.js
+.*/node_modules/flux/lib/invariant.js
+
+# Ignore jest
+.*/node_modules/jest-cli/.*
+
+# Ignore examples
+.*/Examples/.*
+
+[include]
+
+[libs]
+node_modules/react-native/Libraries/react-native/react-native-interface.js
+interfaces.js
+
+[options]
+module.system=haste

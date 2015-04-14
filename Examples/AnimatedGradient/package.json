@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "react-native": "^0.3.10",
-    "react-native-linear-gradient": "^0.1.6"
+    "react-native-linear-gradient": "^0.1.7"
   }
 }

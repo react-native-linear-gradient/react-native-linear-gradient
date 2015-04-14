@@ -18,9 +18,4 @@ RCT_EXPORT_VIEW_PROPERTY(start, NSArray);
 RCT_EXPORT_VIEW_PROPERTY(end, NSArray);
 RCT_EXPORT_VIEW_PROPERTY(locations, NSArray);
 
-- (NSDictionary *)constantsToExport
-{
-  return @{};
-}
-
 @end

@@ -9,33 +9,7 @@ var flattenStyle = require('flattenStyle');
 var merge = require('merge');
 var deepDiffer = require('deepDiffer');
 
-var LinearGradient = React.createClass({
-  propTypes: {
-    colors: PropTypes.array,
-    start: PropTypes.array,
-    end: PropTypes.array,
-    locations: PropTypes.array,
-  },
-
-  mixins: [NativeMethodsMixin],
-
-  viewConfig: {
-    uiViewClassName: 'UIView',
-    validAttributes: ReactIOSViewAttributes.UIView
-  },
-
-  render: function() {
-    var style = flattenStyle([styles.base, this.props.style]);
-
-    var nativeProps = merge(this.props, {
-      style,
-    });
-
-    return <BVLinearGradient {... nativeProps} />
-  },
-});
-
-var BVLinearGradient = createReactIOSNativeComponentClass({
+var LinearGradient = createReactIOSNativeComponentClass({
   validAttributes: merge(ReactIOSViewAttributes.UIView, {
     colors:    {diff: deepDiffer},
     start:     {diff: deepDiffer},
@@ -43,11 +17,6 @@ var BVLinearGradient = createReactIOSNativeComponentClass({
     locations: {diff: deepDiffer},
   }),
   uiViewClassName: 'BVLinearGradient',
-});
-
-
-var styles = StyleSheet.create({
-  base: { },
 });
 
 module.exports = LinearGradient;

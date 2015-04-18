@@ -1,6 +1,6 @@
 {
   "name": "react-native-linear-gradient",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A <LinearGradient> element for react-native",
   "main": "LinearGradient.ios.js",
   "author": {
@@ -13,7 +13,7 @@
     "url": "git@github.com:brentvatne/react-native-linear-gradient.git"
   },
   "dependencies": {
-    "react-native": "^0.3.10"
+    "react-native": "^0.4.0"
   },
   "devDependencies": {
     "jest-cli": "0.2.1"

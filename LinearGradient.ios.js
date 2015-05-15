@@ -5,13 +5,13 @@
 
 'use strict';
 
-var ReactIOSViewAttributes = require('ReactIOSViewAttributes');
-var createReactIOSNativeComponentClass = require('createReactIOSNativeComponentClass');
+var ReactNativeViewAttributes = require('ReactNativeViewAttributes');
+var createReactNativeComponentClass = require('createReactNativeComponentClass');
 var merge = require('merge');
 var deepDiffer = require('deepDiffer');
 
-var LinearGradient = createReactIOSNativeComponentClass({
-  validAttributes: merge(ReactIOSViewAttributes.UIView, {
+var LinearGradient = createReactNativeComponentClass({
+  validAttributes: merge(ReactNativeViewAttributes.UIView, {
     colors:    {diff: deepDiffer},
     start:     {diff: deepDiffer},
     end:       {diff: deepDiffer},

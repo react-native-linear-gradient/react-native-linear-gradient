@@ -19,7 +19,7 @@
 {
   NSMutableArray *colors = [NSMutableArray arrayWithCapacity:colorStrings.count];
   for (NSString *colorString in colorStrings) {
-    [colors addObject:[RCTConvert UIColor:colorString].CGColor];
+    [colors addObject:(id)[RCTConvert UIColor:colorString].CGColor];
   }
   self.gradientLayer.colors = colors;
 }

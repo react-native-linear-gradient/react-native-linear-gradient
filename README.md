@@ -12,7 +12,7 @@ A `<LinearGradient>` component for react-native, as seen in
    [(Screenshot)](http://url.brentvatne.ca/g9Wp).
 4. Click on `BVLinearGradient.xcodeproj` in `Libraries` and go the `Build
    Phases` tab. Double click the text to the right of `Header Search
-   Paths` and verify that it has `$(SRCROOT)../react-native/React` - if it
+   Paths` and verify that it has `$(SRCROOT)/../react-native/React` - if it
    isn't, then add it. This is so XCode is able to find the headers that
    the `BVLinearGradient` source files are referring to by pointing to the
    header files installed within the `react-native` `node_modules`

@@ -13,6 +13,11 @@ RCT_EXPORT_MODULE();
   return [[BVLinearGradient alloc] init];
 }
 
+- (dispatch_queue_t)methodQueue
+{
+    return dispatch_get_main_queue();
+}
+
 RCT_EXPORT_VIEW_PROPERTY(colors, NSArray);
 RCT_EXPORT_VIEW_PROPERTY(start, NSArray);
 RCT_EXPORT_VIEW_PROPERTY(end, NSArray);

@@ -24,14 +24,14 @@
   self.gradientLayer.colors = colors;
 }
 
-- (void)setStart:(NSArray *)start
+- (void)setStart:(CGPoint)start
 {
-  self.gradientLayer.startPoint = [RCTConvert CGPoint:start];
+  self.gradientLayer.startPoint = start;
 }
 
-- (void)setEnd:(NSArray *)end
+- (void)setEnd:(CGPoint)end
 {
-  self.gradientLayer.endPoint = [RCTConvert CGPoint:end];
+  self.gradientLayer.endPoint = end;
 }
 
 - (void)setLocations:(NSArray *)locations

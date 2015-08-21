@@ -63,7 +63,7 @@ props:
 
 ```javascript
 <LinearGradient
-  start={[0,0.25]} end={[0.5,1]}
+  start={{x:0.0, y:0.25}} end={{x:0.5, y:1.0}}
   locations={[0,0.5,0.6]}
   colors={['#4c669f', '#3b5998', '#192f6a']}
   style={styles.linearGradient}>

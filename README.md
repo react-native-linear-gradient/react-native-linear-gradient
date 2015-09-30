@@ -5,6 +5,8 @@ A `<LinearGradient>` component for react-native, as seen in
 
 ### Add it to your project
 
+####iOS
+
 1. Run `npm install react-native-linear-gradient --save`
 2. Open your project in XCode, right click on `Libraries` and click `Add
    Files to "Your Project Name" [(Screenshot)](http://url.brentvatne.ca/g9Wp).
@@ -19,6 +21,48 @@ A `<LinearGradient>` component for react-native, as seen in
    directory. [(Screenshot)](http://url.brentvatne.ca/7wE0).
 5. Whenever you want to use it within React code now you can: `var LinearGradient =
    require('react-native-linear-gradient');`
+
+#####Android
+
+1. in `android/settings.gradle`
+```
+  include ':app', ':react-native-linear-gradient'
+  project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
+```
+
+2. in `android/app/build.gradle` add:
+```
+dependencies {
+    ...
+    compile project(':react-native-linear-gradient')
+}
+```
+
+3. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` add:
+```
+...
+import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
+...
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    mReactRootView = new ReactRootView(this);
+
+    mReactInstanceManager = ReactInstanceManager.builder()
+            .setApplication(getApplication())
+            .setBundleAssetName("index.android.bundle")
+            .setJSMainModuleName("index.android")
+            .addPackage(new MainReactPackage())
+            .addPackage(new LinearGradientPackage()) // <---- and This!
+            .setUseDeveloperSupport(BuildConfig.DEBUG)
+            .setInitialLifecycleState(LifecycleState.RESUMED)
+            .build();
+
+    mReactRootView.startReactApplication(mReactInstanceManager, "SillyGoose", null);
+
+    setContentView(mReactRootView);
+}
+```
 
 ## Examples
 

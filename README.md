@@ -24,13 +24,13 @@ A `<LinearGradient>` component for react-native, as seen in
 
 #####Android
 
-1. in `android/settings.gradle`
+- 1. in `android/settings.gradle`
 ```
   include ':app', ':react-native-linear-gradient'
   project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
 ```
 
-2. in `android/app/build.gradle` add:
+- 2. in `android/app/build.gradle` add:
 ```
 dependencies {
     ...
@@ -38,7 +38,7 @@ dependencies {
 }
 ```
 
-3. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` add:
+- 3. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` add:
 ```
 ...
 import com.BV.LinearGradient.LinearGradientPackage; // <--- This!

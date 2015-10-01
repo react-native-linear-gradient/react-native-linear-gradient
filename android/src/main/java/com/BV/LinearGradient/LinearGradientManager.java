@@ -14,7 +14,9 @@ public class LinearGradientManager extends SimpleViewManager<FrameLayout> {
 
     public static final String REACT_CLASS = "BVLinearGradient";
     public static final String PROP_COLORS = "colors";
-    public static final String PROP_POSITIONS = "positions";
+    public static final String PROP_LOCATIONS = "locations";
+    public static final String PROP_START_POS = "start";
+    public static final String PROP_END_POS = "end";
 
     public LinearGradientView mGradientView;
 
@@ -36,10 +38,24 @@ public class LinearGradientManager extends SimpleViewManager<FrameLayout> {
         }
     }
 
-    @ReactProp(name=PROP_POSITIONS)
-    public void updatePositions(FrameLayout frame, ReadableArray positions){
+    @ReactProp(name=PROP_LOCATIONS)
+    public void updatePositions(FrameLayout frame, ReadableArray locations){
         if(mGradientView != null) {
-            mGradientView.updatePositions(positions);
+            mGradientView.updateLocations(locations);
+        }
+    }
+
+    @ReactProp(name=PROP_START_POS)
+    public void updateStartPosition(FrameLayout frame, ReadableArray startPos){
+        if(mGradientView != null) {
+            mGradientView.updateStartPosition(startPos);
+        }
+    }
+
+    @ReactProp(name=PROP_END_POS)
+    public void updateEndPosition(FrameLayout frame, ReadableArray endPos){
+        if(mGradientView != null) {
+            mGradientView.updateEndPosition(endPos);
         }
     }
 

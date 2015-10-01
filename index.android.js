@@ -4,18 +4,22 @@ var { requireNativeComponent, PropTypes, View, processColor } = React;
 
 var LinearGradient = React.createClass({
   propTypes: {
+    start: PropTypes.array,
+    end: PropTypes.array,
     colors: PropTypes.array.isRequired,
-    positions: PropTypes.array
+    locations: PropTypes.array
   },
 
   render: function() {
-    var {style, children, colors, positions, ...otherProps} = this.props;
+    var {style, children, colors, locations, start, end, ...otherProps} = this.props;
     return (
       <View style={style}>
         <NativeLinearGradient
           style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
           colors={colors.map(processColor)}
-          positions={positions} />
+          start={start}
+          end={end}
+          locations={locations} />
         { children }
       </View>
     );

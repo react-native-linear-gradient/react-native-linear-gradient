@@ -7,6 +7,8 @@ A `<LinearGradient>` component for react-native, as seen in
 
 ### iOS
 
+Note: as of v1.1.0-alpha, React Native 0.12.0 is required.
+
 1. Run `npm install react-native-linear-gradient --save`
 2. Open your project in XCode, right click on `Libraries` and click `Add
    Files to "Your Project Name" [(Screenshot)](http://url.brentvatne.ca/g9Wp).

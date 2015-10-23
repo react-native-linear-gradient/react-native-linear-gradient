@@ -9,7 +9,7 @@ A `<LinearGradient>` component for react-native, as seen in
 
 1. Run `npm install react-native-linear-gradient --save`
 2. Open your project in XCode, right click on `Libraries` and click `Add
-   Files to "Your Project Name" [(Screenshot)](http://url.brentvatne.ca/g9Wp).
+   Files to "Your Project Name"` Look under `node_modules/react-native-linear-gradient` and add `BVLinearGradient.xcodeproj`.  [(Screenshot)](http://url.brentvatne.ca/g9Wp). 
 3. Add `libBVLinearGradient.a` to `Build Phases -> Link Binary With Libraries`
    [(Screenshot)](http://url.brentvatne.ca/g9Wp).
 4. Click on `BVLinearGradient.xcodeproj` in `Libraries` and go the `Build
@@ -21,6 +21,8 @@ A `<LinearGradient>` component for react-native, as seen in
    directory. [(Screenshot)](http://url.brentvatne.ca/7wE0).
 5. Whenever you want to use it within React code now you can: `var LinearGradient =
    require('react-native-linear-gradient');`
+
+**If you're having trouble, you can point your `package.json` at github to see if the issue has been fixed.  Simply change the dependency `"react-native-linear-gradient": "brentvatne/react-native-linear-gradient",` and then `npm install`**
 
 #### Android
 

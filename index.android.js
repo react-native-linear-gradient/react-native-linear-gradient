@@ -7,7 +7,12 @@ var LinearGradient = React.createClass({
     start: PropTypes.array,
     end: PropTypes.array,
     colors: PropTypes.array.isRequired,
-    locations: PropTypes.array
+    locations: PropTypes.array,
+    scaleX: PropTypes.number,
+    scaleY: PropTypes.number,
+    translateX: PropTypes.number,
+    translateY: PropTypes.number,
+    rotation: PropTypes.number
   },
 
   render: function() {

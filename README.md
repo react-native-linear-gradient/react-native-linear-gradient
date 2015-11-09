@@ -76,8 +76,15 @@ The following code will produce something like this:
 ![Example code result](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example.png)
 
 ```javascript
+// Add processColor to your React requires
+var {
+  processColor
+} = React;
+
 // Within your render function
-<LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
+<LinearGradient
+	colors={[processColor('#4c669f'), processColor('#3b5998'), processColor('#192f6a')]}
+	style={styles.linearGradient}>
   <Text style={styles.buttonText}>
     Sign in with Facebook
   </Text>
@@ -111,7 +118,7 @@ props:
 <LinearGradient
   start={[0.0, 0.25]} end={[0.5, 1.0]}
   locations={[0,0.5,0.6]}
-  colors={['#4c669f', '#3b5998', '#192f6a']}
+  colors={[processColor('#4c669f'), processColor('#3b5998'), processColor('#192f6a')]}
   style={styles.linearGradient}>
   <Text style={styles.buttonText}>
     Sign in with Facebook

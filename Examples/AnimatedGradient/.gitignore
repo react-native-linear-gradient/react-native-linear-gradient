@@ -1,1 +1,4 @@
-node_modules/**/*
+android/build
+android/app/build
+node_modules
+ios/AnimatedGradient.xcodeproj/xcuserdata

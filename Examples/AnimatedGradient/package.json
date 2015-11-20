@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "react-native start"
   },
   "dependencies": {
-    "react-native": "^0.3.10",
-    "react-native-linear-gradient": "^0.1.7"
+    "react-native": "^0.14.2",
+    "react-native-linear-gradient": "^1.1.0-alpha",
+    "react-timer-mixin": "^0.13.3"
   }
 }

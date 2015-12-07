@@ -9,6 +9,8 @@ Version 1.3.0 supports react-native >= 0.16.0
 
 ### iOS
 
+Note: as of v1.1.0-alpha, React Native 0.12.0 is required.
+
 1. Run `npm install react-native-linear-gradient --save`
 2. Open your project in XCode, right click on `Libraries` and click `Add
    Files to "Your Project Name"` Look under `node_modules/react-native-linear-gradient` and add `BVLinearGradient.xcodeproj`.  [(Screenshot)](http://url.brentvatne.ca/g9Wp). 

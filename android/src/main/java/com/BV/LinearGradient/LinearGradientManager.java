@@ -9,6 +9,10 @@ import com.facebook.react.uimanager.CatalystStylesDiffMap;
 import com.facebook.react.uimanager.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.bridge.WritableArray;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.WritableNativeArray;
+import com.facebook.react.bridge.WritableNativeMap;
 
 public class LinearGradientManager extends SimpleViewManager<FrameLayout> {
 
@@ -28,7 +32,21 @@ public class LinearGradientManager extends SimpleViewManager<FrameLayout> {
 
     @Override
     protected FrameLayout createViewInstance(ThemedReactContext context) {
-        return new FrameLayout(context);
+        WritableMap defaults = new WritableNativeMap();
+        WritableArray array = new WritableNativeArray();
+        array.pushInt(0);
+        array.pushInt(0);
+
+        defaults.putArray("colors", array);
+
+        mGradientView = new LinearGradientView(context, new CatalystStylesDiffMap(defaults));
+
+        FrameLayout frame = new FrameLayout(context);
+
+        frame.removeAllViews();
+        frame.addView(mGradientView);
+
+        return frame;
     }
 
     @ReactProp(name=PROP_COLORS)
@@ -57,18 +75,5 @@ public class LinearGradientManager extends SimpleViewManager<FrameLayout> {
         if(mGradientView != null) {
             mGradientView.updateEndPosition(endPos);
         }
-    }
-
-    //I'd like to not do this this way.
-    @Override
-    public void updateView(FrameLayout frame, CatalystStylesDiffMap props) {
-        BaseViewPropertyApplicator.applyCommonViewProperties(frame, props);
-
-        frame.removeAllViews();
-
-        mGradientView = new LinearGradientView(frame.getContext(), props);
-        mGradientView.setId(View.generateViewId());
-
-        frame.addView(mGradientView);
     }
 }

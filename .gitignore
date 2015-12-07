@@ -9,3 +9,4 @@ gradlew.bat
 gradle/
 *.properties
 *.iml
+npm-debug.log

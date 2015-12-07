@@ -6,7 +6,8 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "react-native": "^0.3.10",
-    "react-native-linear-gradient": "^0.1.7"
+    "react-native": "0.16.0",
+    "react-native-linear-gradient": "../../",
+    "react-timer-mixin": "^0.13.3"
   }
 }

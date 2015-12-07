@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C854EADF02A501C352F1C31CE594A07F661B2A78",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "16CE14A2D81CCE323D476004724594AEF6B38C0A" : 0,
+    "C854EADF02A501C352F1C31CE594A07F661B2A78" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "439833FD-A58F-4243-8AD6-E877313B0F6A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "16CE14A2D81CCE323D476004724594AEF6B38C0A" : "",
+    "C854EADF02A501C352F1C31CE594A07F661B2A78" : "react-native-linear-gradient"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AnimatedGradient",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Examples\/AnimatedGradient\/AnimatedGradient.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:exponentjs\/react-native.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "16CE14A2D81CCE323D476004724594AEF6B38C0A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:brentvatne\/react-native-linear-gradient.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C854EADF02A501C352F1C31CE594A07F661B2A78"
+    }
+  ]
+}

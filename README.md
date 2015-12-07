@@ -131,3 +131,7 @@ Check out [Examples/AnimatedGradient] (`git clone` this project, cd into it, npm
 
 ### An example app
 You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/App/Screens/LoginScreen.js#L70-L73).
+
+### License
+
+License is MIT

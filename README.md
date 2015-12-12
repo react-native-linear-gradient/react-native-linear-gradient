@@ -7,6 +7,12 @@ Version 1.3.0 supports react-native >= 0.16.0
 
 ## Add it to your project
 
+You can use [`rnpm`](https://github.com/rnpm/rnpm) to add native dependencies automatically:
+
+`$ rnpm link`
+
+or do it manually as described below:
+
 ### iOS
 
 1. Run `npm install react-native-linear-gradient --save`

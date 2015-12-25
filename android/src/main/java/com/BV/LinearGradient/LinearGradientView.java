@@ -14,12 +14,13 @@ import com.facebook.react.uimanager.CatalystStylesDiffMap;
 
 public class LinearGradientView extends View {
 
-    public static Paint mPaint;
-    public static LinearGradient mShader;
-    public static float[] mLocations;
-    public static int[] mStartPos;
-    public static int[] mEndPos;
-    public static int[] mColors;
+    private Paint mPaint;
+    private LinearGradient mShader;
+    private float[] mLocations;
+    private int[] mStartPos;
+    private int[] mEndPos;
+    private int[] mColors;
+    private int[] mSize;
 
     public LinearGradientView(Context context, CatalystStylesDiffMap props) {
         super(context, null);
@@ -66,8 +67,8 @@ public class LinearGradientView extends View {
           //default to full height.
             mEndPos = new int[]{0, getMeasuredHeight()};
         }
-
-        drawGradient(null, null, null, null);
+        mSize = new int[]{0, 0};
+        drawGradient();
     }
 
     public void updateStartPosition(ReadableArray startPos) {
@@ -78,7 +79,8 @@ public class LinearGradientView extends View {
       } catch (Exception e) {
         _startPos = new int[]{0,0};
       }
-      drawGradient(_startPos, null, null, null);
+      mStartPos = _startPos;
+      drawGradient();
     }
 
 
@@ -90,7 +92,8 @@ public class LinearGradientView extends View {
       } catch (Exception e) {
         _endPos = new int[]{0,0};
       }
-      drawGradient(null,_endPos, null, null);
+      mEndPos = _endPos;
+      drawGradient();
     }
 
 
@@ -100,7 +103,8 @@ public class LinearGradientView extends View {
         {
             _colors[i] = colors.getInt(i);
         }
-        drawGradient(null, null, _colors, null);
+        mColors = _colors;
+        drawGradient();
     }
 
     public void updateLocations(ReadableArray locations){
@@ -115,23 +119,18 @@ public class LinearGradientView extends View {
         } catch (Exception e) {
             _locations = null;
         }
-        drawGradient(null, null, null, _locations);
+        mLocations = _locations;
+        drawGradient();
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        //TODO: Ensure that we don't override a specified startPos / endPos
-        int[] _endPos = new int[]{mEndPos[0], h};
-        drawGradient(null, _endPos, null, null);
+        mSize = new int[]{w, h};
+        drawGradient();
     }
 
-    private void drawGradient(int[] startPos, int[] endPos, int[] colors, float[] locations) {
-        mStartPos = startPos != null ? startPos : mStartPos;
-        mEndPos = endPos != null ? endPos : mEndPos;
-        mColors = colors != null ? colors : mColors;
-        mLocations = locations;
-        //locations can be null, thats just fine, so pass it as such.
-        mShader = new LinearGradient(mStartPos[0], mStartPos[1], mEndPos[0], mEndPos[1], mColors, locations, Shader.TileMode.MIRROR);
+    private void drawGradient() {
+        mShader = new LinearGradient(mStartPos[0] * mSize[0], mStartPos[1] * mSize[1], mEndPos[0] * mSize[0], mEndPos[1] * mSize[1], mColors, mLocations, Shader.TileMode.MIRROR);
         mPaint.setShader(mShader);
         invalidate();
     }

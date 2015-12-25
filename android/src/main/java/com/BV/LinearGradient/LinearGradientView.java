@@ -17,8 +17,8 @@ public class LinearGradientView extends View {
     private Paint mPaint;
     private LinearGradient mShader;
     private float[] mLocations;
-    private int[] mStartPos;
-    private int[] mEndPos;
+    private float[] mStartPos;
+    private float[] mEndPos;
     private int[] mColors;
     private int[] mSize;
 
@@ -53,31 +53,31 @@ public class LinearGradientView extends View {
         try {
           ReadableArray startPos = props.getArray("start");
           assert startPos != null;
-          mStartPos = new int[]{startPos.getInt(0), startPos.getInt(1)};
+          mStartPos = new float[]{(float) startPos.getDouble(0), (float) startPos.getDouble(1)};
         } catch (Exception e) {
-          mStartPos = new int[]{0,0};
+          mStartPos = new float[]{0,0};
         }
 
 
         try {
             ReadableArray endPos = props.getArray("end");
             assert endPos != null;
-            mEndPos= new int[]{endPos.getInt(0), endPos.getInt(1)};
+            mEndPos= new float[]{(float) endPos.getDouble(0), (float) endPos.getDouble(1)};
         } catch (Exception e) {
           //default to full height.
-            mEndPos = new int[]{0, getMeasuredHeight()};
+            mEndPos = new float[]{0, getMeasuredHeight()};
         }
         mSize = new int[]{0, 0};
         drawGradient();
     }
 
     public void updateStartPosition(ReadableArray startPos) {
-      int[] _startPos;
+      float[] _startPos;
       try {
         assert startPos != null;
-        _startPos= new int[]{startPos.getInt(0), startPos.getInt(1)};
+        _startPos= new float[]{(float) startPos.getDouble(0), (float) startPos.getDouble(1)};
       } catch (Exception e) {
-        _startPos = new int[]{0,0};
+        _startPos = new float[]{0,0};
       }
       mStartPos = _startPos;
       drawGradient();
@@ -85,12 +85,12 @@ public class LinearGradientView extends View {
 
 
     public void updateEndPosition(ReadableArray endPos) {
-      int[] _endPos;
+      float[] _endPos;
       try {
         assert endPos != null;
-        _endPos= new int[]{endPos.getInt(0), endPos.getInt(1)};
+        _endPos= new float[]{(float) endPos.getDouble(0), (float) endPos.getDouble(1)};
       } catch (Exception e) {
-        _endPos = new int[]{0,0};
+        _endPos = new float[]{0,0};
       }
       mEndPos = _endPos;
       drawGradient();

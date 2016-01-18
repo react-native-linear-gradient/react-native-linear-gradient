@@ -29,14 +29,14 @@ public class LinearGradientView extends View {
 
         ReadableArray colors = props.getArray("colors");
 
-        //If we managed to get here and not get colors... give up.
+        // if we managed to get here and not get colors, give up.
         assert colors != null;
+
         mColors = new int[colors.size()];
         for (int i=0; i < mColors.length; i++)
         {
             mColors[i] = colors.getInt(i);
         }
-
 
         try {
             ReadableArray locations = props.getArray("locations");
@@ -58,14 +58,13 @@ public class LinearGradientView extends View {
           mStartPos = new float[]{0,0};
         }
 
-
         try {
             ReadableArray endPos = props.getArray("end");
             assert endPos != null;
             mEndPos= new float[]{(float) endPos.getDouble(0), (float) endPos.getDouble(1)};
         } catch (Exception e) {
-          //default to full height.
-            mEndPos = new float[]{0, getMeasuredHeight()};
+            // default to full height.
+            mEndPos = new float[]{0, 1};
         }
         mSize = new int[]{0, 0};
         drawGradient();

@@ -65,7 +65,7 @@ public class LinearGradientView extends View {
             mEndPos= new float[]{(float) endPos.getDouble(0), (float) endPos.getDouble(1)};
         } catch (Exception e) {
           //default to full height.
-            mEndPos = new float[]{0, getMeasuredHeight()};
+            mEndPos = new float[]{0, 1};
         }
         mSize = new int[]{0, 0};
         drawGradient();

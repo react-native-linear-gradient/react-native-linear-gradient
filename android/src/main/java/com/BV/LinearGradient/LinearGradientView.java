@@ -11,7 +11,7 @@ import android.view.View;
 
 public class LinearGradientView extends View {
 
-    private Paint mPaint = new Paint();
+    private final Paint mPaint = new Paint();
     private LinearGradient mShader;
     private float[] mLocations;
     private float[] mStartPos = {0, 0};

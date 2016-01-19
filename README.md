@@ -17,7 +17,7 @@ or do it manually as described below:
 
 1. Run `npm install react-native-linear-gradient --save`
 2. Open your project in XCode, right click on `Libraries` and click `Add
-   Files to "Your Project Name"` Look under `node_modules/react-native-linear-gradient` and add `BVLinearGradient.xcodeproj`.  [(Screenshot)](http://url.brentvatne.ca/g9Wp). 
+   Files to "Your Project Name"` Look under `node_modules/react-native-linear-gradient` and add `BVLinearGradient.xcodeproj`.  [(Screenshot)](http://url.brentvatne.ca/g9Wp).
 3. Add `libBVLinearGradient.a` to `Build Phases -> Link Binary With Libraries`
    [(Screenshot)](http://url.brentvatne.ca/g9Wp).
 4. Click on `BVLinearGradient.xcodeproj` in `Libraries` and go the `Build
@@ -57,7 +57,7 @@ or do it manually as described below:
    protected void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
        mReactRootView = new ReactRootView(this);
-   
+
        mReactInstanceManager = ReactInstanceManager.builder()
                .setApplication(getApplication())
                .setBundleAssetName("index.android.bundle")
@@ -67,9 +67,9 @@ or do it manually as described below:
                .setUseDeveloperSupport(BuildConfig.DEBUG)
                .setInitialLifecycleState(LifecycleState.RESUMED)
                .build();
-   
+
        mReactRootView.startReactApplication(mReactInstanceManager, "SillyGoose", null);
-   
+
        setContentView(mReactRootView);
    }
    ```
@@ -81,7 +81,7 @@ or do it manually as described below:
 
 The following code will produce something like this:
 
-![Example code result](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example.png)
+![Example code result](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/images/example.png)
 
 ```javascript
 // Within your render function
@@ -127,13 +127,13 @@ props:
 </LinearGradient>
 ```
 
-![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example-other-props.png)
+![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/images/example-other-props.png)
 
 ### Updating the values for fun
 
 Check out [Examples/AnimatedGradient] (`git clone` this project, cd into it, npm install, open in XCode and run) to see how this is done:
 
-![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/example-animated.gif)
+![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/images/example-animated.gif)
 
 *This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
 

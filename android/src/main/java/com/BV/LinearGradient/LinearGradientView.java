@@ -14,89 +14,44 @@ import com.facebook.react.uimanager.CatalystStylesDiffMap;
 
 public class LinearGradientView extends View {
 
-    private Paint mPaint;
+    private Paint mPaint = new Paint();
     private LinearGradient mShader;
     private float[] mLocations;
-    private float[] mStartPos;
-    private float[] mEndPos;
+    private float[] mStartPos = {0, 0};
+    private float[] mEndPos = {0, 1};
     private int[] mColors;
-    private int[] mSize;
+    private int[] mSize = {0, 0};
 
-    public LinearGradientView(Context context, CatalystStylesDiffMap props) {
-        super(context, null);
-
-        mPaint = new Paint();
-
-        ReadableArray colors = props.getArray("colors");
-
-        // if we managed to get here and not get colors, give up.
-        assert colors != null;
-
-        mColors = new int[colors.size()];
-        for (int i=0; i < mColors.length; i++)
-        {
-            mColors[i] = colors.getInt(i);
-        }
-
-        try {
-            ReadableArray locations = props.getArray("locations");
-            assert locations != null;
-            mLocations= new float[locations.size()];
-            for (int i=0; i < mLocations.length; i++)
-            {
-                mLocations[i] = (float) locations.getDouble(i);
-            }
-        } catch (Exception e) {
-            mLocations = null;
-        }
-
-        try {
-          ReadableArray startPos = props.getArray("start");
-          assert startPos != null;
-          mStartPos = new float[]{(float) startPos.getDouble(0), (float) startPos.getDouble(1)};
-        } catch (Exception e) {
-          mStartPos = new float[]{0,0};
-        }
-
-        try {
-            ReadableArray endPos = props.getArray("end");
-            assert endPos != null;
-            mEndPos= new float[]{(float) endPos.getDouble(0), (float) endPos.getDouble(1)};
-        } catch (Exception e) {
-            // default to full height.
-            mEndPos = new float[]{0, 1};
-        }
-        mSize = new int[]{0, 0};
-        drawGradient();
+    public LinearGradientView(Context context) {
+        super(context);
     }
 
-    public void updateStartPosition(ReadableArray startPos) {
+    public void setStartPosition(ReadableArray startPos) {
       float[] _startPos;
       try {
         assert startPos != null;
         _startPos= new float[]{(float) startPos.getDouble(0), (float) startPos.getDouble(1)};
       } catch (Exception e) {
-        _startPos = new float[]{0,0};
+        _startPos = new float[]{0, 0};
       }
       mStartPos = _startPos;
       drawGradient();
     }
 
-
-    public void updateEndPosition(ReadableArray endPos) {
+    public void setEndPosition(ReadableArray endPos) {
       float[] _endPos;
       try {
         assert endPos != null;
         _endPos= new float[]{(float) endPos.getDouble(0), (float) endPos.getDouble(1)};
       } catch (Exception e) {
-        _endPos = new float[]{0,0};
+        _endPos = new float[]{0, 0};
       }
       mEndPos = _endPos;
       drawGradient();
     }
 
 
-    public void updateColors(ReadableArray colors){
+    public void setColors(ReadableArray colors){
         int[] _colors = new int[colors.size()];
         for (int i=0; i < _colors.length; i++)
         {
@@ -106,7 +61,7 @@ public class LinearGradientView extends View {
         drawGradient();
     }
 
-    public void updateLocations(ReadableArray locations){
+    public void setLocations(ReadableArray locations){
         float[] _locations;
         try {
             assert locations != null;

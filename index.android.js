@@ -1,4 +1,5 @@
 var React = require('react-native');
+var StyleSheetRegistry = require('StyleSheetRegistry');
 var { requireNativeComponent, PropTypes, View, processColor } = React;
 
 
@@ -13,6 +14,19 @@ var LinearGradient = React.createClass({
 
   render: function() {
     var {style, children, colors, locations, start, end, ...otherProps} = this.props;
+
+    // inherit container borderRadius until this issue is resolved:
+    // https://github.com/facebook/react-native/issues/3198
+    var borderRadius;
+    if (typeof style === 'number') {
+      borderRadius = StyleSheetRegistry.getStyleByID(style).borderRadius;
+    } else {
+      borderRadius = style.borderRadius;
+    }
+    if (!borderRadius) {
+      borderRadius = 0;
+    }
+
     return (
       <View style={style}>
         <NativeLinearGradient
@@ -20,7 +34,9 @@ var LinearGradient = React.createClass({
           colors={colors.map(processColor)}
           start={start}
           end={end}
-          locations={locations} />
+          locations={locations}
+          borderRadius={borderRadius}
+        />
         { children }
       </View>
     );

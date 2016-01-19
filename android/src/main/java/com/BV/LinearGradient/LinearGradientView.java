@@ -6,6 +6,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.Shader;
 import android.view.View;
 
@@ -13,11 +15,14 @@ public class LinearGradientView extends View {
 
     private final Paint mPaint = new Paint();
     private LinearGradient mShader;
+
     private float[] mLocations;
     private float[] mStartPos = {0, 0};
     private float[] mEndPos = {0, 1};
     private int[] mColors;
     private int[] mSize = {0, 0};
+    private float mBorderRadius = 0f;
+
 
     public LinearGradientView(Context context) {
         super(context);
@@ -53,6 +58,11 @@ public class LinearGradientView extends View {
         drawGradient();
     }
 
+    public void setBorderRadius(float borderRadius) {
+        mBorderRadius = borderRadius;
+        drawGradient();
+    }
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         mSize = new int[]{w, h};
@@ -75,6 +85,15 @@ public class LinearGradientView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawPaint(mPaint);
+        if (mBorderRadius != 0f) {
+            RectF clipBounds = new RectF(canvas.getClipBounds());
+            canvas.drawRoundRect(
+                clipBounds,
+                mBorderRadius,
+                mBorderRadius,
+                mPaint);
+        } else {
+            canvas.drawPaint(mPaint);
+        }
     }
 }

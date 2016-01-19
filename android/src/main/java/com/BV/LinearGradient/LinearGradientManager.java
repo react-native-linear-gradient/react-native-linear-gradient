@@ -1,6 +1,7 @@
 package com.BV.LinearGradient;
 
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.uimanager.PixelUtil;
 import com.facebook.react.uimanager.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -14,6 +15,7 @@ public class LinearGradientManager extends SimpleViewManager<LinearGradientView>
     public static final String PROP_LOCATIONS = "locations";
     public static final String PROP_START_POS = "start";
     public static final String PROP_END_POS = "end";
+    public static final String PROP_BORDER_RADIUS = "borderRadius";
 
     @Override
     public String getName() {
@@ -43,5 +45,12 @@ public class LinearGradientManager extends SimpleViewManager<LinearGradientView>
     @ReactProp(name=PROP_END_POS)
     public void setEndPosition(LinearGradientView gradientView, ReadableArray endPos) {
         gradientView.setEndPosition(endPos);
+    }
+
+    // temporary solution until following issue is resolved:
+    // https://github.com/facebook/react-native/issues/3198
+    @ReactProp(name=PROP_BORDER_RADIUS, defaultFloat = 0f)
+    public void setBorderRadius(LinearGradientView gradientView, float borderRadius) {
+        gradientView.setBorderRadius(PixelUtil.toPixelFromDIP(borderRadius));
     }
 }

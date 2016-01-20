@@ -13,7 +13,7 @@ import android.view.View;
 
 public class LinearGradientView extends View {
 
-    private final Paint mPaint = new Paint();
+    private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private LinearGradient mShader;
 
     private float[] mLocations;

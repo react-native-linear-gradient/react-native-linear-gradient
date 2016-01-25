@@ -60,6 +60,9 @@ public class LinearGradientView extends View {
     }
 
     private void drawGradient() {
+        // guard against crashes happening while multiple properties are updated
+        if (mColors == null || (mLocations != null && mColors.length != mLocations.length))
+            return;
         mShader = new LinearGradient(
             mStartPos[0] * mSize[0],
             mStartPos[1] * mSize[1],

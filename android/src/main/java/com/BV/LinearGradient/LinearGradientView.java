@@ -6,18 +6,25 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
 import android.graphics.Shader;
 import android.view.View;
 
 public class LinearGradientView extends View {
 
-    private final Paint mPaint = new Paint();
+    private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private Path mPathForBorderRadius;
+    private RectF mTempRectForBorderRadius;
     private LinearGradient mShader;
+
     private float[] mLocations;
     private float[] mStartPos = {0, 0};
     private float[] mEndPos = {0, 1};
     private int[] mColors;
     private int[] mSize = {0, 0};
+    private float mBorderRadius = 0f;
+
 
     public LinearGradientView(Context context) {
         super(context);
@@ -53,9 +60,16 @@ public class LinearGradientView extends View {
         drawGradient();
     }
 
+    public void setBorderRadius(float borderRadius) {
+        mBorderRadius = borderRadius;
+        updatePath();
+        drawGradient();
+    }
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         mSize = new int[]{w, h};
+        updatePath();
         drawGradient();
     }
 
@@ -75,9 +89,27 @@ public class LinearGradientView extends View {
         invalidate();
     }
 
+    private void updatePath() {
+        if (mPathForBorderRadius == null) {
+            mPathForBorderRadius = new Path();
+            mTempRectForBorderRadius = new RectF();
+        }
+        mPathForBorderRadius.reset();
+        mTempRectForBorderRadius.set(0f, 0f, (float) mSize[0], (float) mSize[1]);
+        mPathForBorderRadius.addRoundRect(
+            mTempRectForBorderRadius,
+            mBorderRadius,
+            mBorderRadius,
+            Path.Direction.CW);
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawPaint(mPaint);
+        if (mPathForBorderRadius == null) {
+            canvas.drawPaint(mPaint);
+        } else {
+            canvas.drawPath(mPathForBorderRadius, mPaint);
+        }
     }
 }

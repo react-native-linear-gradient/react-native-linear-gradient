@@ -6,11 +6,14 @@
 'use strict';
 
 var React = require('react-native');
-var { requireNativeComponent, processColor, View } = React;
-var NativeLinearGradient = requireNativeComponent('BVLinearGradient', null);
+var { requireNativeComponent, processColor, PropTypes, View } = React;
 
 var LinearGradient = React.createClass({
   propTypes: {
+    start: PropTypes.arrayOf(PropTypes.number),
+    end: PropTypes.arrayOf(PropTypes.number),
+    colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    locations: PropTypes.arrayOf(PropTypes.number),
     ...View.propTypes,
   },
 
@@ -21,5 +24,7 @@ var LinearGradient = React.createClass({
     );
   }
 });
+
+var NativeLinearGradient = requireNativeComponent('BVLinearGradient', null);
 
 module.exports = LinearGradient;

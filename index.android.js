@@ -1,26 +1,25 @@
 var React = require('react-native');
 var flattenStyle = require('flattenStyle');
-var { requireNativeComponent, PropTypes, View, processColor } = React;
-
+var { requireNativeComponent, processColor, PropTypes, View } = React;
 
 var LinearGradient = React.createClass({
   propTypes: {
-    start: PropTypes.array,
-    end: PropTypes.array,
-    colors: PropTypes.array.isRequired,
-    locations: PropTypes.array,
+    start: PropTypes.arrayOf(PropTypes.number),
+    end: PropTypes.arrayOf(PropTypes.number),
+    colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    locations: PropTypes.arrayOf(PropTypes.number),
     ...View.propTypes,
   },
 
   render: function() {
-    var {style, children, colors, locations, start, end, ...otherProps} = this.props;
+    var { style, children, colors, locations, start, end, ...otherProps } = this.props;
 
     // inherit container borderRadius until this issue is resolved:
     // https://github.com/facebook/react-native/issues/3198
     var borderRadius = flattenStyle(style).borderRadius || 0;
 
     return (
-      <View style={style}>
+      <View {...otherProps} style={style}>
         <NativeLinearGradient
           style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
           colors={colors.map(processColor)}
@@ -35,6 +34,6 @@ var LinearGradient = React.createClass({
   }
 })
 
- var NativeLinearGradient = requireNativeComponent('BVLinearGradient', LinearGradient);
+ var NativeLinearGradient = requireNativeComponent('BVLinearGradient', null);
 
  module.exports = LinearGradient;

@@ -3,7 +3,7 @@
 A `<LinearGradient>` component for react-native, as seen in
 [react-native-login](https://github.com/brentvatne/react-native-login).
 
-Version 1.3.0 supports react-native >= 0.16.0
+Version 1.5.0 supports react-native >= 0.19.0
 
 ## Add it to your project
 
@@ -36,8 +36,9 @@ or do it manually as described below:
 
 1. in `android/settings.gradle`
    ```
-     include ':app', ':react-native-linear-gradient'
-     project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
+   ...
+   include ':react-native-linear-gradient'
+   project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
    ```
 
 2. in `android/app/build.gradle` add:
@@ -49,29 +50,17 @@ or do it manually as described below:
    ```
 
 3. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` add:
-   ```
-   ...
+   ```java
+   //...
    import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
-   ...
+   //...
    @Override
-   protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       mReactRootView = new ReactRootView(this);
-
-       mReactInstanceManager = ReactInstanceManager.builder()
-               .setApplication(getApplication())
-               .setBundleAssetName("index.android.bundle")
-               .setJSMainModuleName("index.android")
-               .addPackage(new MainReactPackage())
-               .addPackage(new LinearGradientPackage()) // <---- and This!
-               .setUseDeveloperSupport(BuildConfig.DEBUG)
-               .setInitialLifecycleState(LifecycleState.RESUMED)
-               .build();
-
-       mReactRootView.startReactApplication(mReactInstanceManager, "SillyGoose", null);
-
-       setContentView(mReactRootView);
-   }
+   protected List<ReactPackage> getPackages() {
+     return Arrays.<ReactPackage>asList(
+       new MainReactPackage(),
+       new LinearGradientPackage() // <---- and This!
+     );
+}
    ```
 
 ## Examples

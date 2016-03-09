@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BVLinearGradient"
-  s.version      = "1.5.0"
+  s.version      = "1.5.2"
   s.homepage     = "https://github.com/brentvatne/react-native-linear-gradient"
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/brentvatne/react-native-linear-gradient.git", :tag => "#{s.version}" }

@@ -1,5 +1,5 @@
 var React = require('react-native');
-var flattenStyle = require('flattenStyle');
+var flattenStyle = React.StyleSheet.flatten;
 var { requireNativeComponent, processColor, PropTypes, View } = React;
 
 var LinearGradient = React.createClass({

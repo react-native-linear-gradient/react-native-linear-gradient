@@ -48,11 +48,11 @@ Then:
    require('react-native-linear-gradient');`
 
 
-**If you're having trouble, you can point your `package.json` at github to see if the issue has been fixed.  Simply change the dependency 
+**If you're having trouble, you can point your `package.json` at github to see if the issue has been fixed.  Simply change the dependency**
 
 `"react-native-linear-gradient": "brentvatne/react-native-linear-gradient",` 
 
-to get the data right from github instead of npm and then `npm install`**
+**to get the data right from github instead of npm and then `npm install`**
 
 For instance the podspec file does not contain the right data (author attributes etc..) in npm while it does in the github repo.
 

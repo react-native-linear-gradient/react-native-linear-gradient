@@ -16,7 +16,21 @@ var LinearGradient = React.createClass({
 
     // inherit container borderRadius until this issue is resolved:
     // https://github.com/facebook/react-native/issues/3198
-    var borderRadius = style && flattenStyle(style).borderRadius || 0;
+    var flatStyle = style && flattenStyle(style);
+    var borderRadius = flatStyle.borderRadius || 0;
+
+    // this is the format taken by:
+    // http://developer.android.com/reference/android/graphics/Path.html#addRoundRect(android.graphics.RectF, float[], android.graphics.Path.Direction)
+    var borderRadiiPerCorner = [
+      flatStyle.borderTopLeftRadius || borderRadius,
+      flatStyle.borderTopLeftRadius || borderRadius,
+      flatStyle.borderTopRightRadius || borderRadius,
+      flatStyle.borderTopRightRadius || borderRadius,
+      flatStyle.borderBottomRightRadius || borderRadius,
+      flatStyle.borderBottomRightRadius || borderRadius,
+      flatStyle.borderBottomLeftRadius || borderRadius,
+      flatStyle.borderBottomLeftRadius || borderRadius
+    ];
 
     return (
       <View {...otherProps} style={style}>
@@ -26,7 +40,7 @@ var LinearGradient = React.createClass({
           start={start}
           end={end}
           locations={locations}
-          borderRadius={borderRadius}
+          borderRadii={borderRadiiPerCorner}
         />
         { children }
       </View>

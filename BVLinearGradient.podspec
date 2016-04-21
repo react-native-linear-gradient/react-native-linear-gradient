@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BVLinearGradient"
-  s.version      = "1.5.2"
+  s.version      = "1.5.4"
   s.homepage     = "https://github.com/brentvatne/react-native-linear-gradient"
   s.summary      = "A <LinearGradient /> component for react-native"
   s.author       = "Brent Vatne"

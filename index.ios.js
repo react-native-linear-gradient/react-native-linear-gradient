@@ -5,8 +5,9 @@
 
 'use strict';
 
-var React = require('react-native');
-var { requireNativeComponent, processColor, PropTypes, View } = React;
+var React = require('react');
+var { PropTypes } = React;
+var { requireNativeComponent, processColor, View } = require('react-native');
 
 var LinearGradient = React.createClass({
   propTypes: {

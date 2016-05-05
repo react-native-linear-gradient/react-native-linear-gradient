@@ -1,8 +1,5 @@
-var React = require('react');
-var { PropTypes } = React;
-var ReactNative = require('react-native');
-var flattenStyle = ReactNative.StyleSheet.flatten;
-var { requireNativeComponent, processColor, View } = ReactNative;
+import React, { PropTypes } from 'react';
+import { processColor, requireNativeComponent, StyleSheet, View } from 'react-native';
 
 var LinearGradient = React.createClass({
   propTypes: {
@@ -18,7 +15,7 @@ var LinearGradient = React.createClass({
 
     // inherit container borderRadius until this issue is resolved:
     // https://github.com/facebook/react-native/issues/3198
-    var flatStyle = style && flattenStyle(style);
+    var flatStyle = style && StyleSheet.flatten(style);
     var borderRadius = flatStyle.borderRadius || 0;
 
     // this is the format taken by:

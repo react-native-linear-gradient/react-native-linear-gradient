@@ -3,11 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "react-native": "0.16.0",
-    "react-native-linear-gradient": "../../",
-    "react-timer-mixin": "^0.13.3"
+    "react": "0.14.8",
+    "react-native": "0.25.1",
+    "react-native-linear-gradient": "file:../../",
+    "react-timer-mixin": "0.13.3"
   }
 }

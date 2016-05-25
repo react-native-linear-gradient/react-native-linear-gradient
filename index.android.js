@@ -13,6 +13,10 @@ var LinearGradient = React.createClass({
   render: function() {
     var { style, children, colors, locations, start, end, ...otherProps } = this.props;
 
+    if ((colors && locations) && (colors.length !== locations.length)) {
+      console.warn('LinearGradient colors and locations props should be arrays of the same length');
+    }
+
     // inherit container borderRadius until this issue is resolved:
     // https://github.com/facebook/react-native/issues/3198
     var flatStyle = style && StyleSheet.flatten(style);
@@ -38,7 +42,7 @@ var LinearGradient = React.createClass({
           colors={colors.map(processColor)}
           start={start}
           end={end}
-          locations={locations}
+          locations={locations ? locations.slice(0, colors.length) : null}
           borderRadii={borderRadiiPerCorner}
         />
         { children }

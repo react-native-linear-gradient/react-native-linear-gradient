@@ -17,9 +17,18 @@ var LinearGradient = React.createClass({
   },
 
   render: function() {
-    var { colors, ...otherProps } = this.props;
+    var { colors, locations, ...otherProps } = this.props;
+
+    if ((colors && locations) && (colors.length !== locations.length)) {
+      console.warn('LinearGradient colors and locations props should be arrays of the same length');
+    }
+
     return (
-      <NativeLinearGradient {...otherProps} colors={colors.map(processColor)} />
+      <NativeLinearGradient
+        {...otherProps}
+        colors={colors.map(processColor)}
+        locations={locations ? locations.slice(0, colors.length) : null}
+      />
     );
   }
 });

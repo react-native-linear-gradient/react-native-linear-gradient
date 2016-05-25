@@ -34,7 +34,9 @@ public class LinearGradientManager extends SimpleViewManager<LinearGradientView>
 
     @ReactProp(name=PROP_LOCATIONS)
     public void setLocations(LinearGradientView gradientView, ReadableArray locations) {
-        gradientView.setLocations(locations);
+        if (locations != null) {
+            gradientView.setLocations(locations);
+        }
     }
 
     @ReactProp(name=PROP_START_POS)

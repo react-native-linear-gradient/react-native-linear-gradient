@@ -1,6 +1,6 @@
 {
   "name": "react-native-linear-gradient",
-  "version": "1.5.9",
+  "version": "1.5.10",
   "description": "A <LinearGradient> element for react-native",
   "main": "index",
   "author": {
@@ -12,6 +12,10 @@
     "name": "Nick Hudkins",
     "email": "nick@nickhudkins.com",
     "url": "https://github.com/nickhudkins"
+  }, {
+    "name": "Dmitry Gladkov",
+    "email": "dmitry.gladkov@gmail.com",
+    "url": "https://github.com/dgladkov"
   }],
   "repository": {
     "type": "git",

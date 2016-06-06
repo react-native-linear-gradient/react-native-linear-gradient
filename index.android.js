@@ -19,7 +19,7 @@ var LinearGradient = React.createClass({
 
     // inherit container borderRadius until this issue is resolved:
     // https://github.com/facebook/react-native/issues/3198
-    var flatStyle = style && StyleSheet.flatten(style) || {};
+    var flatStyle = StyleSheet.flatten(style) || {};
     var borderRadius = flatStyle.borderRadius || 0;
 
     // this is the format taken by:

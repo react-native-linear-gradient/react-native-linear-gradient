@@ -44,8 +44,7 @@ or:
 Then:
 
    
-- Whenever you want to use it within React code now you can: `var LinearGradient =
-   require('react-native-linear-gradient');`
+- Whenever you want to use it within React code now you can: `import LinearGradient from 'react-native-linear-gradient';`
 
 
 **If you're having trouble, you can point your `package.json` at github to see if the issue has been fixed.  Simply change the dependency**

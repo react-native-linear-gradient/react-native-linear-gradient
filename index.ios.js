@@ -5,11 +5,18 @@
 import React, { PropTypes } from 'react';
 import { processColor, requireNativeComponent, View } from 'react-native';
 
+type Props = {
+  start?: Array<number>;
+  end?: Array<number>;
+  colors: Array<string>;
+  locations?: Array<number>;
+};
+
 export default function LinearGradient({
   colors,
   locations,
   ...otherProps
-}) {
+}: Props) {
 
   if ((colors && locations) && (colors.length !== locations.length)) {
     console.warn('LinearGradient colors and locations props should be arrays of the same length');

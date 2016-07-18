@@ -20,7 +20,7 @@ or do it manually as described below:
 
 - Run `npm install react-native-linear-gradient --save`
 
-Then either: 
+Then either:
 #####Cocoapods
 add the following line to your Podfile:
 
@@ -40,16 +40,16 @@ or:
    the `BVLinearGradient` source files are referring to by pointing to the
    header files installed within the `react-native` `node_modules`
    directory. [(Screenshot)](http://url.brentvatne.ca/7wE0).
-   
+
 Then:
 
-   
+
 - Whenever you want to use it within React code now you can: `import LinearGradient from 'react-native-linear-gradient';`
 
 
 **If you're having trouble, you can point your `package.json` at github to see if the issue has been fixed.  Simply change the dependency**
 
-`"react-native-linear-gradient": "brentvatne/react-native-linear-gradient",` 
+`"react-native-linear-gradient": "brentvatne/react-native-linear-gradient",`
 
 **to get the data right from github instead of npm and then `npm install`**
 
@@ -72,7 +72,8 @@ For instance the podspec file does not contain the right data (author attributes
    }
    ```
 
-3. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` add:
+3. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
+   or `android/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
    ```java
    //...
    import com.BV.LinearGradient.LinearGradientPackage; // <--- This!

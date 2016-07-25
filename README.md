@@ -24,7 +24,7 @@ Then either:
 #####Cocoapods
 add the following line to your Podfile:
 
-`pod 'BVLinearGradient', :path => ‘../node_modules/react-native-linear-gradient'`
+`pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'`
 
 or:
 #####Manually

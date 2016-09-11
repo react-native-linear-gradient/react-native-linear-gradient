@@ -97,6 +97,8 @@ The following code will produce something like this:
 ![Example code result](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/images/example.png)
 
 ```javascript
+import LinearGradient from 'react-native-linear-gradient';
+
 // Within your render function
 <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
   <Text style={styles.buttonText}>

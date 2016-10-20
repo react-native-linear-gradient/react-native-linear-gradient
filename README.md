@@ -49,7 +49,7 @@ Then:
 
 **If you're having trouble, you can point your `package.json` at github to see if the issue has been fixed.  Simply change the dependency**
 
-`"react-native-linear-gradient": "brentvatne/react-native-linear-gradient",`
+`"react-native-linear-gradient": "react-native-community/react-native-linear-gradient",`
 
 **to get the data right from github instead of npm and then `npm install`**
 
@@ -94,7 +94,7 @@ For instance the podspec file does not contain the right data (author attributes
 
 The following code will produce something like this:
 
-![Example code result](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/images/example.png)
+![Example code result](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/master/images/example.png)
 
 ```javascript
 import LinearGradient from 'react-native-linear-gradient';
@@ -143,13 +143,13 @@ props:
 </LinearGradient>
 ```
 
-![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/images/example-other-props.png)
+![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/master/images/example-other-props.png)
 
 ### Updating the values for fun
 
-Check out [Examples/AnimatedGradient](https://github.com/brentvatne/react-native-linear-gradient/blob/master/Examples/AnimatedGradient/src/index.js) (`git clone` this project, cd into it, npm install, open in XCode and run) to see how this is done:
+Check out [Examples/AnimatedGradient](https://github.com/react-native-community/react-native-linear-gradient/blob/master/Examples/AnimatedGradient/src/index.js) (`git clone` this project, cd into it, npm install, open in XCode and run) to see how this is done:
 
-![Example with extra props](https://raw.githubusercontent.com/brentvatne/react-native-linear-gradient/master/images/example-animated.gif)
+![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/master/images/example-animated.gif)
 
 *This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
 

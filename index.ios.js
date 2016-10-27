@@ -14,6 +14,10 @@ export default class LinearGradient extends Component {
     ...View.propTypes,
   };
 
+  setNativeProps(props) {
+    this.c.setNativeProps(props);
+  }
+
   render() {
     const {
       colors,
@@ -26,6 +30,7 @@ export default class LinearGradient extends Component {
 
     return (
       <NativeLinearGradient
+        ref={(c) => { this.c = c; }}
         {...otherProps}
         colors={colors.map(processColor)}
         locations={locations ? locations.slice(0, colors.length) : null}

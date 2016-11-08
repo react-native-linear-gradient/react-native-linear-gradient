@@ -1,5 +1,14 @@
+// @flow
+
 import React, { Component, PropTypes } from 'react';
 import { processColor, requireNativeComponent, StyleSheet, View } from 'react-native';
+
+type PropsType = {
+  start?: Array<number>;
+  end?: Array<number>;
+  colors: Array<string>;
+  locations?: Array<number>;
+} & typeof(View);
 
 export default class LinearGradient extends Component {
   static propTypes = {
@@ -9,9 +18,11 @@ export default class LinearGradient extends Component {
     locations: PropTypes.arrayOf(PropTypes.number),
     ...View.propTypes,
   };
+  props: PropsType;
+  gradientRef: any;
 
-  setNativeProps(props) {
-    this.c.setNativeProps(props);
+  setNativeProps(props: PropsType) {
+    this.gradientRef.setNativeProps(props);
   }
 
   render() {
@@ -48,7 +59,7 @@ export default class LinearGradient extends Component {
     ];
 
     return (
-      <View ref={(c) => { this.c = c; }} {...otherProps} style={style}>
+      <View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>
         <NativeLinearGradient
           style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
           colors={colors.map(processColor)}

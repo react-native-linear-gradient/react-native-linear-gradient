@@ -3,19 +3,47 @@
  * @flow
  */
 import React, { Component, PropTypes } from 'react';
-import { processColor, requireNativeComponent, View } from 'react-native';
+import { processColor, requireNativeComponent, PointPropType, View } from 'react-native';
+const deprecatedPropType = require('react-native/Libraries/Utilities/deprecatedPropType.js');
+
+const convertPoint = (name, point) => {
+  if (Array.isArray(point)) {
+    console.warn(
+      `LinearGradient '${name}' property shoule be an object with fields 'x' and 'y', ` +
+      'Array type is deprecated.'
+    );
+
+    return {
+      x: point[0],
+      y: point[1]
+    };
+  }
+  return point;
+};
 
 type PropsType = {
-  start?: Array<number>;
-  end?: Array<number>;
+  start?: Array<number> | {x: number, y: number};
+  end?: Array<number> | {x: number, y: number};
   colors: Array<string>;
   locations?: Array<number>;
 } & typeof(View);
 
 export default class LinearGradient extends Component {
   static propTypes = {
-    start: PropTypes.arrayOf(PropTypes.number),
-    end: PropTypes.arrayOf(PropTypes.number),
+    start: PropTypes.oneOfType([
+      PointPropType,
+      deprecatedPropType(
+        PropTypes.arrayOf(PropTypes.number),
+        'Use point object with {x, y} instead.'
+      )
+    ]),
+    end: PropTypes.oneOfType([
+      PointPropType,
+      deprecatedPropType(
+        PropTypes.arrayOf(PropTypes.number),
+        'Use point object with {x, y} instead.'
+      )
+    ]),
     colors: PropTypes.arrayOf(PropTypes.string).isRequired,
     locations: PropTypes.arrayOf(PropTypes.number),
     ...View.propTypes,
@@ -29,6 +57,8 @@ export default class LinearGradient extends Component {
 
   render() {
     const {
+      start,
+      end,
       colors,
       locations,
       ...otherProps
@@ -41,6 +71,8 @@ export default class LinearGradient extends Component {
       <NativeLinearGradient
         ref={(component) => { this.gradientRef = component; }}
         {...otherProps}
+        start={convertPoint('start', start)}
+        end={convertPoint('end', end)}
         colors={colors.map(processColor)}
         locations={locations ? locations.slice(0, colors.length) : null}
       />

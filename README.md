@@ -7,20 +7,18 @@ Version 1.5.0 supports react-native >= 0.19.0
 
 ## Add it to your project
 
-You can use [`rnpm`](https://github.com/rnpm/rnpm) to add native dependencies automatically:
+You can use try linking the project automatically:
 
-`$ rnpm link`
+`$ react-native link`
 
 or do it manually as described below:
 
 ### iOS
 
-
-
-
 - Run `npm install react-native-linear-gradient --save`
 
 Then either:
+
 #####Cocoapods
 add the following line to your Podfile:
 
@@ -30,6 +28,7 @@ pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 ```
 
 or:
+
 #####Manually
 
 1. Open your project in XCode, right click on `Libraries` and click `Add

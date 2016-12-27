@@ -12,7 +12,7 @@ const convertPoint = (name, point) => {
     );
   }
   if (point !== null && typeof point === 'object') {
-    return Object.values(point);
+    return [point.x, point.y];
   }
   return point;
 };

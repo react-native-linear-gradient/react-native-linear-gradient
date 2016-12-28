@@ -7,7 +7,7 @@ Version 1.5.0 supports react-native >= 0.19.0
 
 ## Add it to your project
 
-You can use try linking the project automatically:
+You can try linking the project automatically:
 
 `$ react-native link`
 

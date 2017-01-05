@@ -1,5 +1,5 @@
 #import "BVLinearGradient.h"
-#import "RCTConvert.h"
+#import <React/RCTConvert.h>
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 

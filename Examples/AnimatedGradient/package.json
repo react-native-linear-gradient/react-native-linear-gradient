@@ -8,8 +8,8 @@
 	},
 	"dependencies": {
 		"react": "15.4.1",
-		"react-native": "0.39.2",
-		"react-native-linear-gradient": "^1.6.1"
+		"react-native": "0.40.0",
+		"react-native-linear-gradient": "file:../.."
 	},
 	"devDependencies": {
 		"babel-jest": "18.0.0",

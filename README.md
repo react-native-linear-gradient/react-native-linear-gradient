@@ -3,7 +3,7 @@
 A `<LinearGradient>` component for react-native, as seen in
 [react-native-login](https://github.com/brentvatne/react-native-login).
 
-Version 1.5.0 supports react-native >= 0.19.0
+Version 2.0 supports react-native >= 0.40.0
 
 ## Add it to your project
 

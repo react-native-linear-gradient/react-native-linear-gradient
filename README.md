@@ -3,24 +3,22 @@
 A `<LinearGradient>` component for react-native, as seen in
 [react-native-login](https://github.com/brentvatne/react-native-login).
 
-Version 1.5.0 supports react-native >= 0.19.0
+Version 2.0 supports react-native >= 0.40.0
 
 ## Add it to your project
 
-You can use [`rnpm`](https://github.com/rnpm/rnpm) to add native dependencies automatically:
+You can try linking the project automatically:
 
-`$ rnpm link`
+`$ react-native link`
 
 or do it manually as described below:
 
 ### iOS
 
-
-
-
 - Run `npm install react-native-linear-gradient --save`
 
 Then either:
+
 #####Cocoapods
 add the following line to your Podfile:
 
@@ -30,6 +28,7 @@ pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 ```
 
 or:
+
 #####Manually
 
 1. Open your project in XCode, right click on `Libraries` and click `Add
@@ -136,7 +135,7 @@ props:
 
 ```javascript
 <LinearGradient
-  start={[0.0, 0.25]} end={[0.5, 1.0]}
+  start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
   locations={[0,0.5,0.6]}
   colors={['#4c669f', '#3b5998', '#192f6a']}
   style={styles.linearGradient}>

@@ -1,13 +1,15 @@
 ﻿using ReactNative.UIManager;
 using System;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using Newtonsoft.Json.Linq;
 using ReactNative.UIManager.Annotations;
 
 namespace LinearGradient
 {
-    class LinearGradientManager : SimpleViewManager<LinearGradientView>
+    class LinearGradientManager : SimpleViewManager<Canvas>
     {
         public const String REACT_CLASS = "BVLinearGradient";
         public const String PROP_COLORS = "colors";
@@ -16,6 +18,7 @@ namespace LinearGradient
         public const String PROP_END_POS = "end";
 
         private LinearGradientBrush _linearGradient;
+        private Canvas _canvas;
 
         public override string Name
         {
@@ -25,36 +28,58 @@ namespace LinearGradient
             }
         }
 
-        protected override LinearGradientView CreateViewInstance(ThemedReactContext reactContext)
+        protected override Canvas CreateViewInstance(ThemedReactContext reactContext)
         {
-            return new LinearGradientView();
+            _canvas = new Canvas();
+            _linearGradient = new LinearGradientBrush
+            {
+                SpreadMethod = GradientSpreadMethod.Pad
+            };
+            _canvas.Background = _linearGradient;
+            return _canvas;
         }
 
         [ReactProp(PROP_COLORS)]
-        public void setColors(LinearGradientView linearGradient, List<string> colors)
+        public void setColors(Canvas linearGradient, List<string> colors)
         {
-            linearGradient.setColors(colors);
+            GradientStopCollection stops = _linearGradient.GradientStops;
+            for (int i = 0; i < colors.Count; i++)
+            {
+                GradientStop stop = i < stops.Count ? stops[i] : new GradientStop();
+                stop.Color = ColorHelpers.Parse(Convert.ToUInt32(colors[i]));
+                if (i < stops.Count) stops.RemoveAt(i);
+                stops.Insert(i, stop);
+            }
+            _linearGradient.GradientStops = stops;
         }
 
         [ReactProp(PROP_LOCATIONS)]
-        public void setLocations(LinearGradientView linearGradient, List<float> locations)
+        public void setLocations(Canvas linearGradient, List<float> locations)
         {
             if (locations != null)
             {
-                linearGradient.setLocations(locations);
+                GradientStopCollection stops = _linearGradient.GradientStops;
+                for (int i = 0; i < locations.Count; i++)
+                {
+                    GradientStop stop = i < stops.Count ? stops[i] : new GradientStop();
+                    stop.Offset = locations[i];
+                    if (i < stops.Count) stops.RemoveAt(i);
+                    stops.Insert(i, stop);
+                }
+                _linearGradient.GradientStops = stops;
             }
         }
 
         [ReactProp(PROP_START_POS)]
-        public void setStartPosition(LinearGradientView linearGradient, JObject startPos)
+        public void setStartPosition(Canvas linearGradient, JObject startPos)
         {
-            linearGradient.setStartPosition(startPos.Value<float>("x"), startPos.Value<float>("y"));
+            _linearGradient.StartPoint = new Point(startPos.Value<float>("x"), startPos.Value<float>("y"));
         }
 
         [ReactProp(PROP_END_POS)]
-        public void setEndPosition(LinearGradientView linearGradient, JObject endPos)
+        public void setEndPosition(Canvas linearGradient, JObject endPos)
         {
-            linearGradient.setEndPosition(endPos.Value<float>("x"), endPos.Value<float>("y"));
+            _linearGradient.EndPoint = new Point(endPos.Value<float>("x"), endPos.Value<float>("y"));
         }
     }
 }

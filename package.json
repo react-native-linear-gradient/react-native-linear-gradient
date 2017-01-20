@@ -23,7 +23,7 @@
     "url": "git@github.com:brentvatne/react-native-linear-gradient.git"
   },
   "dependencies": {
-    "react-native-windows": "git://github.com/infinitered/react-native-windows.git#wpf_generator"
+    "react-native-windows": "git://github.com/reactwindows/react-native-windows.git#master"
   },
   "devDependencies": {
     "jest-cli": "0.2.1"

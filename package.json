@@ -23,7 +23,7 @@
     "url": "git@github.com:brentvatne/react-native-linear-gradient.git"
   },
   "dependencies": {
-    "react-native-windows": "git://github.com/ReactWindows/react-native-windows.git"
+    "react-native-windows": "0.41.0-rc.0"
   },
   "devDependencies": {
     "jest-cli": "0.2.1"

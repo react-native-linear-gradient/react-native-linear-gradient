@@ -19,7 +19,7 @@ or do it manually as described below:
 
 Then either:
 
-#####Cocoapods
+##### Cocoapods
 add the following line to your Podfile:
 
 ```sh
@@ -29,7 +29,7 @@ pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
 or:
 
-#####Manually
+##### Manually
 
 1. Open your project in XCode, right click on `Libraries` and click `Add
    Files to "Your Project Name"` Look under `node_modules/react-native-linear-gradient` and add `BVLinearGradient.xcodeproj`.  [(Screenshot)](http://url.brentvatne.ca/g9Wp).
@@ -86,11 +86,10 @@ For instance the podspec file does not contain the right data (author attributes
        new MainReactPackage(),
        new LinearGradientPackage() // <---- and This!
      );
-}
+   }
    ```
 
 ## Examples
-
 
 ### Simple
 

@@ -127,15 +127,13 @@ var styles = StyleSheet.create({
 ```
 
 ### Additional props
-You can also use start and end points, as well as specify the locations
-for the gradient color changes with the `start`, `end`, `colors` and `locations`
-props:
+In addition to regular `View` props, you can also provide additional props to customize your gradient look:
 
 #### colors
-An array of at least two color values that represent gradient steps. Example: `['red', 'blue']` sets gradient from red to blue.
+An array of at least two color values that represent gradient colors. Example: `['red', 'blue']` sets gradient from red to blue.
   
 #### start
-An object of the following type: `{ x: number, y: number }`. Coordinates declare the position that the gradient starts at, as a fraction of the overall size of the gradient, starting from the top left corner. Example: `{ x: 0.1, y: 0.1 }` means that the gradient will start 10% from the top and 10% from the left.
+An optional object of the following type: `{ x: number, y: number }`. Coordinates declare the position that the gradient starts at, as a fraction of the overall size of the gradient, starting from the top left corner. Example: `{ x: 0.1, y: 0.1 }` means that the gradient will start 10% from the top and 10% from the left.
  
 #### end
 Same as start, but for the end of the gradient.

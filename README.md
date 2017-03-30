@@ -130,19 +130,18 @@ var styles = StyleSheet.create({
 You can also use start and end points, as well as specify the locations
 for the gradient color changes with the `start`, `end`, `colors` and `locations`
 props:
+
 #### colors
-An array of colors that represent stops in the gradient. At least two colors are required (otherwise it's not a gradient, it's just a fill!).
+An array of at least two color values that represent gradient steps. Example: `['red', 'blue']` sets gradient from red to blue.
   
 #### start
-An array of [x, y] where x and y are floats. They represent the position that the gradient starts at, as a fraction of the overall size of the gradient. For example, [0.1, 0.1] means that the gradient will start 10% from the top and 10% from the left.
+An object of the following type: `{ x: number, y: number }`. Coordinates declare the position that the gradient starts at, as a fraction of the overall size of the gradient, starting from the top left corner. Example: `{ x: 0.1, y: 0.1 }` means that the gradient will start 10% from the top and 10% from the left.
  
 #### end
-Same as start but for the end of the gradient.
+Same as start, but for the end of the gradient.
  
 #### locations
-An array of the same lenth as colors, where each element is a float with the same meaning as the start and end values, but instead they indicate where the color at that index should be.
-
-
+An optional array of numbers defining the location of each gradient color stop, mapping to the color with the same index in `colors` prop. Example: `[0.1, 0.75, 1]` means that first color will take 0% - 10%, second color will take 10% - 75% and finally third color will occupy 75% - 100%.
 
 ```javascript
 <LinearGradient

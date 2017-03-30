@@ -19,7 +19,7 @@ or do it manually as described below:
 
 Then either:
 
-#####Cocoapods
+##### Cocoapods
 add the following line to your Podfile:
 
 ```sh
@@ -29,7 +29,7 @@ pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
 or:
 
-#####Manually
+##### Manually
 
 1. Open your project in XCode, right click on `Libraries` and click `Add
    Files to "Your Project Name"` Look under `node_modules/react-native-linear-gradient` and add `BVLinearGradient.xcodeproj`.  [(Screenshot)](http://url.brentvatne.ca/g9Wp).
@@ -60,37 +60,36 @@ For instance the podspec file does not contain the right data (author attributes
 #### Android
 
 1. in `android/settings.gradle`
-   ```
-   ...
-   include ':react-native-linear-gradient'
-   project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
-   ```
+```
+...
+include ':react-native-linear-gradient'
+project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
+```
 
 2. in `android/app/build.gradle` add:
-   ```
-   dependencies {
-       ...
-       compile project(':react-native-linear-gradient')
-   }
-   ```
+```
+dependencies {
+    ...
+    compile project(':react-native-linear-gradient')
+}
+```
 
 3. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
    or `android/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
-   ```java
-   //...
-   import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
-   //...
-   @Override
-   protected List<ReactPackage> getPackages() {
-     return Arrays.<ReactPackage>asList(
-       new MainReactPackage(),
-       new LinearGradientPackage() // <---- and This!
-     );
+```java
+//...
+import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
+//...
+@Override
+protected List<ReactPackage> getPackages() {
+  return Arrays.<ReactPackage>asList(
+    new MainReactPackage(),
+    new LinearGradientPackage() // <---- and This!
+  );
 }
-   ```
+```
 
 ## Examples
-
 
 ### Simple
 

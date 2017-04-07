@@ -1,6 +1,10 @@
 #import <UIKit/UIKit.h>
-#import <React/RCTView.h>
 
-@interface BVLinearGradient : RCTView
+@interface BVLinearGradient : UIView
+
+@property (nonatomic, retain) NSArray *colors;
+@property (nonatomic, retain) NSArray *locations;
+@property (nonatomic, assign) CGPoint start;
+@property (nonatomic, assign) CGPoint end;
 
 @end

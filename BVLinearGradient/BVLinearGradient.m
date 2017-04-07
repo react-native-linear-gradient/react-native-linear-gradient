@@ -5,14 +5,32 @@
 
 @implementation BVLinearGradient
 
-+ (Class)layerClass
+@synthesize start = _start;
+@synthesize end = _end;
+@synthesize locations = _locations;
+@synthesize colors = _colors;
+
+- (void)invalidate
 {
-  return [CAGradientLayer class];
+  [self setNeedsDisplay];
 }
 
-- (CAGradientLayer *)gradientLayer
+- (void)setStart:(CGPoint)start
 {
-  return (CAGradientLayer *)self.layer;
+  _start = start;
+  [self setNeedsDisplay];
+}
+
+- (void)setEnd:(CGPoint)end
+{
+  _end = end;
+  [self setNeedsDisplay];
+}
+
+- (void)setLocations:(NSArray *)locations
+{
+  _locations = locations;
+  [self setNeedsDisplay];
 }
 
 - (void)setColors:(NSArray *)colorStrings
@@ -21,22 +39,40 @@
   for (NSString *colorString in colorStrings) {
     [colors addObject:(id)[RCTConvert UIColor:colorString].CGColor];
   }
-  self.gradientLayer.colors = colors;
+  _colors = colors;
+  [self setNeedsDisplay];
 }
 
-- (void)setStart:(CGPoint)start
+- (void)drawRect:(CGRect)rect
 {
-  self.gradientLayer.startPoint = start;
-}
+  [super drawRect:rect];
 
-- (void)setEnd:(CGPoint)end
-{
-  self.gradientLayer.endPoint = end;
-}
+  CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+  CGContextRef context = UIGraphicsGetCurrentContext();
 
-- (void)setLocations:(NSArray *)locations
-{
-  self.gradientLayer.locations = locations;
+  // CGGradientCreateWithColors accepts locations as a C array
+  int count = [self.locations count];
+  CGFloat locArray[count];
+  for (int i = 0; i < count; ++i) {
+      locArray[i] = [[self.locations objectAtIndex:i] doubleValue];
+  }
+
+  CGGradientRef gradient = CGGradientCreateWithColors(
+    colorSpace,
+    (CFArrayRef)self.colors,
+    locArray
+  );
+
+  CGContextDrawLinearGradient(
+    context,
+    gradient,
+    CGPointMake(self.start.x * self.bounds.size.width, self.start.y * self.bounds.size.height),
+    CGPointMake(self.end.x * self.bounds.size.width, self.end.y * self.bounds.size.height),
+    kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation
+  );
+
+  CGColorSpaceRelease(colorSpace);
+  CGGradientRelease(gradient);
 }
 
 @end

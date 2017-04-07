@@ -7,7 +7,6 @@
 
 @synthesize start = _start;
 @synthesize end = _end;
-@synthesize locations = _locations;
 @synthesize colors = _colors;
 
 - (void)invalidate
@@ -29,8 +28,24 @@
 
 - (void)setLocations:(NSArray *)locations
 {
-  _locations = locations;
+  // CGGradientCreateWithColors accepts locations as a C array
+  if (_locations) {
+    free(_locations);
+    _locations = NULL;
+  }
+  if (locations) {
+    NSUInteger count = [locations count];
+    _locations = malloc(sizeof(CGFloat *) * count);
+    for (int i = 0; i < count; ++i) {
+        _locations[i] = [[locations objectAtIndex:i] doubleValue];
+    }
+  }
   [self setNeedsDisplay];
+}
+
+- (CGFloat *)locations
+{
+  return _locations;
 }
 
 - (void)setColors:(NSArray *)colorStrings
@@ -50,17 +65,10 @@
   CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
   CGContextRef context = UIGraphicsGetCurrentContext();
 
-  // CGGradientCreateWithColors accepts locations as a C array
-  int count = [self.locations count];
-  CGFloat locArray[count];
-  for (int i = 0; i < count; ++i) {
-      locArray[i] = [[self.locations objectAtIndex:i] doubleValue];
-  }
-
   CGGradientRef gradient = CGGradientCreateWithColors(
     colorSpace,
     (CFArrayRef)self.colors,
-    locArray
+    self.locations
   );
 
   CGContextDrawLinearGradient(
@@ -73,6 +81,13 @@
 
   CGColorSpaceRelease(colorSpace);
   CGGradientRelease(gradient);
+}
+
+- (void)dealloc
+{
+  if (_locations) {
+    free(_locations);
+  }
 }
 
 @end

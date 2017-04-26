@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A38AFEE81EB0B206005FD452 /* BVLinearGradientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045EF1C4E5D290001F552 /* BVLinearGradientManager.m */; };
+		A38AFEE91EB0B206005FD452 /* BVLinearGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */; };
 		EF6045F01C4E5D290001F552 /* BVLinearGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */; };
 		EF6045F11C4E5D290001F552 /* BVLinearGradientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045EF1C4E5D290001F552 /* BVLinearGradientManager.m */; };
 /* End PBXBuildFile section */
@@ -21,10 +23,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A38AFEEB1EB0B206005FD452 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBVLinearGradient.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38AFEEF1EB0B206005FD452 /* libBVLinearGradient-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBVLinearGradient-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF6045EC1C4E5D290001F552 /* BVLinearGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVLinearGradient.h; sourceTree = "<group>"; };
 		EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVLinearGradient.m; sourceTree = "<group>"; };
 		EF6045EE1C4E5D290001F552 /* BVLinearGradientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVLinearGradientManager.h; sourceTree = "<group>"; };
@@ -33,6 +45,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		58B511D81A9E6C8500147676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A38AFEEA1EB0B206005FD452 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,6 +74,7 @@
 			children = (
 				EF6045EB1C4E5D290001F552 /* BVLinearGradient */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				A38AFEEF1EB0B206005FD452 /* libBVLinearGradient-tvOS.a */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +109,23 @@
 			productReference = 134814201AA4EA6300B7C361 /* libBVLinearGradient.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		A38AFEE61EB0B206005FD452 /* BVLinearGradient-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A38AFEEC1EB0B206005FD452 /* Build configuration list for PBXNativeTarget "BVLinearGradient-tvOS" */;
+			buildPhases = (
+				A38AFEE71EB0B206005FD452 /* Sources */,
+				A38AFEEA1EB0B206005FD452 /* Frameworks */,
+				A38AFEEB1EB0B206005FD452 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BVLinearGradient-tvOS";
+			productName = RCTDataManager;
+			productReference = A38AFEEF1EB0B206005FD452 /* libBVLinearGradient-tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -116,6 +153,7 @@
 			projectRoot = "";
 			targets = (
 				58B511DA1A9E6C8500147676 /* BVLinearGradient */,
+				A38AFEE61EB0B206005FD452 /* BVLinearGradient-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -127,6 +165,15 @@
 			files = (
 				EF6045F11C4E5D290001F552 /* BVLinearGradientManager.m in Sources */,
 				EF6045F01C4E5D290001F552 /* BVLinearGradient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A38AFEE71EB0B206005FD452 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A38AFEE81EB0B206005FD452 /* BVLinearGradientManager.m in Sources */,
+				A38AFEE91EB0B206005FD452 /* BVLinearGradient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +286,40 @@
 			};
 			name = Release;
 		};
+		A38AFEED1EB0B206005FD452 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../React/**",
+					"$(SRCROOT)/../react-native/React/**",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A38AFEEE1EB0B206005FD452 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../React/**",
+					"$(SRCROOT)/../react-native/React/**",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -256,6 +337,15 @@
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,
 				58B511F11A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A38AFEEC1EB0B206005FD452 /* Build configuration list for PBXNativeTarget "BVLinearGradient-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A38AFEED1EB0B206005FD452 /* Debug */,
+				A38AFEEE1EB0B206005FD452 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

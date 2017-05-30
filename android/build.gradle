@@ -26,5 +26,6 @@ android {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:0.42.0'
+    //noinspection GradleDynamicVersion
+    provided 'com.facebook.react:react-native:' + project.ext.reactNative
 }

@@ -1,0 +1,13 @@
+node_modules/**/*
+build
+BVLinearGradient.xcodeproj/xcuserdata/**/*
+BVLinearGradient.xcodeproj/project.xcworkspace/**/*
+.idea
+.gradle/
+gradlew
+gradlew.bat
+gradle/
+*.properties
+*.iml
+npm-debug.log
+Examples/

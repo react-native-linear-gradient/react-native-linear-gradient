@@ -9,20 +9,26 @@
     "url": "https://github.com/brentvatne"
   },
   "license": "MIT",
-  "contributors": [{
-    "name": "Nick Hudkins",
-    "email": "nick@nickhudkins.com",
-    "url": "https://github.com/nickhudkins"
-  }, {
-    "name": "Dmitry Gladkov",
-    "email": "dmitry.gladkov@gmail.com",
-    "url": "https://github.com/dgladkov"
-  }],
+  "contributors": [
+    {
+      "name": "Nick Hudkins",
+      "email": "nick@nickhudkins.com",
+      "url": "https://github.com/nickhudkins"
+    },
+    {
+      "name": "Dmitry Gladkov",
+      "email": "dmitry.gladkov@gmail.com",
+      "url": "https://github.com/dgladkov"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:brentvatne/react-native-linear-gradient.git"
   },
   "devDependencies": {
     "jest-cli": "0.2.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10"
   }
 }

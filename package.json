@@ -24,5 +24,8 @@
   },
   "devDependencies": {
     "jest-cli": "0.2.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10"
   }
 }

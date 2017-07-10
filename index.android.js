@@ -24,6 +24,15 @@ type PropsType = {
   locations?: Array<number>;
 } & typeof(View);
 
+/**
+ * Checks if value is a valid number. Otherwise, defaults to defaultValue.
+ * 
+ * @param {number} defaultValue 
+ */
+const validNumber = (defaultValue) => (value) => {
+  return typeof value === 'number' ? value : defaultValue;
+};
+
 export default class LinearGradient extends Component {
   static propTypes = {
     start: PropTypes.oneOfType([
@@ -70,18 +79,19 @@ export default class LinearGradient extends Component {
     // https://github.com/facebook/react-native/issues/3198
     const flatStyle = StyleSheet.flatten(style) || {};
     const borderRadius = flatStyle.borderRadius || 0;
+    const validRadius = validNumber(borderRadius);
 
     // this is the format taken by:
     // http://developer.android.com/reference/android/graphics/Path.html#addRoundRect(android.graphics.RectF, float[], android.graphics.Path.Direction)
     const borderRadiiPerCorner = [
-      flatStyle.borderTopLeftRadius || borderRadius,
-      flatStyle.borderTopLeftRadius || borderRadius,
-      flatStyle.borderTopRightRadius || borderRadius,
-      flatStyle.borderTopRightRadius || borderRadius,
-      flatStyle.borderBottomRightRadius || borderRadius,
-      flatStyle.borderBottomRightRadius || borderRadius,
-      flatStyle.borderBottomLeftRadius || borderRadius,
-      flatStyle.borderBottomLeftRadius || borderRadius
+      validRadius(flatStyle.borderTopLeftRadius),
+      validRadius(flatStyle.borderTopLeftRadius),
+      validRadius(flatStyle.borderTopRightRadius),
+      validRadius(flatStyle.borderTopRightRadius),
+      validRadius(flatStyle.borderBottomRightRadius),
+      validRadius(flatStyle.borderBottomRightRadius),
+      validRadius(flatStyle.borderBottomLeftRadius),
+      validRadius(flatStyle.borderBottomLeftRadius)
     ];
 
     return (

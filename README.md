@@ -158,7 +158,7 @@ An optional array of numbers defining the location of each gradient color stop, 
 ### Gradient with Animation
 
 ### Additional props
-- animation [boolean] : `true` to play an animation if `false` does not play an animation.
+- animation [boolean] : `true` to play an animation if `false` does not play an animation. *** Suport Android only
 
 
 ### Example

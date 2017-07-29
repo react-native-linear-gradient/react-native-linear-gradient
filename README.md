@@ -155,6 +155,27 @@ An optional array of numbers defining the location of each gradient color stop, 
 
 ![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/master/images/example-other-props.png)
 
+### Gradient with Animation
+
+### Additional props
+- animation [boolean] : `true` to play an animation if `false` does not play an animation.
+
+
+### Example
+```javascript
+<LinearGradient
+  animation={true}
+  start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+  locations={[0,0.5,0.6]}
+  colors={['#4c669f', '#3b5998', '#192f6a']}
+  style={styles.linearGradient}>
+  <Text style={styles.buttonText}>
+    Sign in with Facebook
+  </Text>
+</LinearGradient>
+```
+
+
 ### Updating the values for fun
 
 Check out [Examples/AnimatedGradient](https://github.com/react-native-community/react-native-linear-gradient/blob/master/Examples/AnimatedGradient/src/index.js) (`git clone` this project, cd into it, npm install, open in XCode and run) to see how this is done:

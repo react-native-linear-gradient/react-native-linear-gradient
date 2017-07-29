@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { processColor, requireNativeComponent, PointPropType, StyleSheet, View, ViewPropTypes } from 'react-native';
+import { processColor, requireNativeComponent, PointPropType, StyleSheet, View, ViewPropTypes, Animated } from 'react-native';
 const deprecatedPropType = require('react-native/Libraries/Utilities/deprecatedPropType.js');
 
 const convertPoint = (name, point) => {
@@ -22,6 +22,7 @@ type PropsType = {
   end?: Array<number> | {x: number, y: number};
   colors: Array<string>;
   locations?: Array<number>;
+  animation: boolean;
 } & typeof(View);
 
 export default class LinearGradient extends Component {
@@ -59,6 +60,7 @@ export default class LinearGradient extends Component {
       locations,
       start,
       style,
+      animation,
       ...otherProps
     } = this.props;
 
@@ -83,20 +85,35 @@ export default class LinearGradient extends Component {
       flatStyle.borderBottomLeftRadius || borderRadius,
       flatStyle.borderBottomLeftRadius || borderRadius
     ];
-
-    return (
-      <View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>
-        <NativeLinearGradient
-          style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
-          colors={colors.map(processColor)}
-          start={convertPoint('start', start)}
-          end={convertPoint('end', end)}
-          locations={locations ? locations.slice(0, colors.length) : null}
-          borderRadii={borderRadiiPerCorner}
-        />
-        { children }
-      </View>
-    );
+    if(animation) {
+      return (
+        <Animated.View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>
+          <NativeLinearGradient
+            style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
+            colors={colors.map(processColor)}
+            start={convertPoint('start', start)}
+            end={convertPoint('end', end)}
+            locations={locations ? locations.slice(0, colors.length) : null}
+            borderRadii={borderRadiiPerCorner}
+          />
+          { children }
+        </Animated.View>
+      );
+    } else {
+      return (
+        <View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>
+          <NativeLinearGradient
+            style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
+            colors={colors.map(processColor)}
+            start={convertPoint('start', start)}
+            end={convertPoint('end', end)}
+            locations={locations ? locations.slice(0, colors.length) : null}
+            borderRadii={borderRadiiPerCorner}
+          />
+          { children }
+        </View>
+      );
+    }
   }
 }
 

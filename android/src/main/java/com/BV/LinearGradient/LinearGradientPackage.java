@@ -17,6 +17,7 @@ public class LinearGradientPackage implements ReactPackage {
         return Collections.emptyList();
     }
 
+    // Deprecated RN 0.47
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }

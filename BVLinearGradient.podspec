@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
   s.summary         = "A <LinearGradient /> component for react-native"
   s.license         = "MIT"
   s.author          = { "Brent Vatne" => "brentvatne@gmail.com" }
-  s.platform        = :ios, "7.0"
+  s.ios.deployment_target = '7.0'
+  s.tvos.deployment_target = '9.0'
   s.source          = { :git => "https://github.com/brentvatne/react-native-linear-gradient.git", :tag => "#{s.version}" }
   s.source_files    = 'BVLinearGradient/*.{h,m}'
   s.preserve_paths  = "**/*.js"

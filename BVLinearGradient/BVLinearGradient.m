@@ -1,42 +1,65 @@
 #import "BVLinearGradient.h"
 #import <React/RCTConvert.h>
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
+#import "BVLinearGradientLayer.h"
 
 @implementation BVLinearGradient
 
 + (Class)layerClass
 {
-  return [CAGradientLayer class];
+    return [BVLinearGradientLayer class];
 }
 
-- (CAGradientLayer *)gradientLayer
+- (BVLinearGradientLayer *)gradientLayer
 {
-  return (CAGradientLayer *)self.layer;
+    return (BVLinearGradientLayer *)self.layer;
 }
 
 - (void)setColors:(NSArray *)colorStrings
 {
-  NSMutableArray *colors = [NSMutableArray arrayWithCapacity:colorStrings.count];
-  for (NSString *colorString in colorStrings) {
-    [colors addObject:(id)[RCTConvert UIColor:colorString].CGColor];
-  }
-  self.gradientLayer.colors = colors;
+    _colors = colorStrings;
+    
+    NSMutableArray *colors = [NSMutableArray arrayWithCapacity:colorStrings.count];
+    for (NSString *colorString in colorStrings)
+    {
+        if ([colorString isKindOfClass:UIColor.class])
+        {
+            [colors addObject:(UIColor *)colorString];
+        }
+        else
+        {
+            [colors addObject:(id)[RCTConvert UIColor:colorString].CGColor];
+        }
+    }
+    self.gradientLayer.colors = colors;
 }
 
 - (void)setStartPoint:(CGPoint)startPoint
 {
-  self.gradientLayer.startPoint = startPoint;
+    _startPoint = startPoint;
+    self.gradientLayer.startPoint = startPoint;
 }
 
 - (void)setEndPoint:(CGPoint)endPoint
 {
-  self.gradientLayer.endPoint = endPoint;
+    _endPoint = endPoint;
+    self.gradientLayer.endPoint = endPoint;
 }
 
 - (void)setLocations:(NSArray *)locations
 {
-  self.gradientLayer.locations = locations;
+    _locations = locations;
+    self.gradientLayer.locations = locations;
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+    if (aSelector == @selector(displayLayer:))
+    {
+        return NO;
+    }
+    
+    return [super respondsToSelector:aSelector];
 }
 
 @end

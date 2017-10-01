@@ -166,6 +166,9 @@ Check out [Examples/AnimatedGradient](https://github.com/react-native-community/
 ### An example app
 You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/App/Screens/LoginScreen.js#L58-L62).
 
+### Other platforms
+- Web: [react-native-web-community/react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient)
+
 ### License
 
 License is MIT

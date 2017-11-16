@@ -72,8 +72,8 @@ export default class LinearGradient extends Component {
       <NativeLinearGradient
         ref={(component) => { this.gradientRef = component; }}
         {...otherProps}
-        start={convertPoint('start', start)}
-        end={convertPoint('end', end)}
+        startPoint={convertPoint('start', start)}
+        endPoint={convertPoint('end', end)}
         colors={colors.map(processColor)}
         locations={locations ? locations.slice(0, colors.length) : null}
       />

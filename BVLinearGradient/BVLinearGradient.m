@@ -24,12 +24,12 @@
   self.gradientLayer.colors = colors;
 }
 
-- (void)setStart:(CGPoint)start
+- (void)setStartPosition:(CGPoint)start
 {
   self.gradientLayer.startPoint = start;
 }
 
-- (void)setEnd:(CGPoint)end
+- (void)setEndPosition:(CGPoint)end
 {
   self.gradientLayer.endPoint = end;
 }

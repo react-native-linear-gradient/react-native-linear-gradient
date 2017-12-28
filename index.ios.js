@@ -31,6 +31,9 @@ type PropsType = {
   end?: Array<number> | {x: number, y: number};
   colors: Array<string>;
   locations?: Array<number>;
+  useAngle?: boolean;
+  angleCenter?: {x: number, y: number};
+  angle?: number;
 } & ViewProps;
 
 export default class LinearGradient extends Component {
@@ -51,6 +54,9 @@ export default class LinearGradient extends Component {
     ]),
     colors: PropTypes.arrayOf(ColorPropType).isRequired,
     locations: PropTypes.arrayOf(PropTypes.number),
+    useAngle: PropTypes.bool,
+    angleCenter: PointPropType,
+    angle: PropTypes.number,
     ...ViewPropTypes,
   };
   props: PropsType;
@@ -71,6 +77,9 @@ export default class LinearGradient extends Component {
       end,
       colors,
       locations,
+      useAngle,
+      angleCenter,
+      angle,
       ...otherProps
     } = this.props;
     if ((colors && locations) && (colors.length !== locations.length)) {
@@ -85,6 +94,9 @@ export default class LinearGradient extends Component {
         endPoint={convertPoint('end', end)}
         colors={colors.map(processColor)}
         locations={locations ? locations.slice(0, colors.length) : null}
+        useAngle={useAngle}
+        angleCenter={convertPoint('angleCenter', angleCenter)}
+        angle={angle}
       />
     );
   }

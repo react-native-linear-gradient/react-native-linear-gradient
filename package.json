@@ -27,5 +27,8 @@
   },
   "dependencies": {
     "prop-types": "^15.5.10"
+  },
+  "devDependencies": {
+    "react-native": "^0.51.0"
   }
 }

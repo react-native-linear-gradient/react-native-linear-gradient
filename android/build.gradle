@@ -33,6 +33,13 @@ android {
     }
 }
 
+repositories {
+    jcenter()
+    maven {
+        url "$rootDir/../node_modules/react-native/android"
+    }
+}
+
 dependencies {
     //noinspection GradleDynamicVersion
     provided "com.facebook.react:react-native:${_reactNativeVersion}"

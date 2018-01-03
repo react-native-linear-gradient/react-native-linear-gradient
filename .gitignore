@@ -10,3 +10,4 @@ gradle/
 *.properties
 *.iml
 npm-debug.log
+android/repository

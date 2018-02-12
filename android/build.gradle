@@ -3,8 +3,11 @@ buildscript {
         jcenter()
     }
 
+    def _androidBuildPluginVersion = rootProject.ext.has('androidBuildPluginVersion') ?
+            rootProject.ext.androidBuildPluginVersion : '2.3.3'
+            
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath "com.android.tools.build:gradle:${_androidBuildPluginVersion}"
     }
 }
 

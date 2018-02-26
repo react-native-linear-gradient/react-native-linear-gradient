@@ -11,7 +11,7 @@ const deprecatedPropType = require('react-native/Libraries/Utilities/deprecatedP
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
     console.warn(
-      `LinearGradient '${name}' property shoule be an object with fields 'x' and 'y', ` +
+      `LinearGradient '${name}' property should be an object with fields 'x' and 'y', ` +
       'Array type is deprecated.'
     );
 

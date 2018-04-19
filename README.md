@@ -132,18 +132,18 @@ In addition to regular `View` props, you can also provide additional props to cu
 #### colors
 An array of at least two color values that represent gradient colors. Example: `['red', 'blue']` sets gradient from red to blue.
   
-#### start
+#### startPoint
 An optional object of the following type: `{ x: number, y: number }`. Coordinates declare the position that the gradient starts at, as a fraction of the overall size of the gradient, starting from the top left corner. Example: `{ x: 0.1, y: 0.1 }` means that the gradient will start 10% from the top and 10% from the left.
  
-#### end
-Same as start, but for the end of the gradient.
+#### endPoint
+Same as `startPoint`, but for the end of the gradient.
  
 #### locations
 An optional array of numbers defining the location of each gradient color stop, mapping to the color with the same index in `colors` prop. Example: `[0.1, 0.75, 1]` means that first color will take 0% - 10%, second color will take 10% - 75% and finally third color will occupy 75% - 100%.
 
 ```javascript
 <LinearGradient
-  start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+  startPoint={{x: 0.0, y: 0.25}} endPoint={{x: 0.5, y: 1.0}}
   locations={[0,0.5,0.6]}
   colors={['#4c669f', '#3b5998', '#192f6a']}
   style={styles.linearGradient}>

@@ -1,4 +1,7 @@
-// @flow
+/**
+ * @providesModule LinearGradient
+ * @flow
+ */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { processColor, requireNativeComponent, PointPropType, StyleSheet, View, ViewPropTypes } from 'react-native';
@@ -8,7 +11,7 @@ const deprecatedPropType = require('react-native/Libraries/Utilities/deprecatedP
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
     console.warn(
-      `LinearGradient '${name}' property shoule be an object with fields 'x' and 'y', ` +
+      `LinearGradient '${name}' property should be an object with fields 'x' and 'y', ` +
       'Array type is deprecated.'
     );
   }

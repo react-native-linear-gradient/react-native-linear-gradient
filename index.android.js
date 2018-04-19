@@ -4,9 +4,11 @@
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { processColor, requireNativeComponent, PointPropType, StyleSheet, View, ViewPropTypes } from 'react-native';
+import { processColor, PointPropType, StyleSheet, View, ViewPropTypes } from 'react-native';
 import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
 const deprecatedPropType = require('react-native/Libraries/Utilities/deprecatedPropType.js');
+
+import NativeLinearGradient from './nativeLinearGradient';
 
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
@@ -103,5 +105,3 @@ export default class LinearGradient extends Component {
     );
   }
 }
-
-const NativeLinearGradient = requireNativeComponent('BVLinearGradient', null);

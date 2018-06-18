@@ -126,6 +126,18 @@ var styles = StyleSheet.create({
 });
 ```
 
+### Horizontal gradient
+
+Using the styles from above, set `start` and `end` like this to make the gradient go from left to right, instead of from top to bottom:
+
+```javascript
+<LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
+  <Text style={styles.buttonText}>
+    Sign in with Facebook
+  </Text>
+</LinearGradient>
+```
+
 ### Additional props
 In addition to regular `View` props, you can also provide additional props to customize your gradient look:
 

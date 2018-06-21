@@ -51,7 +51,7 @@
     BOOL hasAlpha = NO;
 
     for (NSInteger i = 0; i < self.colors.count; i++) {
-        hasAlpha = hasAlpha || CGColorGetAlpha((__bridge CGColorRef)self.colors[i]) < 1.0;
+        hasAlpha = hasAlpha || CGColorGetAlpha(self.colors[i].CGColor) < 1.0;
     }
 
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, !hasAlpha, 0.0);

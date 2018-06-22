@@ -89,6 +89,23 @@ protected List<ReactPackage> getPackages() {
 }
 ```
 
+### Windows (WPF)
+
+1. in `windows/MyApp.sln` Add -> Existing Project: `node_modules/react-native-linear-gradient/windows/LinearGradientWPF/LinearGradientWPF.csproj`
+
+2. in `windows/MyApp/MyAppWPF/MyAppWPF.csproj` Add -> Reference -> LinearGradientWPF
+
+3. in `windows/MyApp/MyAppWPF/AppReactPage.cs` add: `using LinearGradient;`
+  and
+  ```csharp
+  public override List<IReactPackage> Packages => new List<IReactPackage>
+  {
+    ...
+    new LinearGradientPackage()
+  }
+  ```
+
+
 ## Examples
 
 ### Simple

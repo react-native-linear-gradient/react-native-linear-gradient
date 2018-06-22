@@ -19,7 +19,7 @@ or do it manually as described below:
 
 Then either:
 
-#####Cocoapods
+##### Cocoapods
 add the following line to your Podfile:
 
 ```sh
@@ -29,7 +29,7 @@ pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
 or:
 
-#####Manually
+##### Manually
 
 1. Open your project in XCode, right click on `Libraries` and click `Add
    Files to "Your Project Name"` Look under `node_modules/react-native-linear-gradient` and add `BVLinearGradient.xcodeproj`.  [(Screenshot)](http://url.brentvatne.ca/g9Wp).
@@ -60,34 +60,34 @@ For instance the podspec file does not contain the right data (author attributes
 #### Android
 
 1. in `android/settings.gradle`
-   ```
-   ...
-   include ':react-native-linear-gradient'
-   project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
-   ```
+```
+...
+include ':react-native-linear-gradient'
+project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
+```
 
 2. in `android/app/build.gradle` add:
-   ```
-   dependencies {
-       ...
-       compile project(':react-native-linear-gradient')
-   }
-   ```
+```
+dependencies {
+    ...
+    compile project(':react-native-linear-gradient')
+}
+```
 
 3. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
    or `android/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
-   ```java
-   //...
-   import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
-   //...
-   @Override
-   protected List<ReactPackage> getPackages() {
-     return Arrays.<ReactPackage>asList(
-       new MainReactPackage(),
-       new LinearGradientPackage() // <---- and This!
-     );
+```java
+//...
+import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
+//...
+@Override
+protected List<ReactPackage> getPackages() {
+  return Arrays.<ReactPackage>asList(
+    new MainReactPackage(),
+    new LinearGradientPackage() // <---- and This!
+  );
 }
-   ```
+```
 
 ### Windows (WPF)
 
@@ -107,7 +107,6 @@ For instance the podspec file does not contain the right data (author attributes
 
 
 ## Examples
-
 
 ### Simple
 
@@ -144,11 +143,32 @@ var styles = StyleSheet.create({
 });
 ```
 
-### Additional props
+### Horizontal gradient
 
-You can also use start and end points, as well as specify the locations
-for the gradient color changes with the `start`, `end` and `locations`
-props:
+Using the styles from above, set `start` and `end` like this to make the gradient go from left to right, instead of from top to bottom:
+
+```javascript
+<LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
+  <Text style={styles.buttonText}>
+    Sign in with Facebook
+  </Text>
+</LinearGradient>
+```
+
+### Additional props
+In addition to regular `View` props, you can also provide additional props to customize your gradient look:
+
+#### colors
+An array of at least two color values that represent gradient colors. Example: `['red', 'blue']` sets gradient from red to blue.
+  
+#### start
+An optional object of the following type: `{ x: number, y: number }`. Coordinates declare the position that the gradient starts at, as a fraction of the overall size of the gradient, starting from the top left corner. Example: `{ x: 0.1, y: 0.1 }` means that the gradient will start 10% from the top and 10% from the left.
+ 
+#### end
+Same as start, but for the end of the gradient.
+ 
+#### locations
+An optional array of numbers defining the location of each gradient color stop, mapping to the color with the same index in `colors` prop. Example: `[0.1, 0.75, 1]` means that first color will take 0% - 10%, second color will take 10% - 75% and finally third color will occupy 75% - 100%.
 
 ```javascript
 <LinearGradient
@@ -174,6 +194,9 @@ Check out [Examples/AnimatedGradient](https://github.com/react-native-community/
 
 ### An example app
 You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/App/Screens/LoginScreen.js#L58-L62).
+
+### Other platforms
+- Web: [react-native-web-community/react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient)
 
 ### License
 

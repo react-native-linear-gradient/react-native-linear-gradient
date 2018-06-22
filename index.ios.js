@@ -2,14 +2,19 @@
  * @providesModule LinearGradient
  * @flow
  */
-import React, { Component, PropTypes } from 'react';
-import { processColor, requireNativeComponent, PointPropType, View } from 'react-native';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { processColor, PointPropType, View, ViewPropTypes } from 'react-native';
+import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
 const deprecatedPropType = require('react-native/Libraries/Utilities/deprecatedPropType.js');
+const ColorPropType = require('react-native/Libraries/StyleSheet/ColorPropType.js');
+
+import NativeLinearGradient from './nativeLinearGradient';
 
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
     console.warn(
-      `LinearGradient '${name}' property shoule be an object with fields 'x' and 'y', ` +
+      `LinearGradient '${name}' property should be an object with fields 'x' and 'y', ` +
       'Array type is deprecated.'
     );
 
@@ -26,7 +31,7 @@ type PropsType = {
   end?: Array<number> | {x: number, y: number};
   colors: Array<string>;
   locations?: Array<number>;
-} & typeof(View);
+} & ViewProps;
 
 export default class LinearGradient extends Component {
   static propTypes = {
@@ -44,9 +49,9 @@ export default class LinearGradient extends Component {
         'Use point object with {x, y} instead.'
       )
     ]),
-    colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    colors: PropTypes.arrayOf(ColorPropType).isRequired,
     locations: PropTypes.arrayOf(PropTypes.number),
-    ...View.propTypes,
+    ...ViewPropTypes,
   };
   props: PropsType;
   gradientRef: any;
@@ -71,13 +76,11 @@ export default class LinearGradient extends Component {
       <NativeLinearGradient
         ref={(component) => { this.gradientRef = component; }}
         {...otherProps}
-        start={convertPoint('start', start)}
-        end={convertPoint('end', end)}
+        startPoint={convertPoint('start', start)}
+        endPoint={convertPoint('end', end)}
         colors={colors.map(processColor)}
         locations={locations ? locations.slice(0, colors.length) : null}
       />
     );
   }
 }
-
-const NativeLinearGradient = requireNativeComponent('BVLinearGradient', null);

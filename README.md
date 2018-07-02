@@ -7,13 +7,13 @@ Version 2.0 supports react-native >= 0.40.0
 
 ## Add it to your project
 
+### iOS
+
 You can try linking the project automatically:
 
 `$ react-native link`
 
 or do it manually as described below:
-
-### iOS
 
 - Run `npm install react-native-linear-gradient --save`
 
@@ -57,24 +57,24 @@ Then:
 
 For instance the podspec file does not contain the right data (author attributes etc..) in npm while it does in the github repo.
 
-#### Android
+### Android
 
-1. in `android/settings.gradle`
+1. in `android/app/build.gradle` add:
 ```
-...
-include ':react-native-linear-gradient'
-project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
-```
+repository {
+  ...
+  maven {
+    url "$rootDir/node-modules/react-native-linear-gradient/android/repository"
+  }
+}
 
-2. in `android/app/build.gradle` add:
-```
 dependencies {
     ...
-    compile project(':react-native-linear-gradient')
+    compile 'react-native-community:react-native-linear-gradient:+'
 }
 ```
 
-3. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
+2. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
    or `android/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
 ```java
 //...
@@ -160,13 +160,13 @@ In addition to regular `View` props, you can also provide additional props to cu
 
 #### colors
 An array of at least two color values that represent gradient colors. Example: `['red', 'blue']` sets gradient from red to blue.
-  
+
 #### start
 An optional object of the following type: `{ x: number, y: number }`. Coordinates declare the position that the gradient starts at, as a fraction of the overall size of the gradient, starting from the top left corner. Example: `{ x: 0.1, y: 0.1 }` means that the gradient will start 10% from the top and 10% from the left.
- 
+
 #### end
 Same as start, but for the end of the gradient.
- 
+
 #### locations
 An optional array of numbers defining the location of each gradient color stop, mapping to the color with the same index in `colors` prop. Example: `[0.1, 0.75, 1]` means that first color will take 0% - 10%, second color will take 10% - 75% and finally third color will occupy 75% - 100%.
 

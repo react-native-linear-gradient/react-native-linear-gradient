@@ -30,5 +30,8 @@
   "devDependencies": {
     "jest-cli": "0.2.1",
     "prop-types": "^15.5.10"
+  },
+  "devDependencies": {
+    "react-native": "^0.51.0"
   }
 }

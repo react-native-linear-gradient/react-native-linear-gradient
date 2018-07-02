@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 buildscript {
     repositories {
         jcenter()
@@ -9,6 +11,7 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
 
 def _ext = rootProject.ext;
 
@@ -33,7 +36,28 @@ android {
     }
 }
 
+repositories {
+    jcenter()
+    maven {
+        url "$rootDir/../node_modules/react-native/android"
+    }
+}
+
 dependencies {
     //noinspection GradleDynamicVersion
     provided "com.facebook.react:react-native:${_reactNativeVersion}"
+}
+
+task generateReactArchive(type: Upload) {
+    configuration = configurations.archives
+    def jsonFile = file("$rootDir/../package.json")
+    def packageJson = new JsonSlurper().parseText(jsonFile.text)
+    repositories.mavenDeployer {
+        repository url: "file://${rootDir}/repository"
+        pom.project {
+            groupId 'react-native-community'
+            artifactId 'react-native-linear-gradient'
+            version packageJson.version
+        }
+    }
 }

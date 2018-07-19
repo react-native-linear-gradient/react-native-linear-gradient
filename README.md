@@ -59,6 +59,10 @@ For instance the podspec file does not contain the right data (author attributes
 
 #### Android
 
+- Run `npm install react-native-linear-gradient --save`
+
+Then:
+
 1. in `android/settings.gradle`
 ```
 ...

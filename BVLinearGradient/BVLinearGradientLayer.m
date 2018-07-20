@@ -46,10 +46,6 @@
 - (void)display {
     [super display];
 
-    if (self.contents) {
-        CGImageRelease((CGImageRef)self.contents);
-    }
-
     BOOL hasAlpha = NO;
 
     for (NSInteger i = 0; i < self.colors.count; i++) {

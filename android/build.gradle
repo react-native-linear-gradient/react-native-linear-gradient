@@ -10,21 +10,18 @@ buildscript {
 
 apply plugin: 'com.android.library'
 
-def _ext = rootProject.ext;
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
 
-def _reactNativeVersion = _ext.has('reactNative') ? _ext.reactNative : '+';
-def _compileSdkVersion = _ext.has('compileSdkVersion') ? _ext.compileSdkVersion : 26;
-def _buildToolsVersion = _ext.has('buildToolsVersion') ? _ext.buildToolsVersion : '26.0.1';
-def _minSdkVersion = _ext.has('minSdkVersion') ? _ext.minSdkVersion : 16;
-def _targetSdkVersion = _ext.has('targetSdkVersion') ? _ext.targetSdkVersion : 26;
 
 android {
-    compileSdkVersion _compileSdkVersion
-    buildToolsVersion _buildToolsVersion
+    compileSdkVersion safeExtGet('compileSdkVersion', 26)
+    buildToolsVersion safeExtGet('buildToolsVersion', '26.0.3')
 
     defaultConfig {
-        minSdkVersion _minSdkVersion
-        targetSdkVersion _targetSdkVersion
+        minSdkVersion safeExtGet('minSdkVersion', 16)
+        targetSdkVersion safeExtGet('targetSdkVersion', 26)
         versionCode 1
         versionName "1.0"
     }
@@ -35,5 +32,5 @@ android {
 
 dependencies {
     //noinspection GradleDynamicVersion
-    compileOnly "com.facebook.react:react-native:${_reactNativeVersion}"
+    compileOnly "com.facebook.react:react-native:${safeExtGet('reactNativeVersion', '+')}"
 }

@@ -1,3 +1,7 @@
+
+[![Version](https://img.shields.io/npm/v/react-native-linear-gradient.svg)](https://www.npmjs.com/package/react-native-linear-gradient)
+[![NPM](https://img.shields.io/npm/dm/react-native-linear-gradient.svg)](https://www.npmjs.com/package/react-native-linear-gradient)
+
 # react-native-linear-gradient
 
 A `<LinearGradient>` component for react-native, as seen in

@@ -1,7 +1,6 @@
-import * as React from "react";
-import * as ReactNative from "react-native";
-
 declare module "react-native-linear-gradient" {
+    import * as React from "react";
+    import * as ReactNative from "react-native";
 
     export type LinearGradientProps = Pick<ReactNative.ViewProps, Exclude<keyof ReactNative.ViewProps, 'start' | 'end'>> & {
         colors: (string|number)[],

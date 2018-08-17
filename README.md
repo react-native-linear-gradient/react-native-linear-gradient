@@ -13,7 +13,7 @@ Version 2.0 supports react-native >= 0.40.0
 
 You can try linking the project automatically:
 
-`$ react-native link`
+`$ react-native link react-native-linear-gradient`
 
 or do it manually as described below:
 

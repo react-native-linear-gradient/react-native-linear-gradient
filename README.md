@@ -1,3 +1,7 @@
+
+[![Version](https://img.shields.io/npm/v/react-native-linear-gradient.svg)](https://www.npmjs.com/package/react-native-linear-gradient)
+[![NPM](https://img.shields.io/npm/dm/react-native-linear-gradient.svg)](https://www.npmjs.com/package/react-native-linear-gradient)
+
 # react-native-linear-gradient
 
 A `<LinearGradient>` component for react-native, as seen in
@@ -58,6 +62,10 @@ Then:
 For instance the podspec file does not contain the right data (author attributes etc..) in npm while it does in the github repo.
 
 #### Android
+
+- Run `npm install react-native-linear-gradient --save`
+
+Then:
 
 1. in `android/settings.gradle`
 ```
@@ -148,7 +156,7 @@ var styles = StyleSheet.create({
 Using the styles from above, set `start` and `end` like this to make the gradient go from left to right, instead of from top to bottom:
 
 ```javascript
-<LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
+<LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
   <Text style={styles.buttonText}>
     Sign in with Facebook
   </Text>

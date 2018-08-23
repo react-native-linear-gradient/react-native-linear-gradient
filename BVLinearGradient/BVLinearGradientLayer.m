@@ -12,6 +12,8 @@
     {
         self.needsDisplayOnBoundsChange = YES;
         self.masksToBounds = YES;
+        _startPoint = CGPointMake(0.5, 0.0);
+        _endPoint = CGPointMake(0.5, 1.0);
     }
 
     return self;
@@ -43,10 +45,6 @@
 
 - (void)display {
     [super display];
-
-    if (self.contents) {
-        CGImageRelease((CGImageRef)self.contents);
-    }
 
     BOOL hasAlpha = NO;
 

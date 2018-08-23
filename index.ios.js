@@ -56,6 +56,11 @@ export default class LinearGradient extends Component {
   props: PropsType;
   gradientRef: any;
 
+  static defaultProps = {
+    start: { x: 0.5, y: 0.0 },
+    end: { x: 0.5, y: 1.0 },
+  };
+
   setNativeProps(props: PropsType) {
     this.gradientRef.setNativeProps(props);
   }

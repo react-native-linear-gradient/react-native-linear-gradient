@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { processColor, PointPropType, View, ViewPropTypes } from 'react-native';
 import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
 const deprecatedPropType = require('react-native/Libraries/Utilities/deprecatedPropType.js');
+const ColorPropType = require('react-native/Libraries/StyleSheet/ColorPropType.js');
 
 import NativeLinearGradient from './nativeLinearGradient';
 
@@ -48,12 +49,17 @@ export default class LinearGradient extends Component {
         'Use point object with {x, y} instead.'
       )
     ]),
-    colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    colors: PropTypes.arrayOf(ColorPropType).isRequired,
     locations: PropTypes.arrayOf(PropTypes.number),
     ...ViewPropTypes,
   };
   props: PropsType;
   gradientRef: any;
+
+  static defaultProps = {
+    start: { x: 0.5, y: 0.0 },
+    end: { x: 0.5, y: 1.0 },
+  };
 
   setNativeProps(props: PropsType) {
     this.gradientRef.setNativeProps(props);

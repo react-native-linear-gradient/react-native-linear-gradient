@@ -1,6 +1,6 @@
 {
   "name": "react-native-linear-gradient",
-  "version": "2.4.0",
+  "version": "2.4.2",
   "description": "A <LinearGradient> element for react-native",
   "main": "index",
   "author": {
@@ -16,6 +16,11 @@
       "url": "https://github.com/nickhudkins"
     },
     {
+      "name": "Gant Laborde",
+      "email": "gant@infinite.red",
+      "url": "https://github.com/gantman"
+    },
+    {
       "name": "Dmitry Gladkov",
       "email": "dmitry.gladkov@gmail.com",
       "url": "https://github.com/dgladkov"
@@ -26,6 +31,9 @@
     "url": "git@github.com:brentvatne/react-native-linear-gradient.git"
   },
   "dependencies": {
+  },
+  "devDependencies": {
+    "jest-cli": "0.2.1",
     "prop-types": "^15.5.10"
   }
 }

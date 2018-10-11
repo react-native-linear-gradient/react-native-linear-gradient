@@ -12,5 +12,4 @@ declare module "react-native-linear-gradient" {
 
     export class LinearGradient extends React.Component<LinearGradientProps, any> { }
 
-    export default LinearGradient
 }

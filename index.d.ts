@@ -1,7 +1,6 @@
-import * as React from "react";
-import * as ReactNative from "react-native";
-
 declare module "react-native-linear-gradient" {
+    import * as React from "react";
+    import * as ReactNative from "react-native";
 
     export interface LinearGradientProps extends ReactNative.ViewProperties {
         colors: (string|number)[],

@@ -9,7 +9,7 @@ declare module 'react-native-linear-gradient' {
     locations?: number[];
   }
 
-  export class LinearGradient extends React.Component<LinearGradientProps, any> {}
+  export class LinearGradient extends React.Component<LinearGradientProps> {}
 
   export default LinearGradient;
 }

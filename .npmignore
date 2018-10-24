@@ -11,3 +11,4 @@ gradle/
 *.iml
 npm-debug.log
 Examples/
+images/

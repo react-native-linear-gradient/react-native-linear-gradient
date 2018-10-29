@@ -78,7 +78,7 @@ project(':react-native-linear-gradient').projectDir = new File(rootProject.proje
 ```
 dependencies {
     ...
-    compile project(':react-native-linear-gradient')
+    implementation project(':react-native-linear-gradient')
 }
 ```
 

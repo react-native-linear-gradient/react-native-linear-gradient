@@ -3,11 +3,8 @@
  * @flow
  */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { processColor, PointPropType, StyleSheet, View, ViewPropTypes } from 'react-native';
 import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
-const deprecatedPropType = require('react-native/Libraries/Utilities/deprecatedPropType.js');
-const ColorPropType = require('react-native/Libraries/StyleSheet/ColorPropType.js');
 
 import NativeLinearGradient from './nativeLinearGradient';
 
@@ -33,33 +30,14 @@ type PropsType = {
 
 /**
  * Checks if value is a valid number. Otherwise, defaults to defaultValue.
- * 
- * @param {number} defaultValue 
+ *
+ * @param {number} defaultValue
  */
 const validNumber = (defaultValue) => (value) => {
   return typeof value === 'number' ? value : defaultValue;
 };
 
 export default class LinearGradient extends Component {
-  static propTypes = {
-    start: PropTypes.oneOfType([
-      PointPropType,
-      deprecatedPropType(
-        PropTypes.arrayOf(PropTypes.number),
-        'Use point object with {x, y} instead.'
-      )
-    ]),
-    end: PropTypes.oneOfType([
-      PointPropType,
-      deprecatedPropType(
-        PropTypes.arrayOf(PropTypes.number),
-        'Use point object with {x, y} instead.'
-      )
-    ]),
-    colors: PropTypes.arrayOf(ColorPropType).isRequired,
-    locations: PropTypes.arrayOf(PropTypes.number),
-    ...ViewPropTypes,
-  };
   props: PropsType;
   gradientRef: any;
 

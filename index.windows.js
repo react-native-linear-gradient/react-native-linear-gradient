@@ -2,7 +2,7 @@
  * @providesModule LinearGradient
  * @flow
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { processColor, requireNativeComponent, View } from 'react-native';
 
 type PropsType = {
@@ -13,13 +13,6 @@ type PropsType = {
 } & typeof(View);
 
 export default class LinearGradient extends Component {
-  static propTypes = {
-    start: PropTypes.arrayOf(PropTypes.number),
-    end: PropTypes.arrayOf(PropTypes.number),
-    colors: PropTypes.arrayOf(PropTypes.string).isRequired,
-    locations: PropTypes.arrayOf(PropTypes.number),
-    ...View.propTypes,
-  };
   props: PropsType;
   gradientRef: any;
 

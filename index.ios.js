@@ -3,8 +3,7 @@
  * @flow
  */
 import React, { Component } from 'react';
-import { processColor, PointPropType, View, ViewPropTypes } from 'react-native';
-import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
+import { processColor, View } from 'react-native';
 
 import NativeLinearGradient from './nativeLinearGradient';
 
@@ -24,11 +23,11 @@ const convertPoint = (name, point) => {
 };
 
 type PropsType = {
-  start?: Array<number> | {x: number, y: number};
-  end?: Array<number> | {x: number, y: number};
-  colors: Array<string>;
-  locations?: Array<number>;
-} & ViewProps;
+  start?: number[] | {x: number, y: number};
+  end?: number[] | {x: number, y: number};
+  colors: string[];
+  locations?: number[];
+} & typeof(View);
 
 export default class LinearGradient extends Component {
   props: PropsType;

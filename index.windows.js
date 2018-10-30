@@ -6,10 +6,10 @@ import React, { Component } from 'react';
 import { processColor, requireNativeComponent, View } from 'react-native';
 
 type PropsType = {
-  start?: Array<number>;
-  end?: Array<number>;
-  colors: Array<string>;
-  locations?: Array<number>;
+  start?: number[];
+  end?: number[];
+  colors: string[];
+  locations?: number[];
 } & typeof(View);
 
 export default class LinearGradient extends Component {

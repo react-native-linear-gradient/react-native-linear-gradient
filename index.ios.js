@@ -22,15 +22,15 @@ const convertPoint = (name, point) => {
   return point;
 };
 
-type PropsType = {
+type Props = {
   start?: number[] | {x: number, y: number};
   end?: number[] | {x: number, y: number};
   colors: string[];
   locations?: number[];
 } & typeof(View);
 
-export default class LinearGradient extends Component {
-  props: PropsType;
+export default class LinearGradient extends Component<Props> {
+  props: Props;
   gradientRef: any;
 
   static defaultProps = {
@@ -38,7 +38,7 @@ export default class LinearGradient extends Component {
     end: { x: 0.5, y: 1.0 },
   };
 
-  setNativeProps(props: PropsType) {
+  setNativeProps(props: Props) {
     this.gradientRef.setNativeProps(props);
   }
 

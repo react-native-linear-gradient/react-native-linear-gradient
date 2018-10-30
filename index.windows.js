@@ -5,18 +5,18 @@
 import React, { Component } from 'react';
 import { processColor, requireNativeComponent, View } from 'react-native';
 
-type PropsType = {
+type Props = {
   start?: number[];
   end?: number[];
   colors: string[];
   locations?: number[];
 } & typeof(View);
 
-export default class LinearGradient extends Component {
-  props: PropsType;
+export default class LinearGradient extends Component<Props> {
+  props: Props;
   gradientRef: any;
 
-  setNativeProps(props: PropsType) {
+  setNativeProps(props: Props) {
     this.gradientRef.setNativeProps(props);
   }
 

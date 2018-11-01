@@ -1,13 +1,20 @@
-// @flow
+/**
+ * @providesModule LinearGradient
+ * @flow
+ */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { processColor, requireNativeComponent, PointPropType, StyleSheet, View, ViewPropTypes, Animated } from 'react-native';
+import { processColor, PointPropType, StyleSheet, View, ViewPropTypes } from 'react-native';
+import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
 const deprecatedPropType = require('react-native/Libraries/Utilities/deprecatedPropType.js');
+const ColorPropType = require('react-native/Libraries/StyleSheet/ColorPropType.js');
+
+import NativeLinearGradient from './nativeLinearGradient';
 
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
     console.warn(
-      `LinearGradient '${name}' property shoule be an object with fields 'x' and 'y', ` +
+      `LinearGradient '${name}' property should be an object with fields 'x' and 'y', ` +
       'Array type is deprecated.'
     );
   }
@@ -24,6 +31,14 @@ type PropsType = {
   locations?: Array<number>;
   animation: boolean;
 } & typeof(View);
+/**
+ * Checks if value is a valid number. Otherwise, defaults to defaultValue.
+ * 
+ * @param {number} defaultValue 
+ */
+const validNumber = (defaultValue) => (value) => {
+  return typeof value === 'number' ? value : defaultValue;
+};
 
 export default class LinearGradient extends Component {
   static propTypes = {
@@ -41,12 +56,17 @@ export default class LinearGradient extends Component {
         'Use point object with {x, y} instead.'
       )
     ]),
-    colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    colors: PropTypes.arrayOf(ColorPropType).isRequired,
     locations: PropTypes.arrayOf(PropTypes.number),
     ...ViewPropTypes,
   };
   props: PropsType;
   gradientRef: any;
+
+  static defaultProps = {
+    start: { x: 0.5, y: 0.0 },
+    end: { x: 0.5, y: 1.0 },
+  };
 
   setNativeProps(props: PropsType) {
     this.gradientRef.setNativeProps(props);
@@ -72,18 +92,19 @@ export default class LinearGradient extends Component {
     // https://github.com/facebook/react-native/issues/3198
     const flatStyle = StyleSheet.flatten(style) || {};
     const borderRadius = flatStyle.borderRadius || 0;
+    const validRadius = validNumber(borderRadius);
 
     // this is the format taken by:
     // http://developer.android.com/reference/android/graphics/Path.html#addRoundRect(android.graphics.RectF, float[], android.graphics.Path.Direction)
     const borderRadiiPerCorner = [
-      flatStyle.borderTopLeftRadius || borderRadius,
-      flatStyle.borderTopLeftRadius || borderRadius,
-      flatStyle.borderTopRightRadius || borderRadius,
-      flatStyle.borderTopRightRadius || borderRadius,
-      flatStyle.borderBottomRightRadius || borderRadius,
-      flatStyle.borderBottomRightRadius || borderRadius,
-      flatStyle.borderBottomLeftRadius || borderRadius,
-      flatStyle.borderBottomLeftRadius || borderRadius
+      validRadius(flatStyle.borderTopLeftRadius),
+      validRadius(flatStyle.borderTopLeftRadius),
+      validRadius(flatStyle.borderTopRightRadius),
+      validRadius(flatStyle.borderTopRightRadius),
+      validRadius(flatStyle.borderBottomRightRadius),
+      validRadius(flatStyle.borderBottomRightRadius),
+      validRadius(flatStyle.borderBottomLeftRadius),
+      validRadius(flatStyle.borderBottomLeftRadius)
     ];
     if(animation) {
       return (
@@ -114,7 +135,19 @@ export default class LinearGradient extends Component {
         </View>
       );
     }
+
+    return (
+      <View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>
+        <NativeLinearGradient
+          style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
+          colors={colors.map(processColor)}
+          startPoint={convertPoint('start', start)}
+          endPoint={convertPoint('end', end)}
+          locations={locations ? locations.slice(0, colors.length) : null}
+          borderRadii={borderRadiiPerCorner}
+        />
+        { children }
+      </View>
+    );
   }
 }
-
-const NativeLinearGradient = requireNativeComponent('BVLinearGradient', null);

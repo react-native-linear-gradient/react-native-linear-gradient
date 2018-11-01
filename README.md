@@ -1,3 +1,7 @@
+
+[![Version](https://img.shields.io/npm/v/react-native-linear-gradient.svg)](https://www.npmjs.com/package/react-native-linear-gradient)
+[![NPM](https://img.shields.io/npm/dm/react-native-linear-gradient.svg)](https://www.npmjs.com/package/react-native-linear-gradient)
+
 # react-native-linear-gradient
 
 A `<LinearGradient>` component for react-native, as seen in
@@ -9,7 +13,7 @@ Version 2.0 supports react-native >= 0.40.0
 
 You can try linking the project automatically:
 
-`$ react-native link`
+`$ react-native link react-native-linear-gradient`
 
 or do it manually as described below:
 
@@ -59,6 +63,10 @@ For instance the podspec file does not contain the right data (author attributes
 
 #### Android
 
+- Run `npm install react-native-linear-gradient --save`
+
+Then:
+
 1. in `android/settings.gradle`
 ```
 ...
@@ -74,8 +82,8 @@ dependencies {
 }
 ```
 
-3. and finally, in `android/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
-   or `android/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
+3. and finally, in `android/app/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
+   or `android/app/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
 ```java
 //...
 import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
@@ -88,6 +96,23 @@ protected List<ReactPackage> getPackages() {
   );
 }
 ```
+
+### Windows (WPF)
+
+1. in `windows/MyApp.sln` Add -> Existing Project: `node_modules/react-native-linear-gradient/windows/LinearGradientWPF/LinearGradientWPF.csproj`
+
+2. in `windows/MyApp/MyAppWPF/MyAppWPF.csproj` Add -> Reference -> LinearGradientWPF
+
+3. in `windows/MyApp/MyAppWPF/AppReactPage.cs` add: `using LinearGradient;`
+  and
+  ```csharp
+  public override List<IReactPackage> Packages => new List<IReactPackage>
+  {
+    ...
+    new LinearGradientPackage()
+  }
+  ```
+
 
 ## Examples
 
@@ -124,6 +149,18 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
+```
+
+### Horizontal gradient
+
+Using the styles from above, set `start` and `end` like this to make the gradient go from left to right, instead of from top to bottom:
+
+```javascript
+<LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
+  <Text style={styles.buttonText}>
+    Sign in with Facebook
+  </Text>
+</LinearGradient>
 ```
 
 ### Additional props
@@ -186,6 +223,9 @@ Check out [Examples/AnimatedGradient](https://github.com/react-native-community/
 
 ### An example app
 You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/App/Screens/LoginScreen.js#L58-L62).
+
+### Other platforms
+- Web: [react-native-web-community/react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient)
 
 ### License
 

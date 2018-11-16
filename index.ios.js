@@ -69,7 +69,7 @@ export default class LinearGradient extends Component<Props> {
         colors={colors.map(processColor)}
         locations={locations ? locations.slice(0, colors.length) : null}
         useAngle={useAngle}
-        angleCenter={convertPoint('angleCenter', angleCenter)}
+        angleCenter={angleCenter}
         angle={angle}
       />
     );

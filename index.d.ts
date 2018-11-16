@@ -7,6 +7,9 @@ declare module 'react-native-linear-gradient' {
     start?: { x: number; y: number };
     end?: { x: number; y: number };
     locations?: number[];
+    useAngle?: boolean;
+    angleCenter?: {x: number, y: number};
+    angle?: number;
   }
 
   export class LinearGradient extends React.Component<LinearGradientProps> {}

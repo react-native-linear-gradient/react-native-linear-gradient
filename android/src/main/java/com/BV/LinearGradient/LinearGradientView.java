@@ -23,6 +23,9 @@ public class LinearGradientView extends View {
     private float[] mStartPos = {0, 0};
     private float[] mEndPos = {0, 1};
     private int[] mColors;
+    private boolean mUseAngle = false;
+    private float[] mAngleCenter = new float[]{0.5f, 0.5f};
+    private float mAngle = 45f;
     private int[] mSize = {0, 0};
     private float[] mBorderRadii = {0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -61,6 +64,21 @@ public class LinearGradientView extends View {
         drawGradient();
     }
 
+    public void setUseAngle(boolean useAngle) {
+        mUseAngle = useAngle;
+        drawGradient();
+    }
+
+    public void setAngleCenter(ReadableArray in) {
+        mAngleCenter = new float[]{(float) in.getDouble(0), (float) in.getDouble(1)};
+        drawGradient();
+    }
+
+    public void setAngle(float angle) {
+        mAngle = angle;
+        drawGradient();
+    }
+
     public void setBorderRadii(ReadableArray borderRadii) {
         float[] _radii = new float[borderRadii.size()];
         for (int i=0; i < _radii.length; i++)
@@ -79,15 +97,41 @@ public class LinearGradientView extends View {
         drawGradient();
     }
 
+    private float[] calculateGradientLocationWithAngle(float angle) {
+        float angleRad = (angle - 90.0f) * ((float)Math.PI / 180.0f);
+        float length = (float)Math.sqrt(2.0);
+
+        return new float[]{
+                (float) Math.cos(angleRad) * length,
+                (float) Math.sin(angleRad) * length
+        };
+    }
+
     private void drawGradient() {
         // guard against crashes happening while multiple properties are updated
         if (mColors == null || (mLocations != null && mColors.length != mLocations.length))
             return;
+
+        float[] startPos = mStartPos;
+        float[] endPos = mEndPos;
+
+        if (mUseAngle && mAngleCenter != null) {
+            float[] angleSize = calculateGradientLocationWithAngle(mAngle);
+            startPos = new float[]{
+                    mAngleCenter[0] - angleSize[0] / 2.0f,
+                    mAngleCenter[1] - angleSize[1] / 2.0f
+            };
+            endPos = new float[]{
+                    mAngleCenter[0] + angleSize[0] / 2.0f,
+                    mAngleCenter[1] + angleSize[1] / 2.0f
+            };
+        }
+
         mShader = new LinearGradient(
-            mStartPos[0] * mSize[0],
-            mStartPos[1] * mSize[1],
-            mEndPos[0] * mSize[0],
-            mEndPos[1] * mSize[1],
+                startPos[0] * mSize[0],
+                startPos[1] * mSize[1],
+                endPos[0] * mSize[0],
+                endPos[1] * mSize[1],
             mColors,
             mLocations,
             Shader.TileMode.CLAMP);

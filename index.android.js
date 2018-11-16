@@ -25,7 +25,10 @@ type Props = {
   end?: number[] | {x: number, y: number};
   colors: string[];
   locations?: number[];
-} & typeof(View);
+  useAngle?: boolean;
+  angleCenter?: {x: number, y: number};
+  angle?: number;
+} & ViewProps;
 
 /**
  * Checks if value is a valid number. Otherwise, defaults to defaultValue.
@@ -55,6 +58,9 @@ export default class LinearGradient extends Component<Props> {
       colors,
       end,
       locations,
+      useAngle,
+      angleCenter,
+      angle,
       start,
       style,
       ...otherProps
@@ -91,6 +97,9 @@ export default class LinearGradient extends Component<Props> {
           startPoint={convertPoint('start', start)}
           endPoint={convertPoint('end', end)}
           locations={locations ? locations.slice(0, colors.length) : null}
+          useAngle={useAngle}
+          angleCenter={convertPoint('angleCenter', angleCenter)}
+          angle={angle}
           borderRadii={borderRadiiPerCorner}
         />
         { children }

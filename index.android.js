@@ -29,8 +29,8 @@ type PropsType = {
   end?: Array<number> | {x: number, y: number};
   colors: Array<string>;
   locations?: Array<number>;
-} & ViewProps;
-
+  animation: boolean;
+} & typeof(View);
 /**
  * Checks if value is a valid number. Otherwise, defaults to defaultValue.
  * 
@@ -80,6 +80,7 @@ export default class LinearGradient extends Component {
       locations,
       start,
       style,
+      animation,
       ...otherProps
     } = this.props;
 
@@ -105,6 +106,35 @@ export default class LinearGradient extends Component {
       validRadius(flatStyle.borderBottomLeftRadius),
       validRadius(flatStyle.borderBottomLeftRadius)
     ];
+    if(animation) {
+      return (
+        <Animated.View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>
+          <NativeLinearGradient
+            style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
+            colors={colors.map(processColor)}
+            start={convertPoint('start', start)}
+            end={convertPoint('end', end)}
+            locations={locations ? locations.slice(0, colors.length) : null}
+            borderRadii={borderRadiiPerCorner}
+          />
+          { children }
+        </Animated.View>
+      );
+    } else {
+      return (
+        <View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>
+          <NativeLinearGradient
+            style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
+            colors={colors.map(processColor)}
+            start={convertPoint('start', start)}
+            end={convertPoint('end', end)}
+            locations={locations ? locations.slice(0, colors.length) : null}
+            borderRadii={borderRadiiPerCorner}
+          />
+          { children }
+        </View>
+      );
+    }
 
     return (
       <View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>

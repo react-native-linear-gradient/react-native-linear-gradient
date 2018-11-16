@@ -22,15 +22,16 @@ const convertPoint = (name, point) => {
   return point;
 };
 
-type Props = {
-  start?: number[] | {x: number, y: number};
-  end?: number[] | {x: number, y: number};
+type Point = $Exact<{x: number, y: number}>;
+type Props = $Exact<{
+  start?: Point;
+  end?: Point;
   colors: string[];
   locations?: number[];
   useAngle?: boolean;
-  angleCenter?: {x: number, y: number};
+  angleCenter?: Point;
   angle?: number;
-} & typeof(View);
+}> & typeof(View);
 
 export default class LinearGradient extends Component<Props> {
   props: Props;

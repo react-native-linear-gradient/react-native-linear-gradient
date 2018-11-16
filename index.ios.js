@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import { processColor, View } from 'react-native';
 
-import NativeLinearGradient from './nativeLinearGradient';
+import NativeLinearGradient from './common';
 
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {

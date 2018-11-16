@@ -3,8 +3,11 @@
  * @flow
  */
 import React, { Component } from 'react';
-import { processColor, requireNativeComponent, View } from 'react-native';
+import { processColor, View } from 'react-native';
 
+import NativeLinearGradient from './common';
+
+// TODO: Update Windows native code + update Props to share the same API with iOS/android
 type Props = {
   start?: number[];
   end?: number[];
@@ -40,5 +43,3 @@ export default class LinearGradient extends Component<Props> {
     );
   }
 }
-
-const NativeLinearGradient = requireNativeComponent('BVLinearGradient', null);

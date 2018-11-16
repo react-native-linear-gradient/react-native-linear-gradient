@@ -14,6 +14,7 @@ const convertPoint = (name, point) => {
       'Array type is deprecated.'
     );
   }
+  // TODO: Update Android native code to receive a {x, y} object, not an array
   if (point !== null && typeof point === 'object') {
     return [point.x, point.y];
   }

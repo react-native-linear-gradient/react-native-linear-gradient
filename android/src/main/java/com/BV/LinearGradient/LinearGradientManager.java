@@ -15,6 +15,9 @@ public class LinearGradientManager extends SimpleViewManager<LinearGradientView>
     public static final String PROP_LOCATIONS = "locations";
     public static final String PROP_START_POS = "startPoint";
     public static final String PROP_END_POS = "endPoint";
+    public static final String PROP_USE_ANGLE = "useAngle";
+    public static final String PROP_ANGLE_CENTER = "angleCenter";
+    public static final String PROP_ANGLE = "angle";
     public static final String PROP_BORDER_RADII = "borderRadii";
 
     @Override
@@ -47,6 +50,21 @@ public class LinearGradientManager extends SimpleViewManager<LinearGradientView>
     @ReactProp(name=PROP_END_POS)
     public void setEndPosition(LinearGradientView gradientView, ReadableArray endPos) {
         gradientView.setEndPosition(endPos);
+    }
+
+    @ReactProp(name=PROP_USE_ANGLE, defaultBoolean = false)
+    public void setUseAngle(LinearGradientView gradientView, boolean useAngle) {
+        gradientView.setUseAngle(useAngle);
+    }
+
+    @ReactProp(name=PROP_ANGLE_CENTER)
+    public void setAngleCenter(LinearGradientView gradientView, ReadableArray in) {
+        gradientView.setAngleCenter(in);
+    }
+
+    @ReactProp(name=PROP_ANGLE, defaultFloat = 45.0f)
+    public void setAngle(LinearGradientView gradientView, float angle) {
+        gradientView.setAngle(angle);
     }
 
     // temporary solution until following issue is resolved:

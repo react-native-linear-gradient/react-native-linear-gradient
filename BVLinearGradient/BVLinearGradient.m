@@ -19,6 +19,11 @@
   return (BVLinearGradientLayer *)self.layer;
 }
 
+- (NSArray *)colors
+{
+    return self.gradientLayer.colors;
+}
+
 - (void)setColors:(NSArray *)colorStrings
 {
     NSMutableArray *colors = [NSMutableArray arrayWithCapacity:colorStrings.count];
@@ -36,9 +41,19 @@
     self.gradientLayer.colors = colors;
 }
 
+- (CGPoint)startPoint
+{
+    return self.gradientLayer.startPoint;
+}
+
 - (void)setStartPoint:(CGPoint)startPoint
 {
   self.gradientLayer.startPoint = startPoint;
+}
+
+- (CGPoint)endPoint
+{
+    return self.gradientLayer.endPoint;
 }
 
 - (void)setEndPoint:(CGPoint)endPoint
@@ -46,9 +61,44 @@
   self.gradientLayer.endPoint = endPoint;
 }
 
+- (NSArray *)locations
+{
+    return self.gradientLayer.locations;
+}
+
 - (void)setLocations:(NSArray *)locations
 {
-  self.gradientLayer.locations = locations;
+    self.gradientLayer.locations = locations;
+}
+
+- (BOOL)useAngle
+{
+    return self.gradientLayer.useAngle;
+}
+    
+- (void)setUseAngle:(BOOL)useAngle
+{
+    self.gradientLayer.useAngle = useAngle;
+}
+
+- (CGPoint)angleCenter
+{
+    return self.gradientLayer.angleCenter;
+}
+    
+- (void)setAngleCenter:(CGPoint)angleCenter
+{
+    self.gradientLayer.angleCenter = angleCenter;
+}
+
+- (CGFloat)angle
+{
+    return self.gradientLayer.angle;
+}
+    
+- (void)setAngle:(CGFloat)angle
+{
+    self.gradientLayer.angle = angle;
 }
 
 @end

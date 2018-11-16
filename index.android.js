@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import { processColor, StyleSheet, View } from 'react-native';
 
-import NativeLinearGradient from './common';
+import NativeLinearGradient, { type Props } from './common';
 
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
@@ -19,16 +19,6 @@ const convertPoint = (name, point) => {
   }
   return point;
 };
-
-type Props = {
-  start?: number[] | {x: number, y: number};
-  end?: number[] | {x: number, y: number};
-  colors: string[];
-  locations?: number[];
-  useAngle?: boolean;
-  angleCenter?: {x: number, y: number};
-  angle?: number;
-} & ViewProps;
 
 /**
  * Checks if value is a valid number. Otherwise, defaults to defaultValue.

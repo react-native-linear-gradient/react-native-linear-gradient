@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import { processColor, View } from 'react-native';
 
-import NativeLinearGradient from './common';
+import NativeLinearGradient, { type Props } from './common';
 
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
@@ -21,17 +21,6 @@ const convertPoint = (name, point) => {
   }
   return point;
 };
-
-type Point = $Exact<{x: number, y: number}>;
-type Props = $Exact<{
-  start?: Point;
-  end?: Point;
-  colors: string[];
-  locations?: number[];
-  useAngle?: boolean;
-  angleCenter?: Point;
-  angle?: number;
-}> & typeof(View);
 
 export default class LinearGradient extends Component<Props> {
   props: Props;

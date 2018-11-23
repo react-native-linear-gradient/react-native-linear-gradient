@@ -27,7 +27,6 @@ Then either:
 add the following line to your Podfile:
 
 ```sh
-pod 'React', :path => '../node_modules/react-native'
 pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 ```
 

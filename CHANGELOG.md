@@ -1,6 +1,6 @@
 # ChangeLog
 
-## Unreleased
+## 2.5.2 - 2018-11-26
 
 - Remove PropTypes + update Flow types
 

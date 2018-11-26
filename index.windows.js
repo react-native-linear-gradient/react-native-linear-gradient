@@ -2,28 +2,24 @@
  * @providesModule LinearGradient
  * @flow
  */
-import React, { Component, PropTypes } from 'react';
-import { processColor, requireNativeComponent, View } from 'react-native';
+import React, { Component } from 'react';
+import { processColor, View } from 'react-native';
 
-type PropsType = {
-  start?: Array<number>;
-  end?: Array<number>;
-  colors: Array<string>;
-  locations?: Array<number>;
+import NativeLinearGradient from './common';
+
+// TODO: Update Windows native code + update Props to share the same API with iOS/android
+type Props = {
+  start?: number[];
+  end?: number[];
+  colors: string[];
+  locations?: number[];
 } & typeof(View);
 
-export default class LinearGradient extends Component {
-  static propTypes = {
-    start: PropTypes.arrayOf(PropTypes.number),
-    end: PropTypes.arrayOf(PropTypes.number),
-    colors: PropTypes.arrayOf(PropTypes.string).isRequired,
-    locations: PropTypes.arrayOf(PropTypes.number),
-    ...View.propTypes,
-  };
-  props: PropsType;
+export default class LinearGradient extends Component<Props> {
+  props: Props;
   gradientRef: any;
 
-  setNativeProps(props: PropsType) {
+  setNativeProps(props: Props) {
     this.gradientRef.setNativeProps(props);
   }
 
@@ -47,5 +43,3 @@ export default class LinearGradient extends Component {
     );
   }
 }
-
-const NativeLinearGradient = requireNativeComponent('BVLinearGradient', null);

@@ -3,13 +3,9 @@
  * @flow
  */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { processColor, PointPropType, View, ViewPropTypes } from 'react-native';
-import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
-const deprecatedPropType = require('react-native/Libraries/Utilities/deprecatedPropType.js');
-const ColorPropType = require('react-native/Libraries/StyleSheet/ColorPropType.js');
+import { processColor, View } from 'react-native';
 
-import NativeLinearGradient from './nativeLinearGradient';
+import NativeLinearGradient, { type Props } from './common';
 
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
@@ -26,40 +22,8 @@ const convertPoint = (name, point) => {
   return point;
 };
 
-type PropsType = {
-  start?: Array<number> | {x: number, y: number};
-  end?: Array<number> | {x: number, y: number};
-  colors: Array<string>;
-  locations?: Array<number>;
-  useAngle?: boolean;
-  angleCenter?: {x: number, y: number};
-  angle?: number;
-} & ViewProps;
-
-export default class LinearGradient extends Component {
-  static propTypes = {
-    start: PropTypes.oneOfType([
-      PointPropType,
-      deprecatedPropType(
-        PropTypes.arrayOf(PropTypes.number),
-        'Use point object with {x, y} instead.'
-      )
-    ]),
-    end: PropTypes.oneOfType([
-      PointPropType,
-      deprecatedPropType(
-        PropTypes.arrayOf(PropTypes.number),
-        'Use point object with {x, y} instead.'
-      )
-    ]),
-    colors: PropTypes.arrayOf(ColorPropType).isRequired,
-    locations: PropTypes.arrayOf(PropTypes.number),
-    useAngle: PropTypes.bool,
-    angleCenter: PointPropType,
-    angle: PropTypes.number,
-    ...ViewPropTypes,
-  };
-  props: PropsType;
+export default class LinearGradient extends Component<Props> {
+  props: Props;
   gradientRef: any;
 
   static defaultProps = {
@@ -67,7 +31,7 @@ export default class LinearGradient extends Component {
     end: { x: 0.5, y: 1.0 },
   };
 
-  setNativeProps(props: PropsType) {
+  setNativeProps(props: Props) {
     this.gradientRef.setNativeProps(props);
   }
 
@@ -95,7 +59,7 @@ export default class LinearGradient extends Component {
         colors={colors.map(processColor)}
         locations={locations ? locations.slice(0, colors.length) : null}
         useAngle={useAngle}
-        angleCenter={convertPoint('angleCenter', angleCenter)}
+        angleCenter={angleCenter}
         angle={angle}
       />
     );

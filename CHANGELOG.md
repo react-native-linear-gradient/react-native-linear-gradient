@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Remove PropTypes + update Flow types
+
 ## 2.4.4 - 2018-11-16
 
 - Added support for angled gradient (iOS and Android)

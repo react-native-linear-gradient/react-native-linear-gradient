@@ -36,8 +36,9 @@
     "url": "git@github.com:react-native-community/react-native-linear-gradient.git"
   },
   "dependencies": {},
+  "peerDependencies": {
+    "react-native": ">=0.55"
+  },
   "devDependencies": {
-    "jest-cli": "0.2.1",
-    "prop-types": "^15.5.10"
   }
 }

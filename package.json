@@ -1,6 +1,6 @@
 {
   "name": "react-native-linear-gradient",
-  "version": "2.4.4",
+  "version": "2.5.2",
   "description": "A <LinearGradient> element for React Native",
   "main": "index",
   "author": {
@@ -39,6 +39,5 @@
   "peerDependencies": {
     "react-native": ">=0.55"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

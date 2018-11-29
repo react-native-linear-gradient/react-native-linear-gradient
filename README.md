@@ -160,6 +160,18 @@ Using the styles from above, set `start` and `end` like this to make the gradien
 </LinearGradient>
 ```
 
+### Text gradient (iOS)
+
+On iOS you can use the `MaskedViewIOS` to display text with a gradient. The trick here is to render the text twice; once for the mask, and once to let the gradient have the correct size (hence the `opacity: 0`):
+
+```jsx
+<MaskedViewIOS maskElement={<Text style={styles.text} />}>
+  <LinearGradient colors={['#f00', '#0f0']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
+    <Text style={[styles.text, { opacity: 0 }]} />
+  </LinearGradient>
+</MaskedViewIOS>
+```
+
 ### Additional props
 In addition to regular `View` props, you can also provide additional props to customize your gradient look:
 

@@ -1,5 +1,10 @@
 # ChangeLog
 
+## 2.5.3 - 2018-12-03
+
+- Fix angled gradient on Android
+- fix podspec
+
 ## 2.5.2 - 2018-11-26
 
 - Remove PropTypes + update Flow types

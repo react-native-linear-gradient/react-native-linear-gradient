@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		64AA15111EF7F31200718508 /* BVLinearGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */; };
 		64AA15121EF7F31200718508 /* BVLinearGradientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045EF1C4E5D290001F552 /* BVLinearGradientManager.m */; };
+		B5C1E1CD22084425002D0DFF /* BVLinearGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BF2FA320D7DC1F006672AE /* BVLinearGradientLayer.m */; };
 		D6BF2FA420D7DC1F006672AE /* BVLinearGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BF2FA320D7DC1F006672AE /* BVLinearGradientLayer.m */; };
 		EF6045F01C4E5D290001F552 /* BVLinearGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */; };
 		EF6045F11C4E5D290001F552 /* BVLinearGradientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045EF1C4E5D290001F552 /* BVLinearGradientManager.m */; };
@@ -184,6 +185,7 @@
 			files = (
 				64AA15111EF7F31200718508 /* BVLinearGradient.m in Sources */,
 				64AA15121EF7F31200718508 /* BVLinearGradientManager.m in Sources */,
+				B5C1E1CD22084425002D0DFF /* BVLinearGradientLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

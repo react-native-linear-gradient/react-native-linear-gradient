@@ -4,6 +4,7 @@
 
 - Fix angled gradient on Android
 - fix podspec
+- Fixed tvOS Target Membership for BVLinearGradientLayer.m
 
 ## 2.5.2 - 2018-11-26
 

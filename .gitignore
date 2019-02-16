@@ -10,3 +10,4 @@ gradle/
 *.properties
 *.iml
 npm-debug.log
+.DS_Store

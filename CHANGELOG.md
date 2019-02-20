@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 2.5.4 - 2019-02-20
+
+- Fix flow definition for LinearGradient prop types
+
 ## 2.5.3 - 2018-12-03
 
 - Fix angled gradient on Android

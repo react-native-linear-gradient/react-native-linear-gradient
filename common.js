@@ -5,7 +5,7 @@ import { requireNativeComponent, View } from 'react-native';
 export default requireNativeComponent('BVLinearGradient', null);
 
 export type Point = $Exact<{x: number, y: number}>;
-export type Props = $Exact<{
+type LinearGradientProps = {
   start?: Point;
   end?: Point;
   colors: string[];
@@ -13,4 +13,8 @@ export type Props = $Exact<{
   useAngle?: boolean;
   angleCenter?: Point;
   angle?: number;
-}> & typeof(View);
+};
+
+type ViewProps = typeof(View);
+
+export type Props = {| ...LinearGradientProps, ...ViewProps |}

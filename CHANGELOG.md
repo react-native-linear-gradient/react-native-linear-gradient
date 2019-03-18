@@ -1,8 +1,9 @@
 # ChangeLog
 
-## 2.5.4 - 2019-02-20
+## 2.5.4 - 2019-03-18
 
 - Fix flow definition for LinearGradient prop types
+- Fix tvOS
 
 ## 2.5.3 - 2018-12-03
 

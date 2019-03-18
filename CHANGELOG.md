@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 2.5.5
+
+- Change Flow types to work with newer versions of Flow.
+
 ## 2.5.4 - 2019-03-18
 
 - Fix flow definition for LinearGradient prop types

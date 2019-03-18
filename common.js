@@ -15,6 +15,5 @@ type LinearGradientProps = {
   angle?: number;
 };
 
-type ViewProps = typeof(View);
-
-export type Props = {| ...LinearGradientProps, ...ViewProps |}
+type ViewProps = ElementProps<typeof View>;
+export type Props = {| ...$Exact<LinearGradientProps>, ...ViewProps |}

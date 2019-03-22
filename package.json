@@ -39,5 +39,14 @@
   "peerDependencies": {
     "react-native": ">=0.55"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "flow-bin": "^0.92",
+    "react": "^16.8.3",
+    "react-native": "^0.59.1"
+  },
+  "scripts": {
+    "flow": "yarn flow:android && yarn flow:ios",
+    "flow:android": "flow check --flowconfig-name .flowconfig.android",
+    "flow:ios": "flow check"
+  }
 }

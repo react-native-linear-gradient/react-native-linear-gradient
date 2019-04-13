@@ -32,16 +32,20 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class App extends Component {
+export default class App extends Component<{}, {clicked: boolean}> {
 
   constructor() {
     super();
-
-    this.handleBtnPress = this.handleBtnPress.bind(this);
-
+    
     this.state = {
       clicked: false,
     };
+  }
+
+  handleBtnPress = () => {
+    this.setState({
+      clicked: !this.state.clicked,
+    });
   }
 
   render() {
@@ -64,11 +68,5 @@ export default class App extends Component {
         />
       </View>
     );
-  }
-
-  handleBtnPress() {
-    this.setState({
-      clicked: !this.state.clicked,
-    });
   }
 }

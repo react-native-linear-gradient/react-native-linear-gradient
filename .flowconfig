@@ -22,9 +22,6 @@
 ; Ignore polyfills
 .*/Libraries/polyfills/.*
 
-# Ignore examples
-.*/Examples/.*
-
 [include]
 
 [libs]
@@ -35,6 +32,7 @@ node_modules/react-native/flow/
 .*/node_modules/@react-native-community/cli/.*/.*
 
 [options]
+sharedmemory.hash_table_pow=21
 emoji=true
 
 esproposal.optional_chaining=enable

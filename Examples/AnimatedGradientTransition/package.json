@@ -8,15 +8,15 @@
   },
   "dependencies": {
     "lodash": "^4.17.10",
-    "react": "16.3.1",
-    "react-native": "0.55.4",
+    "react": "16.8.3",
+    "react-native": "0.59.1",
     "react-native-linear-gradient": "file:../../"
   },
   "devDependencies": {
     "babel-jest": "23.2.0",
     "babel-preset-react-native": "4.0.0",
     "jest": "23.2.0",
-    "react-test-renderer": "16.3.1"
+    "react-test-renderer": "16.8.3"
   },
   "jest": {
     "preset": "react-native"

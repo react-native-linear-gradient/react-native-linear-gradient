@@ -9,7 +9,9 @@ A `<LinearGradient>` component for react-native, as seen in
 
 ## Add it to your project
 
-You can try linking the project automatically:
+First, install it with `npm install react-native-linear-gradient --save`
+
+Then you can try to link the project automatically:
 
 `$ react-native link react-native-linear-gradient`
 

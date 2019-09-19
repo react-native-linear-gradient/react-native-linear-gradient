@@ -21,7 +21,19 @@ or do it manually as described below:
 
 - Run `npm install react-native-linear-gradient --save`
 
-Then either:
+Then,
+
+#### If using `react-native >= 0.60`
+
+`react-native` greater than `0.60` has [autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md), so you only need to run `pod install` inside the ios directory
+
+```sh
+cd ios && pod install && cd ..
+```
+
+#### If using `react-native < 0.60`
+
+Either:
 
 ##### Cocoapods
 add the following line to your Podfile:
@@ -65,6 +77,12 @@ For instance the podspec file does not contain the right data (author attributes
 - Run `npm install react-native-linear-gradient --save`
 
 Then:
+
+#### If using `react-native >= 0.60`
+
+`react-native` greater than `0.60` has [autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md), so you don't need to do anything.
+
+#### If using `react-native < 0.60`
 
 1. in `android/settings.gradle`
 ```

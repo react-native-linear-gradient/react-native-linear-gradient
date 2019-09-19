@@ -2,7 +2,18 @@
   "name": "react-native-linear-gradient",
   "version": "2.5.6",
   "description": "A <LinearGradient> element for React Native",
-  "main": "index",
+  "main": "index.js",
+  "files": [
+    "android",
+    "ios",
+    "windows",
+    "common.js",
+    "index.android.js",
+    "index.d.ts",
+    "index.ios.js",
+    "index.windows.js",
+    "BVLinearGradient.podspec"
+  ],
   "author": {
     "name": "Brent Vatne",
     "email": "brentvatne@gmail.com",
@@ -37,16 +48,15 @@
   },
   "dependencies": {},
   "peerDependencies": {
+    "react": "^16.8.1",
     "react-native": ">=0.55"
   },
   "devDependencies": {
-    "flow-bin": "^0.92",
-    "react": "^16.8.3",
-    "react-native": "^0.59.1"
+    "flow-bin": "^0.98",
+    "react": "16.8.6",
+    "react-native": "0.60.5"
   },
   "scripts": {
-    "flow": "yarn flow:android && yarn flow:ios",
-    "flow:android": "flow check --flowconfig-name .flowconfig.android",
-    "flow:ios": "flow check"
+    "flow": "flow check"
   }
 }

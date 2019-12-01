@@ -80,35 +80,35 @@ The following steps are only needed for React Native < 0.60
 
 1. in `android/settings.gradle`
 
-```groovy
-include ':react-native-linear-gradient'
-project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
-```
+   ```groovy
+   include ':react-native-linear-gradient'
+   project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
+   ```
 
 1. in `android/app/build.gradle` add:
 
-```groovy
-dependencies {
-    ...
-    implementation project(':react-native-linear-gradient')
-}
-```
+   ```groovy
+   dependencies {
+       ...
+       implementation project(':react-native-linear-gradient')
+   }
+   ```
 
 1. and finally, in `android/app/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
    or `android/app/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
 
-```java
-//...
-import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
-//...
-@Override
-protected List<ReactPackage> getPackages() {
-  return Arrays.<ReactPackage>asList(
-    new MainReactPackage(),
-    new LinearGradientPackage() // <---- and This!
-  );
-}
-```
+   ```java
+   //...
+   import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
+   //...
+   @Override
+   protected List<ReactPackage> getPackages() {
+     return Arrays.<ReactPackage>asList(
+       new MainReactPackage(),
+       new LinearGradientPackage() // <---- and This!
+     );
+   }
+   ```
 
 ### Windows (WPF)
 

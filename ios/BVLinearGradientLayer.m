@@ -49,6 +49,11 @@
 - (void)display {
     [super display];
 
+    // short circuit when height or width are 0. Fixes CGContext errors throwing
+    if (self.bounds.size.height == 0 || self.bounds.size.width == 0) {
+      return;
+    }
+
     BOOL hasAlpha = NO;
 
     for (NSInteger i = 0; i < self.colors.count; i++) {

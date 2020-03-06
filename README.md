@@ -261,7 +261,7 @@ An optional array of numbers defining the location of each gradient color stop, 
 You may want to achieve an angled gradient effect, similar to those in image editors like Photoshop.
 One issue is that you have to calculate the angle based on the view's size, which only happens asynchronously and will cause unwanted flickr.
 
-In order to do that correctly you can set `{ useAngle: true, angle: 45, angleCenter: { x: 0.5, y: 0.5} }`, to achieve a gradient with a 45 degrees angle, with its center positioned in the view's exact center.
+In order to do that correctly you can set `useAngle={true} angle={45} angleCenter={{x:0.5,y:0.5}}`, to achieve a gradient with a 45 degrees angle, with its center positioned in the view's exact center.
 
 `useAngle` is used to turn on/off angle based calculation (as opposed to `start`/`end`).
 `angle` is the angle in degrees.

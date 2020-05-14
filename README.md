@@ -31,11 +31,11 @@ Note: If you are using react-native version 0.60 or higher you don't need to lin
 
 #### iOS
 
-For React Native >= 0.60.0 run the following command in the `ios/` folder and
+For React Native >= 0.60.0 run the following command and
 skip the rest of the section.
 
 ```sh
-pod install
+npx pod-install
 ```
 
 ##### CocoaPods

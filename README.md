@@ -6,21 +6,27 @@
 A `<LinearGradient>` component for react-native, as seen in
 [react-native-login](https://github.com/brentvatne/react-native-login).
 
-## Add it to your project
+## Installation
 
-### Using Yarn
+Using Yarn
 
 ```sh
 yarn add react-native-linear-gradient
 ```
 
-### Using NPM
+Using NPM
 
 ```sh
 npm install react-native-linear-gradient --save
 ```
 
-## Manual link steps (React Native < 0.60)
+### With React Native >= 0.60
+
+Run `pod install` inside your `ios/` folder.
+
+## Linking (for React Native <= 0.59 only)
+
+Note: If you are using react-native version 0.60 or higher you don't need to link [react-native-linear-gradient](https://github.com/react-native-community/react-native-linear-gradient).
 
 ### Link the library
 

@@ -80,14 +80,14 @@ Note: If you are using react-native version 0.60 or higher you don't need to lin
 
   <summary>Android</summary>
 
-  1. in `android/settings.gradle`
+  In `android/settings.gradle`
 
   ```groovy
   include ':react-native-linear-gradient'
   project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
   ```
 
-  1. in `android/app/build.gradle` add:
+  In `android/app/build.gradle` add:
 
   ```groovy
   dependencies {
@@ -96,13 +96,16 @@ Note: If you are using react-native version 0.60 or higher you don't need to lin
   }
   ```
 
-  1. and finally, in `android/app/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
+  In `android/app/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
     or `android/app/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
 
   ```java
   // ...
+  
   import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
+  
   // ...
+  
   @Override
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(

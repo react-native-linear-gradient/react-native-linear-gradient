@@ -43,6 +43,7 @@ Note: If you are using react-native version 0.60 or higher you don't need to lin
 ```sh
 react-native link react-native-linear-gradient
 ```
+Note: If you are using react-native version 0.60 or higher you don't need to link [react-native-linear-gradient](https://github.com/react-native-community/react-native-linear-gradient).
 
 ### Manual
 
@@ -239,13 +240,13 @@ An optional array of numbers defining the location of each gradient color stop, 
 
 #### useAngle / angle / angleCenter
 
-You may want to achieve an angled gradient effect, similar to those in image editors like Photoshop.  
+You may want to achieve an angled gradient effect, similar to those in image editors like Photoshop.
 One issue is that you have to calculate the angle based on the view's size, which only happens asynchronously and will cause unwanted flickr.
 
 In order to do that correctly you can set `{ useAngle: true, angle: 45, angleCenter: { x: 0.5, y: 0.5} }`, to achieve a gradient with a 45 degrees angle, with its center positioned in the view's exact center.
 
-`useAngle` is used to turn on/off angle based calculation (as opposed to `start`/`end`).  
-`angle` is the angle in degrees.  
+`useAngle` is used to turn on/off angle based calculation (as opposed to `start`/`end`).
+`angle` is the angle in degrees.
 `angleCenter` is the center point of the angle (will control the weight and stretch of the gradient like it does in photoshop.
 
 ## An example app

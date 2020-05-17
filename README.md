@@ -6,6 +6,14 @@
 A `<LinearGradient>` component for react-native, as seen in
 [react-native-login](https://github.com/brentvatne/react-native-login).
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage and Examples](#examples)
+- [API](#api)
+- [Example App](#an-example-app)
+- [Other Platforms](#other-platforms)
+
 ## Installation
 
 Using Yarn

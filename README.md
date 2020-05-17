@@ -28,23 +28,14 @@ Run `pod install` inside your `ios/` folder.
 
 Note: If you are using react-native version 0.60 or higher you don't need to link [react-native-linear-gradient](https://github.com/react-native-community/react-native-linear-gradient).
 
-### Link the library
+### Automatic
 
 ```sh
 react-native link react-native-linear-gradient
 ```
 Note: If you are using react-native version 0.60 or higher you don't need to link [react-native-linear-gradient](https://github.com/react-native-community/react-native-linear-gradient).
 
-#### iOS
-
-For React Native >= 0.60.0 run the following command and
-skip the rest of the section.
-
-```sh
-npx pod-install
-```
-
-##### CocoaPods
+#### iOS CocoaPods
 
 Add the following line to your Podfile:
 
@@ -52,21 +43,17 @@ Add the following line to your Podfile:
 pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 ```
 
-or:
+Run `pod install` inside your `ios/` folder.
 
-##### Manually
+### Manual Linking
 
-1. Open your project in Xcode, right click on `Libraries` and click `Add
-   Files to "Your Project Name"` Look under `node_modules/react-native-linear-gradient/ios` and add `BVLinearGradient.xcodeproj`.  [(Screenshot 1)](https://drive.google.com/open?id=1ynspo3wZjCLav23teGwKtzh7pcXpeREO) [(Screenshot 2)](https://drive.google.com/open?id=1cXW4DZ-hz-DiugZ3E30msd_4JoUWNE4Z).
-2. Add `libBVLinearGradient.a` to `Build Phases -> Link Binary With Libraries`
+1. Open your project in Xcode
+2. Right click on `Libraries` and click `Add Files to "Your Project Name"`. Look under `node_modules/react-native-linear-gradient/ios` and add `BVLinearGradient.xcodeproj`.  [(Screenshot 1)](https://drive.google.com/open?id=1ynspo3wZjCLav23teGwKtzh7pcXpeREO) [(Screenshot 2)](https://drive.google.com/open?id=1cXW4DZ-hz-DiugZ3E30msd_4JoUWNE4Z).
+3. Add `libBVLinearGradient.a` to `Build Phases -> Link Binary With Libraries`
    [(Screenshot 1)](https://drive.google.com/open?id=12qT0Z7rfYrhnHYYECzVOAEMTjiPS2vJr) [(Screenshot 2)](https://drive.google.com/open?id=1LZ2CrOHydBjy479r9aEyMkvqqSbIdDLm).
-3. Click on `BVLinearGradient.xcodeproj` in `Libraries` and go the `Build
-   Settings` tab. Double click the text to the right of `Header Search
-   Paths` and verify that it has `$(SRCROOT)/../react-native/React` - if it
-   isn't, then add it. This is so Xcode is able to find the headers that
-   the `BVLinearGradient` source files are referring to by pointing to the
-   header files installed within the `react-native` `node_modules`
-   directory. [(Screenshot)](https://drive.google.com/open?id=1-m3KasC8xudkppVe_E2RsuFaxOfyx6FO).
+4. Click on `BVLinearGradient.xcodeproj` in `Libraries` and go the `Build
+   Settings` tab.
+5. Double click the text to the right of `Header Search Paths` and verify that it has `$(SRCROOT)/../react-native/React` - if it isn't, then add it. [(Screenshot)](https://drive.google.com/open?id=1-m3KasC8xudkppVe_E2RsuFaxOfyx6FO).
 
 Then:
 

@@ -12,7 +12,7 @@ A `<LinearGradient>` component for react-native, as seen in
 
 - [Installation](#installation)
 - [Usage and Examples](#examples)
-- [API](#api)
+- [Props](#props)
 - [Example App](#an-example-app)
 - [Other Platforms](#other-platforms)
 
@@ -203,7 +203,7 @@ Check out [Examples/AnimatedGradient](https://github.com/react-native-community/
 
 *This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
 
-## API
+## Props
 
 In addition to regular `View` props, you can also provide additional props to customize your gradient look:
 

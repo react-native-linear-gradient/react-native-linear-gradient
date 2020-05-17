@@ -55,21 +55,9 @@ Run `pod install` inside your `ios/` folder.
    Settings` tab.
 5. Double click the text to the right of `Header Search Paths` and verify that it has `$(SRCROOT)/../react-native/React` - if it isn't, then add it. [(Screenshot)](https://drive.google.com/open?id=1-m3KasC8xudkppVe_E2RsuFaxOfyx6FO).
 
-Then:
-
-- Whenever you want to use it within React code now you can: `import LinearGradient from 'react-native-linear-gradient';`
-
-**If you're having trouble, you can point your `package.json` at GitHub to see if the issue has been fixed.  Simply change the dependency**
-
-`"react-native-linear-gradient": "react-native-community/react-native-linear-gradient",`
-
-**to get the data right from GitHub instead of npm and then `npm install`**
-
-For instance the podspec file does not contain the right data (author attributes etc..) in npm while it does in the GitHub repo.
-
 #### Android
 
-The following steps are only needed for React Native < 0.60
+Note: the following steps are only needed for React Native < 0.60
 
 1. in `android/settings.gradle`
 
@@ -90,18 +78,18 @@ The following steps are only needed for React Native < 0.60
 1. and finally, in `android/app/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
    or `android/app/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
 
-   ```java
-   //...
-   import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
-   //...
-   @Override
-   protected List<ReactPackage> getPackages() {
-     return Arrays.<ReactPackage>asList(
-       new MainReactPackage(),
-       new LinearGradientPackage() // <---- and This!
-     );
-   }
-   ```
+```java
+// ...
+import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
+// ...
+@Override
+protected List<ReactPackage> getPackages() {
+  return Arrays.<ReactPackage>asList(
+    new MainReactPackage(),
+    new LinearGradientPackage() // <---- and This!
+  );
+}
+```
 
 ### Windows (WPF)
 

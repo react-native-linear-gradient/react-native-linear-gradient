@@ -249,6 +249,37 @@ You can see this component in action in [brentvatne/react-native-login](https://
 
 - Web: [react-native-web-community/react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient)
 
+## Troubleshooting
+
+### iOS build fails: library not found, "BVLinearGradient" was not found in the UIManager
+
+1. Ensure you have followed the [installations steps](https://github.com/react-native-community/react-native-linear-gradient#manual-link-steps-react-native--060) correctly. (`react-native link` for React Native < 0.60 and `npx pod-install` instead for > 0.60).
+2. Ensure `pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'` is present in your `ios/Podfile`
+3. Ensure you use `ios/**.xcworkspace` file instead of `ios./**.xcodeproj`
+
+### Invariant Violation: Element type is invalid
+
+Ensure you import the `LinearGradient` correctly:
+
+```
+// Like that:
+import LinearGradient from 'react-native-linear-gradient
+
+// Not like that:
+import { LinearGradient } from 'react-native-linear-gradient
+```
+
+### Other
+
+Clearing build caches and reinstalling dependencies sometimes solve some issues. Try next steps:
+
+1. Reinstalling `node_modules` with `rm -rf node_modules && yarn start`
+2. Clearing Android Gradle cache with `(cd android && ./gradlew clean)`
+3. Reinstalling iOS Cocoapods with `(cd ios && rm -rf ./ios/Pods/**) && npx pod-install`
+4. Clering Xcode Build cache (open Xcode and go to Product -> Clean Build Folder)
+
+For other troubleshooting issues, go to [React Native Troubleshooting](https://reactnative.dev/docs/troubleshooting.html)
+
 ## License
 
 MIT

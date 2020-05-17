@@ -204,7 +204,7 @@ Check out [Examples/AnimatedGradient](https://github.com/react-native-community/
 
 *This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
 
-### API
+## API
 
 In addition to regular `View` props, you can also provide additional props to customize your gradient look:
 
@@ -249,11 +249,11 @@ In order to do that correctly you can set `{ useAngle: true, angle: 45, angleCen
 `angle` is the angle in degrees.
 `angleCenter` is the center point of the angle (will control the weight and stretch of the gradient like it does in photoshop.
 
-### An example app
+## An example app
 
 You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/App/Screens/LoginScreen.js#L58-L62).
 
-### Other platforms
+## Other platforms
 
 - Web: [react-native-web-community/react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient)
 

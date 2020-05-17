@@ -32,7 +32,7 @@ npm install react-native-linear-gradient --save
 
 ### With React Native >= 0.60
 
-Run `pod install` inside your `ios/` folder.
+Run `npx pod-install`
 
 ## Linking (for React Native <= 0.59 only)
 
@@ -56,7 +56,7 @@ react-native link react-native-linear-gradient
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
   ```
 
-  Run `pod install` inside your `ios/` folder.
+  Run `npx pod-install`
 
 </details>
 

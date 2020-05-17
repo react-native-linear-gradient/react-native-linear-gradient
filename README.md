@@ -169,7 +169,7 @@ On iOS you can use the `MaskedViewIOS` to display text with a gradient. The tric
 </MaskedViewIOS>
 ```
 
-### Additional props
+### API
 
 In addition to regular `View` props, you can also provide additional props to customize your gradient look:
 

@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD024 MD034 MD033 -->
+
 # react-native-linear-gradient
 
 [![Version](https://img.shields.io/npm/v/react-native-linear-gradient.svg)](https://www.npmjs.com/package/react-native-linear-gradient)
@@ -43,78 +45,95 @@ react-native link react-native-linear-gradient
 ```
 Note: If you are using react-native version 0.60 or higher you don't need to link [react-native-linear-gradient](https://github.com/react-native-community/react-native-linear-gradient).
 
-#### iOS CocoaPods
+### Manual
 
-Add the following line to your Podfile:
+<details>
 
-```sh
-pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
-```
+  <summary>iOS (with Cocoapods)</summary>
 
-Run `pod install` inside your `ios/` folder.
+  Add the following line to your Podfile:
 
-### Manual Linking
+  ```sh
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+  ```
 
-1. Open your project in Xcode
-2. Right click on `Libraries` and click `Add Files to "Your Project Name"`. Look under `node_modules/react-native-linear-gradient/ios` and add `BVLinearGradient.xcodeproj`.  [(Screenshot 1)](https://drive.google.com/open?id=1ynspo3wZjCLav23teGwKtzh7pcXpeREO) [(Screenshot 2)](https://drive.google.com/open?id=1cXW4DZ-hz-DiugZ3E30msd_4JoUWNE4Z).
-3. Add `libBVLinearGradient.a` to `Build Phases -> Link Binary With Libraries`
-   [(Screenshot 1)](https://drive.google.com/open?id=12qT0Z7rfYrhnHYYECzVOAEMTjiPS2vJr) [(Screenshot 2)](https://drive.google.com/open?id=1LZ2CrOHydBjy479r9aEyMkvqqSbIdDLm).
-4. Click on `BVLinearGradient.xcodeproj` in `Libraries` and go the `Build
-   Settings` tab.
-5. Double click the text to the right of `Header Search Paths` and verify that it has `$(SRCROOT)/../react-native/React` - if it isn't, then add it. [(Screenshot)](https://drive.google.com/open?id=1-m3KasC8xudkppVe_E2RsuFaxOfyx6FO).
+  Run `pod install` inside your `ios/` folder.
 
-#### Android
+</details>
 
-Note: the following steps are only needed for React Native < 0.60
+<details>
 
-1. in `android/settings.gradle`
+  <summary>iOS (without Cocoapods)</summary>
 
-   ```groovy
-   include ':react-native-linear-gradient'
-   project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
-   ```
+  1. Open your project in Xcode
+  2. Right click on `Libraries` and click `Add Files to "Your Project Name"`.
+  3. Look under `node_modules/react-native-linear-gradient/ios` and add `BVLinearGradient.xcodeproj`.  [(Screenshot 1)](https://drive.google.com/open?id=1ynspo3wZjCLav23teGwKtzh7pcXpeREO) [(Screenshot 2)](https://drive.google.com/open?id=1cXW4DZ-hz-DiugZ3E30msd_4JoUWNE4Z).
+  4. Add `libBVLinearGradient.a` to `Build Phases -> Link Binary With Libraries`
+    [(Screenshot 1)](https://drive.google.com/open?id=12qT0Z7rfYrhnHYYECzVOAEMTjiPS2vJr) [(Screenshot 2)](https://drive.google.com/open?id=1LZ2CrOHydBjy479r9aEyMkvqqSbIdDLm).
+  5. Click on `BVLinearGradient.xcodeproj` in `Libraries` and go the `Build
+    Settings` tab.
+  6. Double click the text to the right of `Header Search Paths` and verify that it has `$(SRCROOT)/../react-native/React` - if it isn't, then add it. [(Screenshot)](https://drive.google.com/open?id=1-m3KasC8xudkppVe_E2RsuFaxOfyx6FO).
 
-1. in `android/app/build.gradle` add:
+</details>
 
-   ```groovy
-   dependencies {
-       ...
-       implementation project(':react-native-linear-gradient')
-   }
-   ```
+<details>
 
-1. and finally, in `android/app/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
-   or `android/app/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
+  <summary>Android</summary>
 
-```java
-// ...
-import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
-// ...
-@Override
-protected List<ReactPackage> getPackages() {
-  return Arrays.<ReactPackage>asList(
-    new MainReactPackage(),
-    new LinearGradientPackage() // <---- and This!
-  );
-}
-```
+  1. in `android/settings.gradle`
 
-### Windows (WPF)
+  ```groovy
+  include ':react-native-linear-gradient'
+  project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
+  ```
 
-1. in `windows/MyApp.sln` Add -> Existing Project: `node_modules/react-native-linear-gradient/windows/LinearGradientWPF/LinearGradientWPF.csproj`
+  1. in `android/app/build.gradle` add:
 
-2. in `windows/MyApp/MyAppWPF/MyAppWPF.csproj` Add -> Reference -> LinearGradientWPF
+  ```groovy
+  dependencies {
+      ...
+      implementation project(':react-native-linear-gradient')
+  }
+  ```
 
-3. in `windows/MyApp/MyAppWPF/AppReactPage.cs` add: `using LinearGradient;`
-  and
+  1. and finally, in `android/app/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
+    or `android/app/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
 
-```csharp
-public override List<IReactPackage> Packages => new List<IReactPackage>
-{
-  ...
-  new LinearGradientPackage()
-}
-```
+  ```java
+  // ...
+  import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
+  // ...
+  @Override
+  protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+      new MainReactPackage(),
+      new LinearGradientPackage() // <---- and This!
+    );
+  }
+  ```
+
+</details>
+
+<details>
+
+  <summary>Windows (WFP)</summary>
+
+  1. in `windows/MyApp.sln` Add -> Existing Project: `node_modules/react-native-linear-gradient/windows/LinearGradientWPF/LinearGradientWPF.csproj`
+
+  2. in `windows/MyApp/MyAppWPF/MyAppWPF.csproj` Add -> Reference -> LinearGradientWPF
+
+  3. in `windows/MyApp/MyAppWPF/AppReactPage.cs` add: `using LinearGradient;`
+    and
+
+  ```csharp
+  public override List<IReactPackage> Packages => new List<IReactPackage>
+  {
+    ...
+    new LinearGradientPackage()
+  }
+  ```
+
+</details>
 
 ## Examples
 

@@ -169,6 +169,14 @@ On iOS you can use the `MaskedViewIOS` to display text with a gradient. The tric
 </MaskedViewIOS>
 ```
 
+### Animated Gradient
+
+Check out [Examples/AnimatedGradient](https://github.com/react-native-community/react-native-linear-gradient/blob/master/Examples/AnimatedGradient/src/index.js) (`git clone` this project, cd into it, npm install, open in Xcode and run) to see how this is done:
+
+![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/master/images/example-animated.gif)
+
+*This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
+
 ### API
 
 In addition to regular `View` props, you can also provide additional props to customize your gradient look:
@@ -213,14 +221,6 @@ In order to do that correctly you can set `{ useAngle: true, angle: 45, angleCen
 `useAngle` is used to turn on/off angle based calculation (as opposed to `start`/`end`).
 `angle` is the angle in degrees.
 `angleCenter` is the center point of the angle (will control the weight and stretch of the gradient like it does in photoshop.
-
-### Updating the values for fun
-
-Check out [Examples/AnimatedGradient](https://github.com/react-native-community/react-native-linear-gradient/blob/master/Examples/AnimatedGradient/index.js) (`git clone` this project, cd into it, npm install, open in Xcode and run) to see how this is done:
-
-![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/master/images/example-animated.gif)
-
-*This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
 
 ### An example app
 

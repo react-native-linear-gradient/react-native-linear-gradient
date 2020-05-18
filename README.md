@@ -24,7 +24,7 @@ Using Yarn
 yarn add react-native-linear-gradient
 ```
 
-Using NPM
+Using npm
 
 ```sh
 npm install react-native-linear-gradient --save

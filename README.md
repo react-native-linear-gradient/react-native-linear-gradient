@@ -14,6 +14,7 @@ A `<LinearGradient>` component for react-native, as seen in
 - [Usage and Examples](#examples)
 - [Props](#props)
 - [Example App](#an-example-app)
+- [Troubleshooting](#troubleshooting)
 - [Other Platforms](#other-platforms)
 
 ## Installation
@@ -256,10 +257,6 @@ In order to do that correctly you can set `{ useAngle: true, angle: 45, angleCen
 
 You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/App/Screens/LoginScreen.js#L58-L62).
 
-## Other platforms
-
-- Web: [react-native-web-community/react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient)
-
 ## Troubleshooting
 
 ### iOS build fails: library not found, "BVLinearGradient" was not found in the UIManager
@@ -290,6 +287,10 @@ Clearing build caches and reinstalling dependencies sometimes solve some issues.
 4. Clering Xcode Build cache (open Xcode and go to Product -> Clean Build Folder)
 
 For other troubleshooting issues, go to [React Native Troubleshooting](https://reactnative.dev/docs/troubleshooting.html)
+
+## Other platforms
+
+- Web: [react-native-web-community/react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient)
 
 ## License
 

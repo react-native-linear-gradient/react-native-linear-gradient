@@ -44,7 +44,6 @@ Note: If you are using react-native version 0.60 or higher you don't need to lin
 ```sh
 react-native link react-native-linear-gradient
 ```
-Note: If you are using react-native version 0.60 or higher you don't need to link [react-native-linear-gradient](https://github.com/react-native-community/react-native-linear-gradient).
 
 ### Manual
 

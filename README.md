@@ -283,7 +283,7 @@ Clearing build caches and reinstalling dependencies sometimes solve some issues.
 1. Reinstalling `node_modules` with `rm -rf node_modules && yarn start`
 2. Clearing Android Gradle cache with `(cd android && ./gradlew clean)`
 3. Reinstalling iOS CocoaPods with `(cd ios && rm -rf ./ios/Pods/**) && npx pod-install`
-4. Clering Xcode Build cache (open Xcode and go to Product -> Clean Build Folder)
+4. Clearing Xcode Build cache (open Xcode and go to Product -> Clean Build Folder)
 
 For other troubleshooting issues, go to [React Native Troubleshooting](https://reactnative.dev/docs/troubleshooting.html)
 

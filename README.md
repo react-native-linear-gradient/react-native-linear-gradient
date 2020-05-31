@@ -49,7 +49,7 @@ react-native link react-native-linear-gradient
 
 <details>
 
-  <summary>iOS (with Cocoapods)</summary>
+  <summary>iOS (with CocoaPods)</summary>
 
   Add the following line to your Podfile:
 
@@ -63,7 +63,7 @@ react-native link react-native-linear-gradient
 
 <details>
 
-  <summary>iOS (without Cocoapods)</summary>
+  <summary>iOS (without CocoaPods)</summary>
 
   1. Open your project in Xcode
   2. Right click on `Libraries` and click `Add Files to "Your Project Name"`.
@@ -282,7 +282,7 @@ Clearing build caches and reinstalling dependencies sometimes solve some issues.
 
 1. Reinstalling `node_modules` with `rm -rf node_modules && yarn start`
 2. Clearing Android Gradle cache with `(cd android && ./gradlew clean)`
-3. Reinstalling iOS Cocoapods with `(cd ios && rm -rf ./ios/Pods/**) && npx pod-install`
+3. Reinstalling iOS CocoaPods with `(cd ios && rm -rf ./ios/Pods/**) && npx pod-install`
 4. Clering Xcode Build cache (open Xcode and go to Product -> Clean Build Folder)
 
 For other troubleshooting issues, go to [React Native Troubleshooting](https://reactnative.dev/docs/troubleshooting.html)

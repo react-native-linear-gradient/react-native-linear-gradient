@@ -1,5 +1,3 @@
-<!-- markdownlint-disable MD024 MD034 MD033 -->
-
 # react-native-linear-gradient
 
 [![Version](https://img.shields.io/npm/v/react-native-linear-gradient.svg)](https://www.npmjs.com/package/react-native-linear-gradient)
@@ -268,7 +266,7 @@ You can see this component in action in [brentvatne/react-native-login](https://
 
 Ensure you import the `LinearGradient` correctly:
 
-```
+```javascript
 // Like that:
 import LinearGradient from 'react-native-linear-gradient
 

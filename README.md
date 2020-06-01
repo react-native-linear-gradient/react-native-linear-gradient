@@ -205,6 +205,20 @@ Check out [Examples/AnimatedGradient](https://github.com/react-native-community/
 
 *This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
 
+### Transparent Gradient
+
+The use of `transparent` color will most likely not lead to the expected result. `transparent` is actually a transparent black color (`rgba(0, 0, 0, 0)`). If you need a gradient in which the color is "fading", you need to have the same color with changing alpha channel. Example:
+
+```jsx
+// RGBA
+
+<LinearGradient colors={['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 1)']} {...otherGradientProps} />
+
+// Hex
+
+<LinearGradient colors={['#FFFFFF00', '#FFFFFF']} {...otherGradientProps} />
+```
+
 ## Props
 
 In addition to regular `View` props, you can also provide additional props to customize your gradient look:

@@ -117,7 +117,7 @@ react-native link react-native-linear-gradient
 
 <details>
 
-  <summary>Windows (WFP)</summary>
+  <summary>Windows (WPF)</summary>
 
   1. in `windows/MyApp.sln` Add -> Existing Project: `node_modules/react-native-linear-gradient/windows/LinearGradientWPF/LinearGradientWPF.csproj`
 

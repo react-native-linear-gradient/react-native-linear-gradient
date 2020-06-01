@@ -99,11 +99,11 @@ react-native link react-native-linear-gradient
 
   ```java
   // ...
-  
+
   import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
-  
+
   // ...
-  
+
   @Override
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(

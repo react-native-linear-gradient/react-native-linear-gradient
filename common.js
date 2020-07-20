@@ -1,6 +1,6 @@
 // @flow
 
-import type { ElementProps } from 'react';
+import type { ElementConfig } from 'react';
 import { requireNativeComponent, typeof View } from 'react-native';
 
 export default requireNativeComponent('BVLinearGradient');
@@ -17,6 +17,6 @@ type LinearGradientProps = $ReadOnly<{|
   angle?: number;
 |}>;
 
-type ViewProps = ElementProps<View>;
+type ViewProps = ElementConfig<View>;
 
 export type Props = {| ...LinearGradientProps, ...ViewProps |}

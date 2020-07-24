@@ -292,7 +292,7 @@ import { LinearGradient } from 'react-native-linear-gradient
 
 Clearing build caches and reinstalling dependencies sometimes solve some issues. Try next steps:
 
-1. Reinstalling `node_modules` with `rm -rf node_modules && yarn start`
+1. Reinstalling `node_modules` with `rm -rf node_modules && yarn`
 2. Clearing Android Gradle cache with `(cd android && ./gradlew clean)`
 3. Reinstalling iOS CocoaPods with `(cd ios && rm -rf ./ios/Pods/**) && npx pod-install`
 4. Clearing Xcode Build cache (open Xcode and go to Product -> Clean Build Folder)

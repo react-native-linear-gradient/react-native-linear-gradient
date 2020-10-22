@@ -1,20 +1,22 @@
 // @flow
 
-import type { ElementProps } from 'react';
-import { requireNativeComponent, View } from 'react-native';
+import type { ElementConfig } from 'react';
+import { requireNativeComponent, typeof View } from 'react-native';
 
 export default requireNativeComponent('BVLinearGradient');
 
-export type Point = $Exact<{x: number, y: number}>;
-type LinearGradientProps = {
+export type Point = $ReadOnly<{| x: number, y: number |}>;
+
+type LinearGradientProps = $ReadOnly<{|
   start?: Point;
   end?: Point;
-  colors: string[];
-  locations?: number[];
+  colors: $ReadOnlyArray<string>;
+  locations?: $ReadOnlyArray<number>;
   useAngle?: boolean;
   angleCenter?: Point;
   angle?: number;
-};
+|}>;
 
-type ViewProps = ElementProps<typeof View>;
-export type Props = {| ...$Exact<LinearGradientProps>, ...ViewProps |}
+type ViewProps = ElementConfig<View>;
+
+export type Props = {| ...LinearGradientProps, ...ViewProps |}

@@ -1,1 +1,5 @@
 Examples/
+yarn.lock
+.gitattributes
+.flowconfig
+.flowconfig.android

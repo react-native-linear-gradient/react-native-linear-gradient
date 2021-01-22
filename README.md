@@ -282,10 +282,10 @@ Ensure you import the `LinearGradient` correctly:
 
 ```javascript
 // Like that:
-import LinearGradient from 'react-native-linear-gradient
+import LinearGradient from 'react-native-linear-gradient'
 
 // Not like that:
-import { LinearGradient } from 'react-native-linear-gradient
+import { LinearGradient } from 'react-native-linear-gradient'
 ```
 
 ### Other

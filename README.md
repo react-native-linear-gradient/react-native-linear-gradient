@@ -272,7 +272,7 @@ You can see this component in action in [brentvatne/react-native-login](https://
 
 ### iOS build fails: library not found, "BVLinearGradient" was not found in the UIManager
 
-1. Ensure you have followed the [installations steps](https://github.com/react-native-community/react-native-linear-gradient#manual-link-steps-react-native--060) correctly. (`react-native link` for React Native < 0.60 and `npx pod-install` instead for > 0.60).
+1. Ensure you have followed the [installations steps](#installation) correctly. (`react-native link` for React Native < 0.60 and `npx pod-install` instead for > 0.60).
 2. Ensure `pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'` is present in your `ios/Podfile`
 3. Ensure you use `ios/**.xcworkspace` file instead of `ios./**.xcodeproj`
 

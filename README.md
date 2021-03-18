@@ -199,7 +199,7 @@ On iOS you can use the `MaskedViewIOS` to display text with a gradient. The tric
 
 ### Animated Gradient
 
-Check out [Examples/AnimatedGradient](https://github.com/react-native-community/react-native-linear-gradient/blob/master/Examples/AnimatedGradient/src/index.js) (`git clone` this project, cd into it, npm install, open in Xcode and run) to see how this is done:
+Check out [Examples/AnimatedGradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient/blob/master/Examples/AnimatedGradient/App.js) (`git clone` this project, cd into it, npm install, open in Xcode and run) to see how this is done:
 
 ![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/master/images/example-animated.gif)
 

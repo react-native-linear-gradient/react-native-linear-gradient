@@ -4,24 +4,25 @@
  *
  * @format
  */
-
 const path = require('path');
-const blacklist = require('metro-config/src/defaults/blacklist');
-
-const reactNativeLib = path.resolve(__dirname, '../..');
+const exclusionList = require('metro-config/src/defaults/exclusionList');
 
 module.exports = {
-  watchFolders: [path.resolve(__dirname, 'node_modules'), reactNativeLib],
   resolver: {
-    blacklistRE: blacklist([
-      new RegExp(`${reactNativeLib}/node_modules/react-native/.*`),
+    blockList: exclusionList([
+      // This stops "react-native run-windows" from causing the metro server to crash if its already running
+      new RegExp(
+        `${path.resolve(__dirname, 'windows').replace(/[/\\]/g, '/')}.*`,
+      ),
+      // This prevents "react-native run-windows" from hitting: EBUSY: resource busy or locked, open msbuild.ProjectImports.zip
+      /.*\.ProjectImports\.zip/,
     ]),
   },
   transformer: {
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
-        inlineRequires: false,
+        inlineRequires: true,
       },
     }),
   },

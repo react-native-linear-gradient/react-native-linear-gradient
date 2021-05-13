@@ -9,8 +9,8 @@
     "postinstall": "node ../../scripts/examples_postinstall.js"
   },
   "dependencies": {
-    "react": "16.8.6",
-    "react-native": "0.60.5",
+    "react": "17.0.1",
+    "react-native": "0.64.1",
     "react-native-linear-gradient": "file:../.."
   },
   "devDependencies": {

@@ -66,14 +66,14 @@ namespace winrt::BVLinearGradient::implementation {
                         index++;
                     }
                 } else if (propertyName == "startPoint") {
-                    auto& start = propertyValue.AsArray();
-                    auto x = start[0].AsDouble();
-                    auto y = start[1].AsDouble();
+                    auto& start = propertyValue.AsObject();
+                    auto x = start["x"].AsDouble();
+                    auto y = start["y"].AsDouble();
                     m_linearGradientBrush.StartPoint(Point((float)x, (float)y));
                 } else if (propertyName == "endPoint") {
-                    auto& end = propertyValue.AsArray();
-                    auto x = end[0].AsDouble();
-                    auto y = end[1].AsDouble();
+                    auto& end = propertyValue.AsObject();
+                    auto x = end["x"].AsDouble();
+                    auto y = end["y"].AsDouble();
                     m_linearGradientBrush.EndPoint(Point((float)x, (float)y));
                 } else if (propertyName == "locations") {
                     uint32_t index = 0;

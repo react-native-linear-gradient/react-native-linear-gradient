@@ -7,6 +7,21 @@ import { processColor, View } from 'react-native';
 
 import NativeLinearGradient, { type Props } from './common';
 
+const convertPoint = (name, point) => {
+  if (Array.isArray(point)) {
+    console.warn(
+      `LinearGradient '${name}' property should be an object with fields 'x' and 'y', ` +
+      'Array type is deprecated.'
+    );
+
+    return {
+      x: point[0],
+      y: point[1]
+    };
+  }
+  return point;
+};
+
 export default class LinearGradient extends Component<Props> {
   props: Props;
   gradientRef: any;

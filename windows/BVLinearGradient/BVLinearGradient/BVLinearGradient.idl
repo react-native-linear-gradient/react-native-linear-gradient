@@ -1,0 +1,8 @@
+namespace BVLinearGradient {
+    [default_interface]
+    runtimeclass BVLinearGradientModule : Windows.UI.Xaml.Controls.Panel {
+        BVLinearGradientModule(Microsoft.ReactNative.IReactContext context);
+        void UpdateProperties(Microsoft.ReactNative.IJSValueReader reader);
+        void DispatchCommand(String commandId, Microsoft.ReactNative.IJSValueReader commandArgsReader);
+    };
+}

@@ -1,6 +1,8 @@
 package com.BV.LinearGradient;
 
+import com.facebook.react.bridge.ColorPropConverter;
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableType;
 import com.facebook.react.uimanager.PixelUtil;
 
 import android.content.Context;
@@ -136,7 +138,10 @@ public class LinearGradientView extends View {
     public void setColors(ReadableArray colors) {
         int[] _colors = new int[colors.size()];
         for (int i = 0; i < _colors.length; i++) {
-            _colors[i] = colors.getInt(i);
+            _colors[i] =
+                    colors.getType(i) == ReadableType.Map
+                            ? ColorPropConverter.getColor(colors.getMap(i), getContext())
+                            : colors.getInt(i);
         }
         mColors = _colors;
         drawGradient();

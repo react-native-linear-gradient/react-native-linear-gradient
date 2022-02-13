@@ -1,10 +1,10 @@
 # react-native-linear-gradient
 
-[![Version](https://img.shields.io/npm/v/react-native-linear-gradient.svg)](https://www.npmjs.com/package/react-native-linear-gradient)
-[![NPM](https://img.shields.io/npm/dm/react-native-linear-gradient.svg)](https://www.npmjs.com/package/react-native-linear-gradient)
+A `<LinearGradient>` element for React Native
 
-A `<LinearGradient>` component for react-native, as seen in
-[react-native-login](https://github.com/brentvatne/react-native-login).
+[![ci][1]][2]
+[![npm version][3]][4]
+[![npm downloads][5]][4]
 
 ## Table of Contents
 
@@ -137,6 +137,9 @@ react-native link react-native-linear-gradient
 </details>
 
 ## Examples
+
+[react-native-login](https://github.com/brentvatne/react-native-login) is a
+legacy component which showcases the use of `<LinearGradient>`.
 
 ### Simple
 
@@ -282,10 +285,10 @@ Ensure you import the `LinearGradient` correctly:
 
 ```javascript
 // Like that:
-import LinearGradient from 'react-native-linear-gradient'
+import LinearGradient from 'react-native-linear-gradient';
 
 // Not like that:
-import { LinearGradient } from 'react-native-linear-gradient'
+import { LinearGradient } from 'react-native-linear-gradient';
 ```
 
 ### Other
@@ -306,3 +309,9 @@ For other troubleshooting issues, go to [React Native Troubleshooting](https://r
 ## License
 
 MIT
+
+[1]: https://github.com/react-native-linear-gradient/react-native-linear-gradient/workflows/ci/badge.svg
+[2]: https://github.com/react-native-linear-gradient/react-native-linear-gradient/actions
+[3]: https://img.shields.io/npm/v/react-native-linear-gradient.svg
+[4]: https://www.npmjs.com/package/react-native-linear-gradient
+[5]: https://img.shields.io/npm/dm/react-native-linear-gradient.svg

@@ -13,7 +13,6 @@ import android.graphics.Shader;
 import android.view.View;
 
 public class LinearGradientView extends View {
-
     private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Path mPathForBorderRadius;
     private RectF mTempRectForBorderRadius;
@@ -46,8 +45,7 @@ public class LinearGradientView extends View {
 
     public void setColors(ReadableArray colors) {
         int[] _colors = new int[colors.size()];
-        for (int i=0; i < _colors.length; i++)
-        {
+        for (int i = 0; i < _colors.length; i++) {
             _colors[i] = colors.getInt(i);
         }
         mColors = _colors;
@@ -56,8 +54,7 @@ public class LinearGradientView extends View {
 
     public void setLocations(ReadableArray locations) {
         float[] _locations = new float[locations.size()];
-        for (int i=0; i < _locations.length; i++)
-        {
+        for (int i = 0; i < _locations.length; i++) {
             _locations[i] = (float) locations.getDouble(i);
         }
         mLocations = _locations;
@@ -81,8 +78,7 @@ public class LinearGradientView extends View {
 
     public void setBorderRadii(ReadableArray borderRadii) {
         float[] _radii = new float[borderRadii.size()];
-        for (int i=0; i < _radii.length; i++)
-        {
+        for (int i = 0; i < _radii.length; i++) {
             _radii[i] = PixelUtil.toPixelFromDIP((float) borderRadii.getDouble(i));
         }
         mBorderRadii = _radii;
@@ -147,9 +143,9 @@ public class LinearGradientView extends View {
         mPathForBorderRadius.reset();
         mTempRectForBorderRadius.set(0f, 0f, (float) mSize[0], (float) mSize[1]);
         mPathForBorderRadius.addRoundRect(
-            mTempRectForBorderRadius,
-            mBorderRadii,
-            Path.Direction.CW);
+                mTempRectForBorderRadius,
+                mBorderRadii,
+                Path.Direction.CW);
     }
 
     @Override

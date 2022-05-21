@@ -107,6 +107,7 @@ react-native link react-native-linear-gradient
   @Override
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
+      List<ReactPackage> packages = new PackageList(this).getPackages();
       new MainReactPackage(),
       packages.add(new LinearGradientPackage());
     );

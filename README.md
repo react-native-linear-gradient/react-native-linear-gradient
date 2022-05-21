@@ -108,7 +108,7 @@ react-native link react-native-linear-gradient
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
       new MainReactPackage(),
-      new LinearGradientPackage() // <---- and This!
+      packages.add(new LinearGradientPackage());
     );
   }
   ```

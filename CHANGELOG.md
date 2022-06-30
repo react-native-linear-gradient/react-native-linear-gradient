@@ -1,6 +1,10 @@
 # ChangeLog
 
-## 2.5.5
+## 2.5.6 - 2019-07-25
+
+- Just a re-release, because 2.5.5 installation was broken because of an npm bug
+
+## 2.5.5 - 2019-07-22
 
 - Change Flow types to work with newer versions of Flow.
 

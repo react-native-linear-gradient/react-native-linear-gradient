@@ -1,0 +1,41 @@
+name: version
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Release Type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Set Git user
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - run: npm version ${{ github.event.inputs.type }}
+      - run: git push --follow-tags
+      - run: echo "VERSION=$(npm -s run env echo '$npm_package_version')" >> $GITHUB_ENV
+      - name: Create Release Notes
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.request(`POST /repos/${{ github.repository }}/releases`, {
+              draft: true,
+              generate_release_notes: true,
+              name: "${{ env.VERSION }}",
+              tag_name: "v${{ env.VERSION }}"
+            });

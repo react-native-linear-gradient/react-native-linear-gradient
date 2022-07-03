@@ -48,8 +48,8 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "^16.8.1 || ^17",
-    "react-native": ">=0.55"
+    "react": "*",
+    "react-native": "*"
   },
   "devDependencies": {
     "flow-bin": "^0.98",

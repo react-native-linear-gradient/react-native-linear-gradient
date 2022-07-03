@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 2.6.2 - 2022-07-03
+
+- Relax peerDependencies restrictions
+
 ## 2.6.1 - 2022-07-01
 
 - Allow react 17 as a peer dependency

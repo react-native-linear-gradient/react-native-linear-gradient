@@ -36,6 +36,15 @@ android {
         targetSdkVersion safeExtGet('targetSdkVersion', 31)
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
     }
+    sourceSets {
+        main {
+            if (isNewArchitectureEnabled()) {
+                java.srcDirs += ['src/newarch/java']
+            } else {
+                java.srcDirs += ['src/oldarch/java']
+            }
+        }
+    }
     lintOptions {
         abortOnError false
     }

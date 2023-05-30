@@ -10,9 +10,10 @@ jobs:
       matrix:
         node: ['14', '16', '18']
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
+          cache: 'yarn'
           node-version: ${{ matrix.node }}
       - run: yarn --frozen-lockfile
       - run: yarn flow

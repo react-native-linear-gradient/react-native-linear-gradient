@@ -18,6 +18,7 @@ jobs:
       - run: yarn --frozen-lockfile
       - run: yarn tsc --noEmit
       - run: yarn prettier --check .
+      - run: yarn lint
       - run: yarn flow
       - working-directory: example/
         run: |

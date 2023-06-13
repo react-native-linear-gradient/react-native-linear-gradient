@@ -32,7 +32,9 @@ const Section: React.FC<{
 const App = () => {
   const rnVersion = pkg.dependencies['react-native'];
   // @ts-ignore
-  const jsEngine = global.HermesInternal ? 'Hermes' : 'JSC';
+  const jsEngine = global?.HermesInternal ? 'Hermes' : 'JSC';
+  // @ts-ignore
+  const uiManager = global?.nativeFabricUIManager ? 'Fabric' : 'Paper';
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -46,7 +48,7 @@ const App = () => {
         imageStyle={styles.logo}>
         <View style={styles.badge}>
           <Text style={styles.badgeText}>
-            React Native {rnVersion} ({jsEngine})
+            React Native {rnVersion} ({jsEngine}; {uiManager})
           </Text>
         </View>
         <LinearGradient

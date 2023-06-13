@@ -38,6 +38,7 @@
     "@babel/preset-env": "^7.20.0",
     "@types/react": "^18.2.6",
     "flow-bin": "^0.238.0",
+    "prettier": "2.8.8",
     "react": "18.3.1",
     "react-native": "0.75.5",
     "typescript": "5.0.4"

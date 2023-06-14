@@ -3,9 +3,12 @@ def safeExtGet(prop, fallback) {
 }
 
 buildscript {
-    // The Android Gradle plugin is only required when opening the android folder stand-alone.
-    // This avoids unnecessary downloads and potential conflicts when the library is included as a
-    // module dependency in an application project.
+    ext.isNewArchitectureEnabled = () ->
+            rootProject.hasProperty("newArchEnabled") && rootProject.getProperty("newArchEnabled") == "true"
+
+    // buildscript dependencies are only required when working with the module in isolation (e.g.
+    // during development and for testing). This avoids unnecessary downloads and potential
+    // conflicts when the library is included as a module dependency in an application project.
     if (project == rootProject) {
         repositories {
             google()
@@ -13,17 +16,25 @@ buildscript {
         }
         dependencies {
             classpath 'com.android.tools.build:gradle:7.2.1'
+            if (isNewArchitectureEnabled()) {
+                classpath 'com.facebook.react:react-native-gradle-plugin'
+            }
         }
     }
 }
 
 apply plugin: 'com.android.library'
 
+if (isNewArchitectureEnabled()) {
+    apply plugin: "com.facebook.react"
+}
+
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', 31).toInteger()
     defaultConfig {
         minSdkVersion safeExtGet('minSdkVersion', 21)
         targetSdkVersion safeExtGet('targetSdkVersion', 31)
+        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
     }
     lintOptions {
         abortOnError false

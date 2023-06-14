@@ -7,8 +7,8 @@
   "files": [
     "android",
     "ios",
+    "src",
     "windows",
-    "common.js",
     "index.android.js",
     "index.d.ts",
     "index.ios.js",

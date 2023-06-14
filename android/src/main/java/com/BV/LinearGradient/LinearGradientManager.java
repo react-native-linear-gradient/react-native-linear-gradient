@@ -9,8 +9,8 @@ public class LinearGradientManager extends SimpleViewManager<LinearGradientView>
     public static final String REACT_CLASS = "BVLinearGradient";
     public static final String PROP_COLORS = "colors";
     public static final String PROP_LOCATIONS = "locations";
-    public static final String PROP_START_POS = "startPoint";
-    public static final String PROP_END_POS = "endPoint";
+    public static final String PROP_START_POINT = "startPoint";
+    public static final String PROP_END_POINT = "endPoint";
     public static final String PROP_USE_ANGLE = "useAngle";
     public static final String PROP_ANGLE_CENTER = "angleCenter";
     public static final String PROP_ANGLE = "angle";
@@ -38,14 +38,14 @@ public class LinearGradientManager extends SimpleViewManager<LinearGradientView>
         }
     }
 
-    @ReactProp(name = PROP_START_POS)
-    public void setStartPosition(LinearGradientView gradientView, ReadableArray startPos) {
-        gradientView.setStartPosition(startPos);
+    @ReactProp(name = PROP_START_POINT)
+    public void setStartPoint(LinearGradientView gradientView, ReadableArray startPoint) {
+        gradientView.setStartPoint(startPoint);
     }
 
-    @ReactProp(name = PROP_END_POS)
-    public void setEndPosition(LinearGradientView gradientView, ReadableArray endPos) {
-        gradientView.setEndPosition(endPos);
+    @ReactProp(name = PROP_END_POINT)
+    public void setEndPoint(LinearGradientView gradientView, ReadableArray endPoint) {
+        gradientView.setEndPoint(endPoint);
     }
 
     @ReactProp(name = PROP_USE_ANGLE, defaultBoolean = false)

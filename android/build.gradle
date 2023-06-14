@@ -12,7 +12,7 @@ buildscript {
             google()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:3.5.3'
+            classpath 'com.android.tools.build:gradle:4.2.2'
         }
     }
 }
@@ -20,12 +20,10 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion safeExtGet('compileSdkVersion', 29)
+    compileSdkVersion safeExtGet('compileSdkVersion', 30)
     defaultConfig {
-        minSdkVersion safeExtGet('minSdkVersion', 16)
-        targetSdkVersion safeExtGet('targetSdkVersion', 29)
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion safeExtGet('minSdkVersion', 21)
+        targetSdkVersion safeExtGet('targetSdkVersion', 30)
     }
     lintOptions {
         abortOnError false

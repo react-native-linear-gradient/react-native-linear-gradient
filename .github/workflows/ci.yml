@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: 6.5
+          gradle-version: 6.7.1
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'

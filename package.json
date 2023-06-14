@@ -41,5 +41,10 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
+  },
+  "codegenConfig": {
+    "name": "RNLinearGradientSpec",
+    "type": "components",
+    "jsSrcsDir": "src"
   }
 }

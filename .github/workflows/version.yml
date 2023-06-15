@@ -28,7 +28,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - run: npm version ${{ github.event.inputs.type }}
       - run: git push --follow-tags
-      - run: echo "VERSION=$(npm -s run env echo '$npm_package_version')" >> $GITHUB_ENV
+      - run: echo "VERSION=$(npm pkg get version --workspaces=false | tr -d \")" >> $GITHUB_ENV
       - name: Create Release Notes
         uses: actions/github-script@v6
         with:

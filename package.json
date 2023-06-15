@@ -3,60 +3,41 @@
   "version": "2.6.2",
   "description": "A <LinearGradient> element for React Native",
   "main": "index.js",
+  "types": "index.d.js",
   "files": [
     "android",
     "ios",
     "windows",
     "common.js",
     "index.android.js",
-    "index.d.ts",
     "index.ios.js",
     "index.windows.js",
     "BVLinearGradient.podspec"
   ],
-  "author": {
-    "name": "Brent Vatne",
-    "email": "brentvatne@gmail.com",
-    "url": "https://github.com/brentvatne"
+  "scripts": {
+    "flow": "flow check"
   },
-  "license": "MIT",
-  "contributors": [
-    {
-      "name": "Nick Hudkins",
-      "email": "nick@nickhudkins.com",
-      "url": "https://github.com/nickhudkins"
-    },
-    {
-      "name": "Gant Laborde",
-      "email": "gant@infinite.red",
-      "url": "https://github.com/gantman"
-    },
-    {
-      "name": "Dmitry Gladkov",
-      "email": "dmitry.gladkov@gmail.com",
-      "url": "https://github.com/dgladkov"
-    },
-    {
-      "name": "Radek Pietruszewski",
-      "email": "radexpl@gmail.com",
-      "url": "https://github.com/radex"
-    }
-  ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:react-native-community/react-native-linear-gradient.git"
+    "url": "https://github.com/react-native-linear-gradient/react-native-linear-gradient.git"
   },
+  "author": "Brent Vatne <brentvatne@gmail.com> (https://github.com/brentvatne)",
+  "contributors": [
+    "Dmitry Gladkov <dmitry.gladkov@gmail.com> (https://github.com/dgladkov)",
+    "Frieder Bluemle <frieder.bluemle@gmail.com> (https://github.com/friederbluemle)",
+    "Gant Laborde <gant@infinite.red> (https://github.com/gantman)",
+    "Nick Hudkins <nick@nickhudkins.com> (https://github.com/nickhudkins)",
+    "Radek Pietruszewski <radexpl@gmail.com> (https://github.com/radex)"
+  ],
+  "license": "MIT",
   "dependencies": {},
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
-  },
   "devDependencies": {
     "flow-bin": "^0.122.0",
     "react": "16.13.1",
     "react-native": "0.63.5"
   },
-  "scripts": {
-    "flow": "flow check"
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
   }
 }

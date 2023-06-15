@@ -3,13 +3,14 @@
   "version": "2.7.1",
   "description": "A <LinearGradient> element for React Native",
   "main": "index.js",
-  "types": "index.d.js",
+  "types": "index.d.ts",
   "files": [
     "android",
     "ios",
     "windows",
     "common.js",
     "index.android.js",
+    "index.d.ts",
     "index.ios.js",
     "index.windows.js",
     "BVLinearGradient.podspec"

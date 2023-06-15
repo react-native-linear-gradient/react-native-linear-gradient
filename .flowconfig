@@ -18,7 +18,7 @@ node_modules/warning/.*
 .*/node_modules/resolve/test/resolver/malformed_package_json/package\.json$
 
 ; Ignore example
-.*/Examples/.*
+.*/example/.*
 
 [untyped]
 .*/node_modules/@react-native-community/cli/.*/.*

@@ -32,6 +32,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@types/react-native": "^0.63.70",
     "flow-bin": "^0.122.0",
     "react": "16.13.1",
     "react-native": "0.63.5"

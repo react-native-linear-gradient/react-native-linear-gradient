@@ -1,5 +1,14 @@
 # ChangeLog
 
+## 2.7.1 - 2023-06-15
+
+- Update Node test matrix on GitHub Actions
+- Update react-native to 0.67.5
+- Fix PBXGroup and remove tvOS references (pbxproj)
+- Fix GitHub Actions version flow
+- Fix whitespace errors
+- Fix start/end point/position naming inconsistency
+
 ## 2.7.0 - 2023-06-15
 
 - Update GitHub Actions

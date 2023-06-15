@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 2.7.2 - 2023-06-15
+
+- Fix missing types in package
+
 ## 2.7.1 - 2023-06-15
 
 - Update Node test matrix on GitHub Actions

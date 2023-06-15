@@ -52,9 +52,9 @@
     "react-native": "*"
   },
   "devDependencies": {
-    "flow-bin": "^0.98",
-    "react": "16.8.6",
-    "react-native": "0.60.5"
+    "flow-bin": "^0.122.0",
+    "react": "16.13.1",
+    "react-native": "0.63.5"
   },
   "scripts": {
     "flow": "flow check"

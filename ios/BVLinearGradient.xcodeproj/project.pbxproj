@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64AA15111EF7F31200718508 /* BVLinearGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */; };
-		64AA15121EF7F31200718508 /* BVLinearGradientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045EF1C4E5D290001F552 /* BVLinearGradientManager.m */; };
-		B5C1E1CD22084425002D0DFF /* BVLinearGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BF2FA320D7DC1F006672AE /* BVLinearGradientLayer.m */; };
 		D6BF2FA420D7DC1F006672AE /* BVLinearGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BF2FA320D7DC1F006672AE /* BVLinearGradientLayer.m */; };
 		EF6045F01C4E5D290001F552 /* BVLinearGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */; };
 		EF6045F11C4E5D290001F552 /* BVLinearGradientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045EF1C4E5D290001F552 /* BVLinearGradientManager.m */; };
@@ -38,7 +35,6 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBVLinearGradient.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		64AA15081EF7F30100718508 /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBVLinearGradient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6BF2FA220D7DC1F006672AE /* BVLinearGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BVLinearGradientLayer.h; sourceTree = "<group>"; };
 		D6BF2FA320D7DC1F006672AE /* BVLinearGradientLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BVLinearGradientLayer.m; sourceTree = "<group>"; };
 		EF6045EC1C4E5D290001F552 /* BVLinearGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVLinearGradient.h; sourceTree = "<group>"; };
@@ -76,23 +72,14 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				EF6045EB1C4E5D290001F552 /* BVLinearGradient */,
-				134814211AA4EA7D00B7C361 /* Products */,
-				64AA15081EF7F30100718508 /* libBVLinearGradient.a */,
-			);
-			sourceTree = "<group>";
-		};
-		EF6045EB1C4E5D290001F552 /* BVLinearGradient */ = {
-			isa = PBXGroup;
-			children = (
 				EF6045EC1C4E5D290001F552 /* BVLinearGradient.h */,
 				EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */,
 				EF6045EE1C4E5D290001F552 /* BVLinearGradientManager.h */,
 				EF6045EF1C4E5D290001F552 /* BVLinearGradientManager.m */,
 				D6BF2FA220D7DC1F006672AE /* BVLinearGradientLayer.h */,
 				D6BF2FA320D7DC1F006672AE /* BVLinearGradientLayer.m */,
+				134814211AA4EA7D00B7C361 /* Products */,
 			);
-			path = BVLinearGradient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,23 +102,6 @@
 			productReference = 134814201AA4EA6300B7C361 /* libBVLinearGradient.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		64AA15071EF7F30100718508 /* BVLinearGradient-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 64AA15101EF7F30100718508 /* Build configuration list for PBXNativeTarget "BVLinearGradient-tvOS" */;
-			buildPhases = (
-				64AA15041EF7F30100718508 /* Sources */,
-				64AA15051EF7F30100718508 /* Frameworks */,
-				64AA15061EF7F30100718508 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "BVLinearGradient-tvOS";
-			productName = "BVLinearGradient-tvOS";
-			productReference = 64AA15081EF7F30100718508 /* libBVLinearGradient.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -143,10 +113,6 @@
 				TargetAttributes = {
 					58B511DA1A9E6C8500147676 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					64AA15071EF7F30100718508 = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -163,7 +129,6 @@
 			projectRoot = "";
 			targets = (
 				58B511DA1A9E6C8500147676 /* BVLinearGradient */,
-				64AA15071EF7F30100718508 /* BVLinearGradient-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -176,16 +141,6 @@
 				EF6045F11C4E5D290001F552 /* BVLinearGradientManager.m in Sources */,
 				EF6045F01C4E5D290001F552 /* BVLinearGradient.m in Sources */,
 				D6BF2FA420D7DC1F006672AE /* BVLinearGradientLayer.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		64AA15041EF7F30100718508 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				64AA15111EF7F31200718508 /* BVLinearGradient.m in Sources */,
-				64AA15121EF7F31200718508 /* BVLinearGradientManager.m in Sources */,
-				B5C1E1CD22084425002D0DFF /* BVLinearGradientLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,42 +278,6 @@
 			};
 			name = Release;
 		};
-		64AA150E1EF7F30100718508 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = BVLinearGradient;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		64AA150F1EF7F30100718508 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = BVLinearGradient;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -376,15 +295,6 @@
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,
 				58B511F11A9E6C8500147676 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		64AA15101EF7F30100718508 /* Build configuration list for PBXNativeTarget "BVLinearGradient-tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				64AA150E1EF7F30100718508 /* Debug */,
-				64AA150F1EF7F30100718508 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

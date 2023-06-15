@@ -96,7 +96,7 @@ namespace winrt::BVLinearGradient::implementation {
     winrt::Microsoft::ReactNative::ConstantProviderDelegate BVLinearGradientModule::ExportedCustomBubblingEventTypeConstants() noexcept {
         return nullptr;
     }
-    
+
     winrt::Microsoft::ReactNative::ConstantProviderDelegate BVLinearGradientModule::ExportedCustomDirectEventTypeConstants() noexcept {
         return nullptr;
     }

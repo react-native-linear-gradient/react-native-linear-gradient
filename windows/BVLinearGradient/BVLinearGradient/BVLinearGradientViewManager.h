@@ -2,9 +2,8 @@
 #include "winrt/Microsoft.ReactNative.h"
 #include "NativeModules.h"
 
-
 namespace winrt::BVLinearGradient::implementation {
-    
+
     class BVLinearGradientViewManager : public winrt::implements<
         BVLinearGradientViewManager,
         winrt::Microsoft::ReactNative::IViewManager,

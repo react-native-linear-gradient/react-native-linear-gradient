@@ -9,6 +9,8 @@ const modules = Object.keys({
   ...pak.peerDependencies,
 });
 
+const nodeModulesPaths = [path.resolve(path.join(__dirname, './node_modules'))];
+
 module.exports = {
   projectRoot: __dirname,
   watchFolders: [root],
@@ -21,6 +23,8 @@ module.exports = {
         m => new RegExp(`^${escape(path.join(root, 'node_modules', m))}\\/.*$`),
       ),
     ),
+
+    nodeModulesPaths,
 
     extraNodeModules: modules.reduce((acc, name) => {
       acc[name] = path.join(__dirname, 'node_modules', name);

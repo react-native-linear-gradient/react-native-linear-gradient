@@ -1,5 +1,15 @@
 # ChangeLog
 
+## 2.7.0 - 2023-06-15
+
+- Update GitHub Actions
+- Update react-native to 0.63.5
+- Add PlatformColor support to Android
+- Add style and children to Windows
+- Update and sort package.json
+- Update readme to display the correct values syntax
+- Consolidate and update example projects
+
 ## 2.6.2 - 2022-07-03
 
 - Relax peerDependencies restrictions

@@ -1,6 +1,6 @@
 {
   "name": "react-native-linear-gradient",
-  "version": "2.7.2",
+  "version": "2.7.3",
   "description": "A <LinearGradient> element for React Native",
   "main": "index.js",
   "types": "index.d.ts",

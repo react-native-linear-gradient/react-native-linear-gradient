@@ -13,11 +13,10 @@ const convertPoint = (name, point) => {
       `LinearGradient '${name}' property should be an object with fields 'x' and 'y', ` +
       'Array type is deprecated.'
     );
-
-    return {
-      x: point[0],
-      y: point[1]
-    };
+  }
+  // TODO: Update Android native code to receive a {x, y} object, not an array
+  if (point !== null && typeof point === 'object') {
+    return [point.x, point.y];
   }
   return point;
 };

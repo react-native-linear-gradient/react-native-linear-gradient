@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 2.7.3 - 2023-06-19
+
+- Revert start/end point parameter type change (Android)
+
 ## 2.7.2 - 2023-06-15
 
 - Fix missing types in package

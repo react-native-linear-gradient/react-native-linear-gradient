@@ -37,7 +37,6 @@ export default class LinearGradient extends Component<Props> {
 
   render() {
     const {
-      children,
       start,
       end,
       colors,
@@ -45,7 +44,6 @@ export default class LinearGradient extends Component<Props> {
       useAngle,
       angleCenter,
       angle,
-      style,
       ...otherProps
     } = this.props;
     if ((colors && locations) && (colors.length !== locations.length)) {
@@ -53,19 +51,17 @@ export default class LinearGradient extends Component<Props> {
     }
 
     return (
-      <View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>
-        <NativeLinearGradient
-          style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
-          colors={colors.map(processColor)}
-          startPoint={convertPoint('start', start)}
-          endPoint={convertPoint('end', end)}
-          locations={locations ? locations.slice(0, colors.length) : null}
-          useAngle={useAngle}
-          angleCenter={convertPoint('angleCenter', angleCenter)}
-          angle={angle}
-        />
-        {children}
-      </View>
+      <NativeLinearGradient
+        ref={(component) => { this.gradientRef = component; }}
+        {...otherProps}
+        startPoint={convertPoint('start', start)}
+        endPoint={convertPoint('end', end)}
+        colors={colors.map(processColor)}
+        locations={locations ? locations.slice(0, colors.length) : null}
+        useAngle={useAngle}
+        angleCenter={convertPoint('angleCenter', angleCenter)}
+        angle={angle}
+      />
     );
   }
 }

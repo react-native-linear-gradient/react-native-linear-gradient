@@ -65,7 +65,7 @@
 
     UIGraphicsEndImageContext();
 }
-
+    
 - (void)setUseAngle:(BOOL)useAngle
 {
     _useAngle = useAngle;
@@ -148,7 +148,7 @@
 
     return CGPointMake(startX, startY);
 }
-
+    
 - (void)drawInContext:(CGContextRef)ctx
 {
     [super drawInContext:ctx];
@@ -158,6 +158,7 @@
     CGSize size = self.bounds.size;
     if (!self.colors || self.colors.count == 0 || size.width == 0.0 || size.height == 0.0)
         return;
+
 
     CGFloat *locations = nil;
 
@@ -186,7 +187,7 @@
     free(locations);
 
     CGPoint start, end;
-
+    
     if (_useAngle)
     {
         // Angle is in bearing degrees (North = 0, East = 90)
@@ -216,7 +217,7 @@
         start = CGPointMake(self.startPoint.x * size.width, self.startPoint.y * size.height);
         end = CGPointMake(self.endPoint.x * size.width, self.endPoint.y * size.height);
     }
-
+    
     CGContextDrawLinearGradient(ctx, gradient,
                                 start,
                                 end,

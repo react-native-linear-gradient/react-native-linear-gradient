@@ -13,3 +13,4 @@ namespace winrt::BVLinearGradient::implementation {
 namespace winrt::BVLinearGradient::factory_implementation {
   struct ReactPackageProvider : ReactPackageProviderT<ReactPackageProvider, implementation::ReactPackageProvider> {};
 }
+

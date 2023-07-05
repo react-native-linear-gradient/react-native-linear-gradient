@@ -1,9 +1,8 @@
 {
   "name": "react-native-linear-gradient",
-  "version": "2.7.3",
+  "version": "2.6.2",
   "description": "A <LinearGradient> element for React Native",
   "main": "index.js",
-  "types": "index.d.ts",
   "files": [
     "android",
     "ios",
@@ -15,31 +14,49 @@
     "index.windows.js",
     "BVLinearGradient.podspec"
   ],
-  "scripts": {
-    "flow": "flow check"
+  "author": {
+    "name": "Brent Vatne",
+    "email": "brentvatne@gmail.com",
+    "url": "https://github.com/brentvatne"
   },
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Nick Hudkins",
+      "email": "nick@nickhudkins.com",
+      "url": "https://github.com/nickhudkins"
+    },
+    {
+      "name": "Gant Laborde",
+      "email": "gant@infinite.red",
+      "url": "https://github.com/gantman"
+    },
+    {
+      "name": "Dmitry Gladkov",
+      "email": "dmitry.gladkov@gmail.com",
+      "url": "https://github.com/dgladkov"
+    },
+    {
+      "name": "Radek Pietruszewski",
+      "email": "radexpl@gmail.com",
+      "url": "https://github.com/radex"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/react-native-linear-gradient/react-native-linear-gradient.git"
+    "url": "git@github.com:react-native-community/react-native-linear-gradient.git"
   },
-  "author": "Brent Vatne <brentvatne@gmail.com> (https://github.com/brentvatne)",
-  "contributors": [
-    "Dmitry Gladkov <dmitry.gladkov@gmail.com> (https://github.com/dgladkov)",
-    "Frieder Bluemle <frieder.bluemle@gmail.com> (https://github.com/friederbluemle)",
-    "Gant Laborde <gant@infinite.red> (https://github.com/gantman)",
-    "Nick Hudkins <nick@nickhudkins.com> (https://github.com/nickhudkins)",
-    "Radek Pietruszewski <radexpl@gmail.com> (https://github.com/radex)"
-  ],
-  "license": "MIT",
   "dependencies": {},
-  "devDependencies": {
-    "@types/react-native": "^0.67.21",
-    "flow-bin": "^0.162.0",
-    "react": "17.0.2",
-    "react-native": "0.67.5"
-  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.98",
+    "react": "16.8.6",
+    "react-native": "0.60.5"
+  },
+  "scripts": {
+    "flow": "flow check"
   }
 }

@@ -1,32 +1,5 @@
 # ChangeLog
 
-## 2.7.3 - 2023-06-19
-
-- Revert start/end point parameter type change (Android)
-
-## 2.7.2 - 2023-06-15
-
-- Fix missing types in package
-
-## 2.7.1 - 2023-06-15
-
-- Update Node test matrix on GitHub Actions
-- Update react-native to 0.67.5
-- Fix PBXGroup and remove tvOS references (pbxproj)
-- Fix GitHub Actions version flow
-- Fix whitespace errors
-- Fix start/end point/position naming inconsistency
-
-## 2.7.0 - 2023-06-15
-
-- Update GitHub Actions
-- Update react-native to 0.63.5
-- Add PlatformColor support to Android
-- Add style and children to Windows
-- Update and sort package.json
-- Update readme to display the correct values syntax
-- Consolidate and update example projects
-
 ## 2.6.2 - 2022-07-03
 
 - Relax peerDependencies restrictions

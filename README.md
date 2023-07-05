@@ -6,10 +6,6 @@ A `<LinearGradient>` element for React Native
 [![npm version][3]][4]
 [![npm downloads][5]][4]
 
-<p align="center">
-<img src="https://github.com/react-native-linear-gradient/react-native-linear-gradient/assets/743291/8ff2a78b-f0b1-463a-aa5b-555df2e71360" width="300"> <img src="https://github.com/react-native-linear-gradient/react-native-linear-gradient/assets/743291/9c738be3-6fba-43d5-9c9f-1db1c10fd377" width="300">
-</p>
-
 ## Table of Contents
 
 - [Installation](#installation)
@@ -21,11 +17,124 @@ A `<LinearGradient>` element for React Native
 
 ## Installation
 
+Using Yarn
+
 ```sh
 yarn add react-native-linear-gradient
 ```
 
-Or, using npm: `npm install react-native-linear-gradient`
+Using npm
+
+```sh
+npm install react-native-linear-gradient --save
+```
+
+### With React Native >= 0.60
+
+Run `npx pod-install`
+
+## Linking (for React Native <= 0.59 only)
+
+Note: If you are using react-native version 0.60 or higher you don't need to link [react-native-linear-gradient](https://github.com/react-native-community/react-native-linear-gradient).
+
+### Automatic
+
+```sh
+react-native link react-native-linear-gradient
+```
+
+### Manual
+
+<details>
+
+  <summary>iOS (with CocoaPods)</summary>
+
+  Add the following line to your Podfile:
+
+  ```sh
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+  ```
+
+  Run `npx pod-install`
+
+</details>
+
+<details>
+
+  <summary>iOS (without CocoaPods)</summary>
+
+  1. Open your project in Xcode
+  2. Right click on `Libraries` and click `Add Files to "Your Project Name"`.
+  3. Look under `node_modules/react-native-linear-gradient/ios` and add `BVLinearGradient.xcodeproj`.  [(Screenshot 1)](https://drive.google.com/open?id=1ynspo3wZjCLav23teGwKtzh7pcXpeREO) [(Screenshot 2)](https://drive.google.com/open?id=1cXW4DZ-hz-DiugZ3E30msd_4JoUWNE4Z).
+  4. Add `libBVLinearGradient.a` to `Build Phases -> Link Binary With Libraries`
+    [(Screenshot 1)](https://drive.google.com/open?id=12qT0Z7rfYrhnHYYECzVOAEMTjiPS2vJr) [(Screenshot 2)](https://drive.google.com/open?id=1LZ2CrOHydBjy479r9aEyMkvqqSbIdDLm).
+  5. Click on `BVLinearGradient.xcodeproj` in `Libraries` and go the `Build
+    Settings` tab.
+  6. Double click the text to the right of `Header Search Paths` and verify that it has `$(SRCROOT)/../react-native/React` - if it isn't, then add it. [(Screenshot)](https://drive.google.com/open?id=1-m3KasC8xudkppVe_E2RsuFaxOfyx6FO).
+
+</details>
+
+<details>
+
+  <summary>Android</summary>
+
+  In `android/settings.gradle`
+
+  ```groovy
+  include ':react-native-linear-gradient'
+  project(':react-native-linear-gradient').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-linear-gradient/android')
+  ```
+
+  In `android/app/build.gradle` add:
+
+  ```groovy
+  dependencies {
+      ...
+      implementation project(':react-native-linear-gradient')
+  }
+  ```
+
+  In `android/app/src/main/java/com/{YOUR_APP_NAME}/MainActivity.java` for react-native < 0.29,
+    or `android/app/src/main/java/com/{YOUR_APP_NAME}/MainApplication.java` for react-native >= 0.29 add:
+
+  ```java
+  // ...
+
+  import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
+
+  // ...
+
+  @Override
+  protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+      new MainReactPackage(),
+      new LinearGradientPackage() // <---- and This!
+    );
+  }
+  ```
+
+</details>
+
+<details>
+
+  <summary>Windows (WPF)</summary>
+
+  1. in `windows/MyApp.sln` Add -> Existing Project: `node_modules/react-native-linear-gradient/windows/LinearGradientWPF/LinearGradientWPF.csproj`
+
+  2. in `windows/MyApp/MyAppWPF/MyAppWPF.csproj` Add -> Reference -> LinearGradientWPF
+
+  3. in `windows/MyApp/MyAppWPF/AppReactPage.cs` add: `using LinearGradient;`
+    and
+
+  ```csharp
+  public override List<IReactPackage> Packages => new List<IReactPackage>
+  {
+    ...
+    new LinearGradientPackage()
+  }
+  ```
+
+</details>
 
 ## Examples
 
@@ -36,7 +145,7 @@ legacy component which showcases the use of `<LinearGradient>`.
 
 The following code will produce something like this:
 
-![Example code result](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/HEAD/images/example.png)
+![Example code result](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/master/images/example.png)
 
 ```javascript
 import LinearGradient from 'react-native-linear-gradient';
@@ -93,9 +202,9 @@ On iOS you can use the `MaskedViewIOS` to display text with a gradient. The tric
 
 ### Animated Gradient
 
-Check out the [example app](https://github.com/react-native-linear-gradient/react-native-linear-gradient/tree/HEAD/example/) (`git clone` this project, cd into it, npm install, open in Xcode and run) to see how this is done:
+Check out [Examples/AnimatedGradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient/blob/master/Examples/AnimatedGradient/App.js) (`git clone` this project, cd into it, npm install, open in Xcode and run) to see how this is done:
 
-![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/HEAD/images/example-animated.gif)
+![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/master/images/example-animated.gif)
 
 *This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
 
@@ -145,14 +254,14 @@ An optional array of numbers defining the location of each gradient color stop, 
 </LinearGradient>
 ```
 
-![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/HEAD/images/example-other-props.png)
+![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/master/images/example-other-props.png)
 
 #### useAngle / angle / angleCenter
 
 You may want to achieve an angled gradient effect, similar to those in image editors like Photoshop.
 One issue is that you have to calculate the angle based on the view's size, which only happens asynchronously and will cause unwanted flickr.
 
-In order to do that correctly you can set `useAngle={true} angle={45} angleCenter={{x:0.5,y:0.5}}`, to achieve a gradient with a 45 degrees angle, with its center positioned in the view's exact center.
+In order to do that correctly you can set `{ useAngle: true, angle: 45, angleCenter: { x: 0.5, y: 0.5} }`, to achieve a gradient with a 45 degrees angle, with its center positioned in the view's exact center.
 
 `useAngle` is used to turn on/off angle based calculation (as opposed to `start`/`end`).
 `angle` is the angle in degrees.
@@ -160,14 +269,27 @@ In order to do that correctly you can set `useAngle={true} angle={45} angleCente
 
 ## An example app
 
-You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/HEAD/App/Screens/LoginScreen.js#L58-L62).
+You can see this component in action in [brentvatne/react-native-login](https://github.com/brentvatne/react-native-login/blob/master/App/Screens/LoginScreen.js#L58-L62).
 
 ## Troubleshooting
 
 ### iOS build fails: library not found, "BVLinearGradient" was not found in the UIManager
 
-1. Ensure to run `pod install` before running the app on iOS
-2. Ensure you use `ios/**.xcworkspace` file instead of `ios./**.xcodeproj`
+1. Ensure you have followed the [installations steps](#installation) correctly. (`react-native link` for React Native < 0.60 and `npx pod-install` instead for > 0.60).
+2. Ensure `pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'` is present in your `ios/Podfile`
+3. Ensure you use `ios/**.xcworkspace` file instead of `ios./**.xcodeproj`
+
+### Invariant Violation: Element type is invalid
+
+Ensure you import the `LinearGradient` correctly:
+
+```javascript
+// Like that:
+import LinearGradient from 'react-native-linear-gradient';
+
+// Not like that:
+import { LinearGradient } from 'react-native-linear-gradient';
+```
 
 ### Other
 

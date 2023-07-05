@@ -1,8 +1,6 @@
 package com.BV.LinearGradient;
 
-import com.facebook.react.bridge.ColorPropConverter;
 import com.facebook.react.bridge.ReadableArray;
-import com.facebook.react.bridge.ReadableType;
 import com.facebook.react.uimanager.PixelUtil;
 
 import android.content.Context;
@@ -21,8 +19,8 @@ public class LinearGradientView extends View {
     private LinearGradient mShader;
 
     private float[] mLocations;
-    private float[] mStartPoint = {0, 0};
-    private float[] mEndPoint = {0, 1};
+    private float[] mStartPos = {0, 0};
+    private float[] mEndPos = {0, 1};
     private int[] mColors;
     private boolean mUseAngle = false;
     private float[] mAngleCenter = new float[]{0.5f, 0.5f};
@@ -125,23 +123,20 @@ public class LinearGradientView extends View {
         return new float[]{startX, startY};
     }
 
-    public void setStartPoint(ReadableArray startPoint) {
-        mStartPoint = new float[]{(float) startPoint.getDouble(0), (float) startPoint.getDouble(1)};
+    public void setStartPosition(ReadableArray startPos) {
+        mStartPos = new float[]{(float) startPos.getDouble(0), (float) startPos.getDouble(1)};
         drawGradient();
     }
 
-    public void setEndPoint(ReadableArray endPoint) {
-        mEndPoint = new float[]{(float) endPoint.getDouble(0), (float) endPoint.getDouble(1)};
+    public void setEndPosition(ReadableArray endPos) {
+        mEndPos = new float[]{(float) endPos.getDouble(0), (float) endPos.getDouble(1)};
         drawGradient();
     }
 
     public void setColors(ReadableArray colors) {
         int[] _colors = new int[colors.size()];
         for (int i = 0; i < _colors.length; i++) {
-            _colors[i] =
-                    colors.getType(i) == ReadableType.Map
-                            ? ColorPropConverter.getColor(colors.getMap(i), getContext())
-                            : colors.getInt(i);
+            _colors[i] = colors.getInt(i);
         }
         mColors = _colors;
         drawGradient();
@@ -193,8 +188,8 @@ public class LinearGradientView extends View {
         if (mColors == null || (mLocations != null && mColors.length != mLocations.length))
             return;
 
-        float[] startPoint;
-        float[] endPoint;
+        float[] startPos;
+        float[] endPos;
 
         if (mUseAngle && mAngleCenter != null) {
             // Angle is in bearing degrees (North = 0, East = 90)
@@ -209,25 +204,25 @@ public class LinearGradientView extends View {
             };
             // Translate to center on angle center
             // Flip Y coordinate to convert from cartesian
-            startPoint = new float[]{
+            startPos = new float[]{
                     angleCenter[0] + relativeStartPoint[0],
                     angleCenter[1] - relativeStartPoint[1]
             };
             // Reflect across the center to get the end point
-            endPoint = new float[]{
+            endPos = new float[]{
                     angleCenter[0] - relativeStartPoint[0],
                     angleCenter[1] + relativeStartPoint[1]
             };
         } else {
-            startPoint = new float[]{mStartPoint[0] * mSize[0], mStartPoint[1] * mSize[1]};
-            endPoint = new float[]{mEndPoint[0] * mSize[0], mEndPoint[1] * mSize[1]};
+            startPos = new float[]{mStartPos[0] * mSize[0], mStartPos[1] * mSize[1]};
+            endPos = new float[]{mEndPos[0] * mSize[0], mEndPos[1] * mSize[1]};
         }
 
         mShader = new LinearGradient(
-                startPoint[0],
-                startPoint[1],
-                endPoint[0],
-                endPoint[1],
+                startPos[0],
+                startPos[1],
+                endPos[0],
+                endPos[1],
                 mColors,
                 mLocations,
                 Shader.TileMode.CLAMP);

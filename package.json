@@ -33,10 +33,10 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@types/react-native": "^0.67.21",
-    "flow-bin": "^0.162.0",
-    "react": "17.0.2",
-    "react-native": "0.67.5"
+    "@types/react-native": "^0.70.14",
+    "flow-bin": "^0.182.0",
+    "react": "18.1.0",
+    "react-native": "0.70.12"
   },
   "peerDependencies": {
     "react": "*",

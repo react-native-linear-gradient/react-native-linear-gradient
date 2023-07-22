@@ -8,11 +8,11 @@ buildscript {
     // module dependency in an application project.
     if (project == rootProject) {
         repositories {
-            mavenCentral()
             google()
+            mavenCentral()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:4.2.2'
+            classpath 'com.android.tools.build:gradle:7.2.1'
         }
     }
 }
@@ -20,10 +20,10 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion safeExtGet('compileSdkVersion', 30)
+    compileSdkVersion safeExtGet('compileSdkVersion', 31).toInteger()
     defaultConfig {
         minSdkVersion safeExtGet('minSdkVersion', 21)
-        targetSdkVersion safeExtGet('targetSdkVersion', 30)
+        targetSdkVersion safeExtGet('targetSdkVersion', 31)
     }
     lintOptions {
         abortOnError false

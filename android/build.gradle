@@ -20,6 +20,7 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
+    namespace = "com.BV.LinearGradient"
     compileSdkVersion safeExtGet('compileSdkVersion', 30)
     defaultConfig {
         minSdkVersion safeExtGet('minSdkVersion', 21)

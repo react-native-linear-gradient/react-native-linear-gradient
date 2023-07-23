@@ -2,7 +2,7 @@
  * @providesModule LinearGradient
  * @flow
  */
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { processColor, StyleSheet, View } from 'react-native';
 
 import NativeLinearGradient, { type Props } from './common';
@@ -32,7 +32,7 @@ const validNumber = (defaultValue) => (value) => {
 
 export default class LinearGradient extends Component<Props> {
   props: Props;
-  gradientRef: any;
+  gradientRef = createRef<NativeLinearGradient>();
 
   static defaultProps = {
     start: { x: 0.5, y: 0.0 },
@@ -40,7 +40,7 @@ export default class LinearGradient extends Component<Props> {
   };
 
   setNativeProps(props: Props) {
-    this.gradientRef.setNativeProps(props);
+    this.gradientRef.current.setNativeProps(props);
   }
 
   render() {
@@ -81,7 +81,7 @@ export default class LinearGradient extends Component<Props> {
     ];
 
     return (
-      <View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>
+      <View ref={this.gradientRef} {...otherProps} style={style}>
         <NativeLinearGradient
           style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
           colors={colors.map(processColor)}
@@ -93,7 +93,7 @@ export default class LinearGradient extends Component<Props> {
           angle={angle}
           borderRadii={borderRadiiPerCorner}
         />
-        { children }
+        {children}
       </View>
     );
   }

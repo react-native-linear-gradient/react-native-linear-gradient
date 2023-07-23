@@ -1,5 +1,14 @@
 # ChangeLog
 
+## 2.8.0 - 2021-07-23
+
+- Update example to react-native 0.70.12
+- Update react-native to 0.70.12
+- Update mkdirp to 0.5.6
+- Export LinearGradient as named export in index.js
+- Upgrade ref registration to createRef
+- Short circuit from CGContext if height/width are 0
+
 ## 2.7.3 - 2023-06-19
 
 - Revert start/end point parameter type change (Android)

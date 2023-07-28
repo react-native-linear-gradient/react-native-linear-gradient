@@ -20,6 +20,6 @@ public class LinearGradientPackage implements ReactPackage {
     @NonNull
     @Override
     public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactContext) {
-        return Collections.singletonList(new LinearGradientManager());
+        return Collections.<ViewManager>singletonList(new LinearGradientManager());
     }
 }

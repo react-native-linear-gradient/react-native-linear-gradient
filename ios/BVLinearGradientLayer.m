@@ -60,15 +60,32 @@
         hasAlpha = hasAlpha || CGColorGetAlpha(self.colors[i].CGColor) < 1.0;
     }
 
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, !hasAlpha, 0.0);
-    CGContextRef ref = UIGraphicsGetCurrentContext();
-    [self drawInContext:ref];
+    if (@available(iOS 10.0, *)) {
+        UIGraphicsImageRendererFormat *format;
+        if (@available(iOS 11.0, *)) {
+            format = [UIGraphicsImageRendererFormat preferredFormat];
+        } else {
+            format = [UIGraphicsImageRendererFormat defaultFormat];
+        }
+        format.opaque = !hasAlpha;
+        UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:self.bounds.size format:format];
+        UIImage *image = [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull ref) {
+            [self drawInContext:ref.CGContext];
+        }];
 
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    self.contents = (__bridge id _Nullable)(image.CGImage);
-    self.contentsScale = image.scale;
+        self.contents = (__bridge id _Nullable)(image.CGImage);
+        self.contentsScale = image.scale;
+    } else {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, !hasAlpha, 0.0);
+        CGContextRef ref = UIGraphicsGetCurrentContext();
+        [self drawInContext:ref];
 
-    UIGraphicsEndImageContext();
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        self.contents = (__bridge id _Nullable)(image.CGImage);
+        self.contentsScale = image.scale;
+
+        UIGraphicsEndImageContext();
+    }
 }
 
 - (void)setUseAngle:(BOOL)useAngle

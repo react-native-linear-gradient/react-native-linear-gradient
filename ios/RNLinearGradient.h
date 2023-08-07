@@ -1,6 +1,6 @@
 #import <React/RCTView.h>
 
-@interface BVLinearGradient : RCTView
+@interface RNLinearGradient : RCTView
 
 @property (nullable, nonatomic, copy) NSArray<UIColor *> *colors;
 @property (nullable, nonatomic, copy) NSArray<NSNumber *> *locations;

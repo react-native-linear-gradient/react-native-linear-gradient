@@ -4,12 +4,12 @@
 #  include "ReactPackageProvider.g.cpp"
 #endif
 
-#include "BVLinearGradientViewManager.h"
+#include "RNLinearGradientViewManager.h"
 
 using namespace winrt::Microsoft::ReactNative;
 
-namespace winrt::BVLinearGradient::implementation {
+namespace winrt::RNLinearGradient::implementation {
   void ReactPackageProvider::CreatePackage(IReactPackageBuilder const &packageBuilder) noexcept {
-    packageBuilder.AddViewManager(L"BVLinearGradientViewManager", []() { return winrt::make<BVLinearGradientViewManager>(); });
+    packageBuilder.AddViewManager(L"RNLinearGradientViewManager", []() { return winrt::make<RNLinearGradientViewManager>(); });
   }
 }

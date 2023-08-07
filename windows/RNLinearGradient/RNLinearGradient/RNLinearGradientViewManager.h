@@ -2,17 +2,17 @@
 #include "winrt/Microsoft.ReactNative.h"
 #include "NativeModules.h"
 
-namespace winrt::BVLinearGradient::implementation {
+namespace winrt::RNLinearGradient::implementation {
 
-    class BVLinearGradientViewManager : public winrt::implements<
-        BVLinearGradientViewManager,
+    class RNLinearGradientViewManager : public winrt::implements<
+        RNLinearGradientViewManager,
         winrt::Microsoft::ReactNative::IViewManager,
         winrt::Microsoft::ReactNative::IViewManagerWithReactContext,
         winrt::Microsoft::ReactNative::IViewManagerWithNativeProperties,
         winrt::Microsoft::ReactNative::IViewManagerWithExportedEventTypeConstants,
         winrt::Microsoft::ReactNative::IViewManagerWithCommands> {
     public:
-        BVLinearGradientViewManager() = default;
+        RNLinearGradientViewManager() = default;
 
         // IViewManager
         winrt::hstring Name() noexcept;

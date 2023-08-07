@@ -41,7 +41,7 @@ jobs:
       - run: curl https://raw.githubusercontent.com/fbtmp/rn-native-module-support/master/Podfile -o ios/Podfile
       - working-directory: ios/
         run: pod install
-      - run: xcodebuild -workspace "ios/BVLinearGradient.xcworkspace" -scheme "BVLinearGradient" -destination "platform=iOS Simulator,name=iPhone 12"
+      - run: xcodebuild -workspace "ios/RNLinearGradient.xcworkspace" -scheme "RNLinearGradient" -destination "platform=iOS Simulator,name=iPhone 12"
   integration-rn63:
     runs-on: ubuntu-latest
     steps:

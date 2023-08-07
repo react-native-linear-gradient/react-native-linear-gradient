@@ -1,4 +1,4 @@
-package com.BV.LinearGradient;
+package com.rnlineargradient;
 
 import com.facebook.react.bridge.ColorPropConverter;
 import com.facebook.react.bridge.ReadableArray;

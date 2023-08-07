@@ -3,13 +3,13 @@
 #include "pch.h"
 #include "winrt/Microsoft.ReactNative.h"
 #include "NativeModules.h"
-#include "BVLinearGradientModule.g.h"
+#include "RNLinearGradientModule.g.h"
 
-namespace winrt::BVLinearGradient::implementation {
+namespace winrt::RNLinearGradient::implementation {
 
-    class BVLinearGradientModule : public BVLinearGradientModuleT<BVLinearGradientModule> {
+    class RNLinearGradientModule : public RNLinearGradientModuleT<RNLinearGradientModule> {
     public:
-        BVLinearGradientModule(Microsoft::ReactNative::IReactContext const& reactContext);
+        RNLinearGradientModule(Microsoft::ReactNative::IReactContext const& reactContext);
 
         static winrt::Windows::Foundation::Collections::
             IMapView<winrt::hstring, winrt::Microsoft::ReactNative::ViewManagerPropertyType>
@@ -33,6 +33,6 @@ namespace winrt::BVLinearGradient::implementation {
     };
 }
 
-namespace winrt::BVLinearGradient::factory_implementation {
-    struct BVLinearGradientModule : BVLinearGradientModuleT<BVLinearGradientModule, implementation::BVLinearGradientModule> {};
+namespace winrt::RNLinearGradient::factory_implementation {
+    struct RNLinearGradientModule : RNLinearGradientModuleT<RNLinearGradientModule, implementation::RNLinearGradientModule> {};
 }

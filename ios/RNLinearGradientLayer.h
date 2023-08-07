@@ -3,7 +3,7 @@
 
 @class UIColor;
 
-@interface BVLinearGradientLayer : CALayer
+@interface RNLinearGradientLayer : CALayer
 
 @property (nullable, nonatomic, copy) NSArray<UIColor *> *colors;
 @property (nullable, nonatomic, copy) NSArray<NSNumber *> *locations;

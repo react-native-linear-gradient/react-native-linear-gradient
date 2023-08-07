@@ -5,7 +5,7 @@ folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 
 
 Pod::Spec.new do |s|
 
-  s.name            = "BVLinearGradient"
+  s.name            = "RNLinearGradient"
   s.version         = version
   s.homepage        = "https://github.com/brentvatne/react-native-linear-gradient"
   s.summary         = "A <LinearGradient /> component for react-native"

@@ -6,8 +6,8 @@
     <CppWinRTRootNamespaceAutoMerge>true</CppWinRTRootNamespaceAutoMerge>
     <MinimalCoreWin>true</MinimalCoreWin>
     <ProjectGuid>{193df456-3f97-4cc1-a7d4-809857cc064e}</ProjectGuid>
-    <ProjectName>BVLinearGradient</ProjectName>
-    <RootNamespace>BVLinearGradient</RootNamespace>
+    <ProjectName>RNLinearGradient</ProjectName>
+    <RootNamespace>RNLinearGradient</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
     <AppContainerApplication>true</AppContainerApplication>
@@ -98,7 +98,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateWindowsMetadata>true</GenerateWindowsMetadata>
-      <ModuleDefinitionFile>BVLinearGradient.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>RNLinearGradient.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
@@ -114,24 +114,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="BVLinearGradientViewManager.h" />
+    <ClInclude Include="RNLinearGradientViewManager.h" />
     <ClInclude Include="ReactPackageProvider.h">
       <DependentUpon>ReactPackageProvider.idl</DependentUpon>
     </ClInclude>
-    <ClInclude Include="BVLinearGradient.h">
-      <DependentUpon>BVLinearGradient.idl</DependentUpon>
+    <ClInclude Include="RNLinearGradient.h">
+      <DependentUpon>RNLinearGradient.idl</DependentUpon>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="BVLinearGradientViewManager.cpp" />
+    <ClCompile Include="RNLinearGradientViewManager.cpp" />
     <ClCompile Include="ReactPackageProvider.cpp">
       <DependentUpon>ReactPackageProvider.idl</DependentUpon>
     </ClCompile>
-    <ClCompile Include="BVLinearGradient.cpp">
-      <DependentUpon>BVLinearGradient.idl</DependentUpon>
+    <ClCompile Include="RNLinearGradient.cpp">
+      <DependentUpon>RNLinearGradient.idl</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
   </ItemGroup>
@@ -139,11 +139,11 @@
     <Midl Include="ReactPackageProvider.idl" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="BVLinearGradient.idl" />
+    <Midl Include="RNLinearGradient.idl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="BVLinearGradient.def" />
+    <None Include="RNLinearGradient.def" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PropertySheet.props" />

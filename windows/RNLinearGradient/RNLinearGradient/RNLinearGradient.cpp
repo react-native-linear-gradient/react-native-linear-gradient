@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "JSValueXaml.h"
-#include "BVLinearGradient.h"
-#include "BVLinearGradientModule.g.cpp"
+#include "RNLinearGradient.h"
+#include "RNLinearGradientModule.g.cpp"
 
 namespace winrt {
     using namespace Microsoft::ReactNative;
@@ -15,15 +15,15 @@ namespace winrt {
     using namespace Windows::UI::Xaml::Media;
 } // namespace winrt
 
-namespace winrt::BVLinearGradient::implementation {
+namespace winrt::RNLinearGradient::implementation {
 
-    BVLinearGradientModule::BVLinearGradientModule(winrt::IReactContext const& reactContext)
+    RNLinearGradientModule::RNLinearGradientModule(winrt::IReactContext const& reactContext)
         : m_reactContext(reactContext) {
         Background(m_linearGradientBrush);
     }
 
     winrt::Windows::Foundation::Collections::IMapView<winrt::hstring, winrt::Microsoft::ReactNative::ViewManagerPropertyType>
-    BVLinearGradientModule::NativeProps() noexcept {
+    RNLinearGradientModule::NativeProps() noexcept {
         auto nativeProps = winrt::single_threaded_map<hstring, ViewManagerPropertyType>();
         nativeProps.Insert(L"startPoint", ViewManagerPropertyType::Map);
         nativeProps.Insert(L"endPoint", ViewManagerPropertyType::Map);
@@ -32,7 +32,7 @@ namespace winrt::BVLinearGradient::implementation {
         return nativeProps.GetView();
     }
 
-    void BVLinearGradientModule::UpdateProperties(winrt::Microsoft::ReactNative::IJSValueReader const& propertyMapReader) noexcept {
+    void RNLinearGradientModule::UpdateProperties(winrt::Microsoft::ReactNative::IJSValueReader const& propertyMapReader) noexcept {
         const JSValueObject &propertyMap = JSValue::ReadObjectFrom(propertyMapReader);
         for (auto const &pair : propertyMap) {
             auto const &propertyName = pair.first;
@@ -93,19 +93,19 @@ namespace winrt::BVLinearGradient::implementation {
         }
     }
 
-    winrt::Microsoft::ReactNative::ConstantProviderDelegate BVLinearGradientModule::ExportedCustomBubblingEventTypeConstants() noexcept {
+    winrt::Microsoft::ReactNative::ConstantProviderDelegate RNLinearGradientModule::ExportedCustomBubblingEventTypeConstants() noexcept {
         return nullptr;
     }
 
-    winrt::Microsoft::ReactNative::ConstantProviderDelegate BVLinearGradientModule::ExportedCustomDirectEventTypeConstants() noexcept {
+    winrt::Microsoft::ReactNative::ConstantProviderDelegate RNLinearGradientModule::ExportedCustomDirectEventTypeConstants() noexcept {
         return nullptr;
     }
 
-    winrt::Windows::Foundation::Collections::IVectorView<winrt::hstring> BVLinearGradientModule::Commands() noexcept {
+    winrt::Windows::Foundation::Collections::IVectorView<winrt::hstring> RNLinearGradientModule::Commands() noexcept {
         auto commands = winrt::single_threaded_vector<hstring>();
         return commands.GetView();
     }
 
-    void BVLinearGradientModule::DispatchCommand(winrt::hstring const &, winrt::Microsoft::ReactNative::IJSValueReader const &) noexcept {
+    void RNLinearGradientModule::DispatchCommand(winrt::hstring const &, winrt::Microsoft::ReactNative::IJSValueReader const &) noexcept {
     }
 }

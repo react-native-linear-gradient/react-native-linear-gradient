@@ -1,7 +1,5 @@
 PODS:
   - boost (1.76.0)
-  - BVLinearGradient (2.7.3):
-    - React-Core
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.70.12)
   - FBReactNativeSpec (0.70.12):
@@ -309,11 +307,12 @@ PODS:
     - React-jsi (= 0.70.12)
     - React-logger (= 0.70.12)
     - React-perflogger (= 0.70.12)
+  - RNLinearGradient (2.8.0):
+    - React-Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
-  - BVLinearGradient (from `../..`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
@@ -349,6 +348,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNLinearGradient (from `../..`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -359,8 +359,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   boost:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
-  BVLinearGradient:
-    :path: "../.."
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
@@ -427,12 +425,13 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNLinearGradient:
+    :path: "../.."
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  BVLinearGradient: fbe308a1d19a8133f69e033abc85d8008644f5e3
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: ad10768c7e516954e6f26b7e923eb27cda4f9895
   FBReactNativeSpec: e957ece605f33719f85d08ebb85bc862e968098b
@@ -468,6 +467,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 89e72d020ee2848022ee214f0542facafe91110a
   React-runtimeexecutor: 6bedb63b3de0c5c3bb3cc44595431e2a91c24da2
   ReactCommon: 2642dd48fe3def7738d85f747c05fdd8c3a47950
+  RNLinearGradient: 8e446e1ef3a9f58d697e535e8eab959bc033dc2e
   Yoga: bb774af243598f7f860127c6e9ac7b62fb6519c4
 
 PODFILE CHECKSUM: 939cb4e1426d71cf4626b9cd73ece1c933be9590

@@ -1,21 +1,21 @@
-#import "BVLinearGradient.h"
+#import "RNLinearGradient.h"
 
 #import <React/RCTConvert.h>
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "BVLinearGradientLayer.h"
+#import "RNLinearGradientLayer.h"
 
-@implementation BVLinearGradient
+@implementation RNLinearGradient
 
 + (Class)layerClass
 {
-  return [BVLinearGradientLayer class];
+  return [RNLinearGradientLayer class];
 }
 
-- (BVLinearGradientLayer *)gradientLayer
+- (RNLinearGradientLayer *)gradientLayer
 {
-  return (BVLinearGradientLayer *)self.layer;
+  return (RNLinearGradientLayer *)self.layer;
 }
 
 - (NSArray *)colors

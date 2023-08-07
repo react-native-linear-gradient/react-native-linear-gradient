@@ -13,7 +13,7 @@
     "index.d.ts",
     "index.ios.js",
     "index.windows.js",
-    "BVLinearGradient.podspec"
+    "react-native-linear-gradient.podspec"
   ],
   "scripts": {
     "flow": "flow check"

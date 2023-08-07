@@ -1,4 +1,4 @@
-namespace BVLinearGradient
+namespace RNLinearGradient
 {
     [webhosthidden]
     [default_interface]

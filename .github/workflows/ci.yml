@@ -42,3 +42,20 @@ jobs:
       - working-directory: ios/
         run: pod install
       - run: xcodebuild -workspace "ios/BVLinearGradient.xcworkspace" -scheme "BVLinearGradient" -destination "platform=iOS Simulator,name=iPhone 12"
+  integration-rn63:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: 16
+      - run: echo "y" | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager "ndk;21.4.7075529"
+      - run: yarn --frozen-lockfile
+      - run: npx react-native init rn63 --version 0.63.5 --skip-install
+      - working-directory: rn63/
+        run: |
+          yarn
+          yarn add link:./..
+          echo "ndk.dir=${ANDROID_SDK_ROOT}/ndk/21.4.7075529" > android/local.properties
+          ./android/gradlew -p android build

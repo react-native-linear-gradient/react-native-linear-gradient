@@ -11,14 +11,34 @@ jobs:
         node: ['16', '18', '20']
     steps:
       - uses: actions/checkout@v3
-      - uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: 7.5.1
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'
           node-version: ${{ matrix.node }}
       - run: yarn --frozen-lockfile
       - run: yarn flow
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 7.5.1
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - run: yarn --frozen-lockfile
       - working-directory: android/
         run: gradle build
+  build-ios:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - run: yarn --frozen-lockfile
+      - run: curl https://raw.githubusercontent.com/fbtmp/rn-native-module-support/master/Podfile -o ios/Podfile
+      - working-directory: ios/
+        run: pod install
+      - run: xcodebuild -workspace "ios/BVLinearGradient.xcworkspace" -scheme "BVLinearGradient" -destination "platform=iOS Simulator,name=iPhone 12"

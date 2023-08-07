@@ -3,9 +3,9 @@ def safeExtGet(prop, fallback) {
 }
 
 buildscript {
-    ext.isNewArchitectureEnabled = () ->
-            rootProject.hasProperty("newArchEnabled") && rootProject.getProperty("newArchEnabled") == "true"
-
+    ext.isNewArchitectureEnabled = { _ ->
+        project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+    }
     // buildscript dependencies are only required when working with the module in isolation (e.g.
     // during development and for testing). This avoids unnecessary downloads and potential
     // conflicts when the library is included as a module dependency in an application project.

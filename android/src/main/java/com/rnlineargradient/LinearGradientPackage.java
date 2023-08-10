@@ -1,4 +1,4 @@
-package com.BV.LinearGradient;
+package com.rnlineargradient;
 
 import androidx.annotation.NonNull;
 

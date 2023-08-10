@@ -1,8 +1,8 @@
-#import "BVLinearGradientManager.h"
-#import "BVLinearGradient.h"
+#import "RNLinearGradientManager.h"
+#import "RNLinearGradient.h"
 #import <React/RCTBridge.h>
 
-@implementation BVLinearGradientManager
+@implementation RNLinearGradientManager
 
 RCT_EXPORT_MODULE();
 
@@ -10,7 +10,7 @@ RCT_EXPORT_MODULE();
 
 - (UIView *)view
 {
-  return [[BVLinearGradient alloc] init];
+  return [[RNLinearGradient alloc] init];
 }
 
 - (dispatch_queue_t)methodQueue

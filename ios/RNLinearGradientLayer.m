@@ -1,9 +1,9 @@
-#import "BVLinearGradientLayer.h"
+#import "RNLinearGradientLayer.h"
 
 #include <math.h>
 #import <UIKit/UIKit.h>
 
-@implementation BVLinearGradientLayer
+@implementation RNLinearGradientLayer
 
 - (instancetype)init
 {
@@ -149,7 +149,7 @@
     // Explicitly check for horizontal or vertical gradients, as slopes of
     // the gradient line or a line perpendicular will be undefined in that case
     if (fmodf(angle, 90) == 0)
-        return [BVLinearGradientLayer getHorizontalOrVerticalStartPointFromAngle:angle AndSize:size];
+        return [RNLinearGradientLayer getHorizontalOrVerticalStartPointFromAngle:angle AndSize:size];
 
     // Get the equivalent slope of the gradient line as tan = opposite/adjacent = y/x
     float slope = tan(angle * M_PI / 180.0);
@@ -159,7 +159,7 @@
     float perpendicularSlope = -1 / slope;
 
     // Get the start corner to intersect relative to center, in cartesian space (+y = up)
-    CGPoint startCorner = [BVLinearGradientLayer getStartCornerToIntersectFromAngle:angle AndSize:size];
+    CGPoint startCorner = [RNLinearGradientLayer getStartCornerToIntersectFromAngle:angle AndSize:size];
 
     // Compute b (of y = mx + b) to get the equation for the perpendicular line
     float b = startCorner.y - perpendicularSlope * startCorner.x;
@@ -214,7 +214,7 @@
         // Angle is in bearing degrees (North = 0, East = 90)
         // convert it to cartesian (N = 90, E = 0)
         float angle = (90 - _angle);
-        CGPoint relativeStartPoint = [BVLinearGradientLayer getGradientStartPointFromAngle:angle AndSize:size];
+        CGPoint relativeStartPoint = [RNLinearGradientLayer getGradientStartPointFromAngle:angle AndSize:size];
 
         // Get true angleCenter
         CGPoint angleCenter = CGPointMake(

@@ -3,13 +3,13 @@
 
 using namespace winrt::Microsoft::ReactNative;
 
-namespace winrt::BVLinearGradient::implementation {
+namespace winrt::RNLinearGradient::implementation {
   struct ReactPackageProvider : ReactPackageProviderT<ReactPackageProvider> {
     ReactPackageProvider() = default;
     void CreatePackage(IReactPackageBuilder const &packageBuilder) noexcept;
   };
 }
 
-namespace winrt::BVLinearGradient::factory_implementation {
+namespace winrt::RNLinearGradient::factory_implementation {
   struct ReactPackageProvider : ReactPackageProviderT<ReactPackageProvider, implementation::ReactPackageProvider> {};
 }

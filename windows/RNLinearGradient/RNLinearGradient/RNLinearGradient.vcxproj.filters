@@ -13,17 +13,17 @@
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="ReactPackageProvider.cpp" />
-    <ClCompile Include="BVLinearGradient.cpp" />
-    <ClCompile Include="BVLinearGradientViewManager.cpp" />
+    <ClCompile Include="RNLinearGradient.cpp" />
+    <ClCompile Include="RNLinearGradientViewManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="ReactPackageProvider.h" />
-    <ClInclude Include="BVLinearGradient.h" />
-    <ClInclude Include="BVLinearGradientViewManager.h" />
+    <ClInclude Include="RNLinearGradient.h" />
+    <ClInclude Include="RNLinearGradientViewManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BVLinearGradient.def" />
+    <None Include="RNLinearGradient.def" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +31,6 @@
   </ItemGroup>
   <ItemGroup>
     <Midl Include="ReactPackageProvider.idl" />
-    <Midl Include="BVLinearGradient.idl" />
+    <Midl Include="RNLinearGradient.idl" />
   </ItemGroup>
 </Project>

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D6BF2FA420D7DC1F006672AE /* BVLinearGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BF2FA320D7DC1F006672AE /* BVLinearGradientLayer.m */; };
-		EF6045F01C4E5D290001F552 /* BVLinearGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */; };
-		EF6045F11C4E5D290001F552 /* BVLinearGradientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045EF1C4E5D290001F552 /* BVLinearGradientManager.m */; };
+		D6BF2FA420D7DC1F006672AE /* RNLinearGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BF2FA320D7DC1F006672AE /* RNLinearGradientLayer.m */; };
+		EF6045F01C4E5D290001F552 /* RNLinearGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045ED1C4E5D290001F552 /* RNLinearGradient.m */; };
+		EF6045F11C4E5D290001F552 /* RNLinearGradientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6045EF1C4E5D290001F552 /* RNLinearGradientManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,13 +34,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBVLinearGradient.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6BF2FA220D7DC1F006672AE /* BVLinearGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BVLinearGradientLayer.h; sourceTree = "<group>"; };
-		D6BF2FA320D7DC1F006672AE /* BVLinearGradientLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BVLinearGradientLayer.m; sourceTree = "<group>"; };
-		EF6045EC1C4E5D290001F552 /* BVLinearGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVLinearGradient.h; sourceTree = "<group>"; };
-		EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVLinearGradient.m; sourceTree = "<group>"; };
-		EF6045EE1C4E5D290001F552 /* BVLinearGradientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVLinearGradientManager.h; sourceTree = "<group>"; };
-		EF6045EF1C4E5D290001F552 /* BVLinearGradientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVLinearGradientManager.m; sourceTree = "<group>"; };
+		134814201AA4EA6300B7C361 /* libRNLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNLinearGradient.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6BF2FA220D7DC1F006672AE /* RNLinearGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNLinearGradientLayer.h; sourceTree = "<group>"; };
+		D6BF2FA320D7DC1F006672AE /* RNLinearGradientLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNLinearGradientLayer.m; sourceTree = "<group>"; };
+		EF6045EC1C4E5D290001F552 /* RNLinearGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLinearGradient.h; sourceTree = "<group>"; };
+		EF6045ED1C4E5D290001F552 /* RNLinearGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLinearGradient.m; sourceTree = "<group>"; };
+		EF6045EE1C4E5D290001F552 /* RNLinearGradientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLinearGradientManager.h; sourceTree = "<group>"; };
+		EF6045EF1C4E5D290001F552 /* RNLinearGradientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLinearGradientManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				134814201AA4EA6300B7C361 /* libBVLinearGradient.a */,
+				134814201AA4EA6300B7C361 /* libRNLinearGradient.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,12 +72,12 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				EF6045EC1C4E5D290001F552 /* BVLinearGradient.h */,
-				EF6045ED1C4E5D290001F552 /* BVLinearGradient.m */,
-				EF6045EE1C4E5D290001F552 /* BVLinearGradientManager.h */,
-				EF6045EF1C4E5D290001F552 /* BVLinearGradientManager.m */,
-				D6BF2FA220D7DC1F006672AE /* BVLinearGradientLayer.h */,
-				D6BF2FA320D7DC1F006672AE /* BVLinearGradientLayer.m */,
+				EF6045EC1C4E5D290001F552 /* RNLinearGradient.h */,
+				EF6045ED1C4E5D290001F552 /* RNLinearGradient.m */,
+				EF6045EE1C4E5D290001F552 /* RNLinearGradientManager.h */,
+				EF6045EF1C4E5D290001F552 /* RNLinearGradientManager.m */,
+				D6BF2FA220D7DC1F006672AE /* RNLinearGradientLayer.h */,
+				D6BF2FA320D7DC1F006672AE /* RNLinearGradientLayer.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +85,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* BVLinearGradient */ = {
+		58B511DA1A9E6C8500147676 /* RNLinearGradient */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "BVLinearGradient" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNLinearGradient" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -97,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = BVLinearGradient;
+			name = RNLinearGradient;
 			productName = RCTDataManager;
-			productReference = 134814201AA4EA6300B7C361 /* libBVLinearGradient.a */;
+			productReference = 134814201AA4EA6300B7C361 /* libRNLinearGradient.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -116,7 +116,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "BVLinearGradient" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNLinearGradient" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -128,7 +128,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				58B511DA1A9E6C8500147676 /* BVLinearGradient */,
+				58B511DA1A9E6C8500147676 /* RNLinearGradient */,
 			);
 		};
 /* End PBXProject section */
@@ -138,9 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF6045F11C4E5D290001F552 /* BVLinearGradientManager.m in Sources */,
-				EF6045F01C4E5D290001F552 /* BVLinearGradient.m in Sources */,
-				D6BF2FA420D7DC1F006672AE /* BVLinearGradientLayer.m in Sources */,
+				EF6045F11C4E5D290001F552 /* RNLinearGradientManager.m in Sources */,
+				EF6045F01C4E5D290001F552 /* RNLinearGradient.m in Sources */,
+				D6BF2FA420D7DC1F006672AE /* RNLinearGradientLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +257,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = BVLinearGradient;
+				PRODUCT_NAME = RNLinearGradient;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -273,7 +273,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = BVLinearGradient;
+				PRODUCT_NAME = RNLinearGradient;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -281,7 +281,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "BVLinearGradient" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNLinearGradient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -290,7 +290,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "BVLinearGradient" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNLinearGradient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,

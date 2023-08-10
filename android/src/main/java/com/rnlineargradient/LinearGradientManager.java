@@ -1,4 +1,4 @@
-package com.BV.LinearGradient;
+package com.rnlineargradient;
 
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.uimanager.SimpleViewManager;
@@ -6,7 +6,7 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
 public class LinearGradientManager extends SimpleViewManager<LinearGradientView> {
-    public static final String REACT_CLASS = "BVLinearGradient";
+    public static final String REACT_CLASS = "RNLinearGradient";
     public static final String PROP_COLORS = "colors";
     public static final String PROP_LOCATIONS = "locations";
     public static final String PROP_START_POINT = "startPoint";

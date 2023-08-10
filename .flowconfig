@@ -15,6 +15,9 @@ node_modules/react-native/Libraries/polyfills/.*
 
 .*/node_modules/resolve/test/resolver/malformed_package_json/package\.json$
 
+; duplicate-flow-decl after hermes build
+.*/node_modules/react-native/sdks/hermes/external/flowtest/test/flow/comment_interning/program_comment_directive\.js$
+
 ; Ignore example
 .*/example/.*
 

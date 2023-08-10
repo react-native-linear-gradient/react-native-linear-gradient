@@ -1,6 +1,12 @@
+#ifdef RCT_NEW_ARCH_ENABLED
+#import <React/RCTViewComponentView.h>
+
+@interface RNLinearGradient : RCTViewComponentView
+#else
 #import <React/RCTView.h>
 
 @interface RNLinearGradient : RCTView
+#endif
 
 @property (nullable, nonatomic, copy) NSArray<UIColor *> *colors;
 @property (nullable, nonatomic, copy) NSArray<NSNumber *> *locations;

@@ -17,7 +17,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: yarn --frozen-lockfile
       - run: yarn flow
-  build-android:
+  build-android-oldarch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,7 +30,23 @@ jobs:
       - run: yarn --frozen-lockfile
       - working-directory: android/
         run: gradle build
-  build-ios:
+  build-android-newarch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 7.5.1
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - run: yarn --frozen-lockfile
+      - env:
+          _JAVA_OPTIONS: -Xmx4096m -XX:MaxMetaspaceSize=1024m
+          ORG_GRADLE_PROJECT_newArchEnabled: true
+        working-directory: android/
+        run: gradle build
+  build-ios-oldarch:
     runs-on: macos-12
     steps:
       - uses: actions/checkout@v3
@@ -38,9 +54,21 @@ jobs:
         with:
           cache: 'yarn'
       - run: yarn --frozen-lockfile
-      - run: curl https://raw.githubusercontent.com/fbtmp/rn-native-module-support/master/Podfile -o ios/Podfile
+      - run: curl https://raw.githubusercontent.com/fbtmp/rn-native-module-support/bde08590abdf16efe2e4e68faacc3e1b7307b867/Podfile -o ios/Podfile
       - working-directory: ios/
         run: pod install
+      - run: xcodebuild -workspace "ios/RNLinearGradient.xcworkspace" -scheme "RNLinearGradient" -destination "platform=iOS Simulator,name=iPhone 12"
+  build-ios-newarch:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - run: yarn --frozen-lockfile
+      - run: curl https://raw.githubusercontent.com/fbtmp/rn-native-module-support/bde08590abdf16efe2e4e68faacc3e1b7307b867/Podfile -o ios/Podfile
+      - working-directory: ios/
+        run: RCT_NEW_ARCH_ENABLED=1 pod install
       - run: xcodebuild -workspace "ios/RNLinearGradient.xcworkspace" -scheme "RNLinearGradient" -destination "platform=iOS Simulator,name=iPhone 12"
   integration-rn63:
     runs-on: ubuntu-latest

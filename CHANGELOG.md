@@ -1,10 +1,18 @@
 # ChangeLog
 
-## 2.8.1 - 2021-07-28
+## 2.8.3 - 2023-09-06
+
+- Modernize BVLinearGradientLayer to use UIGraphicsImageRenderer
+
+## 2.8.2 - 2023-08-07
+
+- Remove compileOptions from build.gradle
+
+## 2.8.1 - 2023-07-28
 
 - Re-add missing generic type argument for Java 7
 
-## 2.8.0 - 2021-07-23
+## 2.8.0 - 2023-07-23
 
 - Update example to react-native 0.70.12
 - Update react-native to 0.70.12

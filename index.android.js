@@ -81,14 +81,18 @@ export default class LinearGradient extends Component<Props> {
       validRadius(flatStyle.borderBottomLeftRadius)
     ];
 
+    const filteredColor = colors.map((value) => {
+      return processColor(value) ?? processColor("#00000000");
+    });
+
     return (
       <View ref={this.gradientRef} {...otherProps} style={style}>
         <NativeLinearGradient
           style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
-          colors={colors.map(processColor)}
+          colors={filteredColor}
           startPoint={convertPoint('start', start)}
           endPoint={convertPoint('end', end)}
-          locations={locations ? locations.slice(0, colors.length) : null}
+          locations={locations ? locations.slice(0, filteredColor.length) : null}
           useAngle={useAngle}
           angleCenter={convertPoint('angleCenter', angleCenter)}
           angle={angle}

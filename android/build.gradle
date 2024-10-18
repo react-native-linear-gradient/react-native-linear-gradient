@@ -30,6 +30,7 @@ if (isNewArchitectureEnabled()) {
 }
 
 android {
+    namespace 'com.BV.LinearGradient'
     compileSdkVersion safeExtGet('compileSdkVersion', 31).toInteger()
     defaultConfig {
         minSdkVersion safeExtGet('minSdkVersion', 21)

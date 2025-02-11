@@ -17,6 +17,10 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: yarn --frozen-lockfile
       - run: yarn flow
+      - working-directory: example/
+        run: |
+          yarn --frozen-lockfile
+          yarn test
   build-android-oldarch:
     runs-on: ubuntu-latest
     steps:

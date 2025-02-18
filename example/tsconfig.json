@@ -1,17 +1,10 @@
 // prettier-ignore
 {
-  "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
+  "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig.json to read more about this file */
-
-    "paths": {                                /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    "paths": {
       "react-native-linear-gradient": ["../index"]
     },
-
-    /* Completeness */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "forceConsistentCasingInFileNames": true
   },
-  "exclude": [
-    "node_modules", "babel.config.js", "metro.config.js", "react-native.config.js"
-  ]
 }

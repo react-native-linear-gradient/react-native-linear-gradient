@@ -20,7 +20,7 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
+**/.xcode.env.local
 
 # Android/IntelliJ
 #
@@ -29,9 +29,10 @@ build/
 .gradle
 local.properties
 *.iml
-android/gradle/
-android/gradlew
-android/gradlew.bat
+*.hprof
+.cxx/
+*.keystore
+!debug.keystore
 
 # node.js
 #
@@ -39,25 +40,24 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-# BUCK
-buck-out/
-\.buckd/
-*.keystore
-!debug.keystore
-
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
-
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
-
 # Bundle artifact
 *.jsbundle
 
 # CocoaPods
-/ios/Pods/
+**/Pods/
+/vendor/bundle/
+
+# Temporary files created by Metro to check the health of the file watcher
+.metro-health-check*
+
+# testing
+/coverage
+
+# Local library testing only
+android/gradle/
+android/gradlew
+android/gradlew.bat
+ios/*.xcworkspace
+ios/Podfile
+ios/Podfile.lock
+ios/PrivacyInfo.xcprivacy

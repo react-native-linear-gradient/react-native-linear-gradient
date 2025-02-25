@@ -47,30 +47,30 @@ jobs:
         working-directory: android/
         run: gradle build
   build-ios-oldarch:
-    runs-on: macos-12
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'
       - run: yarn --frozen-lockfile
-      - run: curl https://raw.githubusercontent.com/fbtmp/rn-native-module-support/bde08590abdf16efe2e4e68faacc3e1b7307b867/Podfile -o ios/Podfile
+      - run: curl https://raw.githubusercontent.com/fbtmp/rn-native-module-support/d95b3f90dd9212227f5a51a1c758252afdeb1161/Podfile -o ios/Podfile
       - working-directory: ios/
         run: pod install
-      - run: xcodebuild -workspace "ios/RNLinearGradient.xcworkspace" -scheme "RNLinearGradient" -destination "platform=iOS Simulator,name=iPhone 12"
+      - run: xcodebuild -workspace "ios/RNLinearGradient.xcworkspace" -scheme "RNLinearGradient" -destination "platform=iOS Simulator,name=iPhone 14"
   build-ios-newarch:
-    runs-on: macos-12
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'
       - run: yarn --frozen-lockfile
-      - run: curl https://raw.githubusercontent.com/fbtmp/rn-native-module-support/bde08590abdf16efe2e4e68faacc3e1b7307b867/Podfile -o ios/Podfile
+      - run: curl https://raw.githubusercontent.com/fbtmp/rn-native-module-support/d95b3f90dd9212227f5a51a1c758252afdeb1161/Podfile -o ios/Podfile
       - working-directory: ios/
         run: RCT_NEW_ARCH_ENABLED=1 pod install
-      - run: xcodebuild -workspace "ios/RNLinearGradient.xcworkspace" -scheme "RNLinearGradient" -destination "platform=iOS Simulator,name=iPhone 12"
-  integration-rn63:
+      - run: xcodebuild -workspace "ios/RNLinearGradient.xcworkspace" -scheme "RNLinearGradient" -destination "platform=iOS Simulator,name=iPhone 14"
+  integration-rn68:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -80,8 +80,8 @@ jobs:
           node-version: 16
       - run: echo "y" | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager "ndk;21.4.7075529"
       - run: yarn --frozen-lockfile
-      - run: npx react-native init rn63 --version 0.63.5 --skip-install
-      - working-directory: rn63/
+      - run: npx react-native init rn68 --version 0.68.7 --skip-install
+      - working-directory: rn68/
         run: |
           yarn
           yarn add link:./..

@@ -26,27 +26,24 @@ jobs:
   prerelease:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_PAT }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: '16'
-      - name: Set Git user
-        run: |
+          node-version: 20
+      - run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-      - run: npm version ${{ github.event.inputs.type }} --preid ${{ github.event.inputs.preid }}
+      - run: |
+          if [ -z "${{ github.event.inputs.preid }}" ]; then
+            npm version ${{ github.event.inputs.type }}
+          else
+            npm version ${{ github.event.inputs.type }} --preid ${{ github.event.inputs.preid }}
+          fi
       - run: git push --follow-tags
       - run: echo "VERSION=$(npm pkg get version --workspaces=false | tr -d \")" >> $GITHUB_ENV
-      - name: Create Release Notes
-        uses: actions/github-script@v6
-        with:
-          script: |
-            await github.request(`POST /repos/${{ github.repository }}/releases`, {
-              draft: true,
-              name: "${{ env.VERSION }}",
-              prerelease: true,
-              tag_name: "v${{ env.VERSION }}"
-            });
+      - run: gh release create v${VERSION} -d --generate-notes -p -t ${VERSION}
+        env:
+          GH_TOKEN: ${{ github.token }}

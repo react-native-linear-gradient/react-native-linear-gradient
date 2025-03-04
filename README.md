@@ -169,6 +169,22 @@ You can see this component in action in [brentvatne/react-native-login](https://
 1. Ensure to run `pod install` before running the app on iOS
 2. Ensure you use `ios/**.xcworkspace` file instead of `ios./**.xcodeproj`
 
+### Testing with Jest
+
+If you do not have a Jest Setup file configured, you should add the following to your Jest settings and create the jest.setup.js file in project root:
+
+```js
+setupFiles: ['<rootDir>/jest.setup.js'];
+```
+
+You should then add the following to your Jest setup file to mock the LinearGradient Native Module:
+
+```js
+import mockRNLinearGradient from 'react-native-linear-gradient/jest/linear-gradient-mock';
+
+jest.mock('react-native-linear-gradient', () => mockRNLinearGradient);
+```
+
 ### Other
 
 Clearing build caches and reinstalling dependencies sometimes solve some issues. Try next steps:

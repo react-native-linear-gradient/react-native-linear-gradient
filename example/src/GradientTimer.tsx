@@ -1,43 +1,51 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {Pressable, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {AppState, Pressable, Text, View} from 'react-native';
 import {styles} from './styles';
 import LinearGradient from 'react-native-linear-gradient';
 import Slider from '@react-native-community/slider';
 
-const INITIAL_DELAY = 20;
+const incrementColor = (color: string, step: number) => {
+  const intColor = parseInt(color.substring(1), 16);
+  const newIntColor = (intColor + step).toString(16);
+  return `#${'0'.repeat(6 - newIntColor.length)}${newIntColor}`;
+};
 
 const GradientTimer = () => {
   const [colorTop, setColorTop] = useState('#000000');
   const [colorBottom, setColorBottom] = useState('#cccccc');
 
-  const [delay, setDelay] = useState(INITIAL_DELAY);
-  const [nextDelay, setNextDelay] = useState(INITIAL_DELAY);
-  const [isRunning, setIsRunning] = useState(true);
+  const [delay, setDelay] = useState(20);
 
-  useInterval(() => {
-    setColorTop(incrementColor(colorTop, 1));
-    setColorBottom(incrementColor(colorBottom, -1));
-  }, delay);
+  const pause = () => setDelay(prev => (prev > 0 ? -prev : prev));
+  const resume = () => setDelay(prev => (prev < 0 ? -prev : prev));
 
-  const incrementColor = (color: string, step: number) => {
-    const intColor = parseInt(color.substring(1), 16);
-    const newIntColor = (intColor + step).toString(16);
-    return `#${'0'.repeat(6 - newIntColor.length)}${newIntColor}`;
-  };
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextAppState => {
+      if (nextAppState === 'active') {
+        setDelay(prev => (prev < 0 ? -prev : prev));
+      } else if (nextAppState === 'background') {
+        setDelay(prev => (prev > 0 ? -prev : prev));
+      }
+    });
+    return () => subscription.remove();
+  }, []);
+
+  useEffect(() => {
+    if (delay <= 0) {
+      return;
+    }
+    const id = setInterval(() => {
+      setColorTop(prev => incrementColor(prev, 1));
+      setColorBottom(prev => incrementColor(prev, -1));
+    }, delay);
+    return () => {
+      clearInterval(id);
+    };
+  }, [delay]);
 
   return (
     <View style={styles.container}>
-      <Pressable
-        onPress={() => {
-          if (isRunning) {
-            setIsRunning(false);
-            setNextDelay(delay);
-            setDelay(0);
-          } else {
-            setDelay(nextDelay);
-            setIsRunning(true);
-          }
-        }}>
+      <Pressable onPress={() => (delay <= 0 ? resume() : pause())}>
         <LinearGradient
           colors={[colorTop, colorBottom]}
           style={styles.gradient}
@@ -47,17 +55,14 @@ const GradientTimer = () => {
         <Slider
           minimumValue={10}
           maximumValue={100}
-          onSlidingStart={() => {
-            setDelay(0);
-            setIsRunning(true);
-          }}
-          onSlidingComplete={value => setDelay(value)}
-          onValueChange={value => setNextDelay(value)}
+          onSlidingStart={() => pause()}
+          onSlidingComplete={() => resume()}
+          onValueChange={value => setDelay(prev => (prev < 0 ? -value : value))}
           step={1}
-          value={delay}
+          value={Math.abs(delay)}
         />
         <Text>
-          Timer: {isRunning ? `${delay ? delay : nextDelay} ms` : 'Paused'}
+          Timer: {Math.abs(delay)} ms{delay <= 0 && ' [Paused]'}
         </Text>
         <Text style={{color: colorTop}}>{colorTop}</Text>
         <Text style={{color: colorBottom}}>{colorBottom}</Text>
@@ -65,25 +70,5 @@ const GradientTimer = () => {
     </View>
   );
 };
-
-// https://overreacted.io/making-setinterval-declarative-with-react-hooks
-function useInterval(callback: () => void, delay: number) {
-  const savedCallback = useRef<() => void>();
-
-  useEffect(() => {
-    savedCallback.current = callback;
-  });
-
-  useEffect(() => {
-    function tick() {
-      savedCallback.current?.();
-    }
-
-    if (delay > 0) {
-      let id = setInterval(tick, delay);
-      return () => clearInterval(id);
-    }
-  }, [delay]);
-}
 
 export default GradientTimer;

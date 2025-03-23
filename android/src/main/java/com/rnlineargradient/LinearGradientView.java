@@ -1,6 +1,7 @@
 package com.rnlineargradient;
 
 import com.facebook.react.bridge.ColorPropConverter;
+import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableType;
@@ -8,6 +9,7 @@ import com.facebook.react.uimanager.PixelUtil;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -139,10 +141,20 @@ public class LinearGradientView extends View {
     public void setColors(ReadableArray colors) {
         int[] _colors = new int[colors.size()];
         for (int i = 0; i < _colors.length; i++) {
-            _colors[i] =
-                    colors.getType(i) == ReadableType.Map
-                            ? ColorPropConverter.getColor(colors.getMap(i), getContext())
-                            : colors.getInt(i);
+            ReadableType type = colors.getType(i);
+            if (type == ReadableType.Map) {
+                // PlatformColor or wide gamut color
+                Integer color = ColorPropConverter.getColor(colors.getMap(i), getContext());
+                _colors[i] = color != null ? color : Color.BLACK;
+            } else if (type == ReadableType.Number) {
+                // Processed color (from processColor in old arch, or Fabric conversion in new arch)
+                _colors[i] = colors.getInt(i);
+            } else {
+                throw new JSApplicationIllegalArgumentException(
+                    "Unexpected color type at index " + i + ": " + type +
+                    ". Expected Map (PlatformColor) or Number (processed color)."
+                );
+            }
         }
         mColors = _colors;
         drawGradient();
@@ -191,7 +203,8 @@ public class LinearGradientView extends View {
 
     private void drawGradient() {
         // guard against crashes happening while multiple properties are updated
-        if (mColors == null || (mLocations != null && mColors.length != mLocations.length))
+        // LinearGradient requires at least 2 colors
+        if (mColors == null || mColors.length < 2 || (mLocations != null && mColors.length != mLocations.length))
             return;
 
         float[] startPoint;

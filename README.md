@@ -27,6 +27,11 @@ yarn add react-native-linear-gradient
 
 Or, using npm: `npm install react-native-linear-gradient`
 
+## Gradient Generator Tool
+
+Generate and preview gradients visually, then copy the JSX code directly into
+your project: [rn-gradient.vercel.app][6]
+
 ## Examples
 
 [react-native-login](https://github.com/brentvatne/react-native-login) is a
@@ -217,3 +222,4 @@ MIT
 [3]: https://img.shields.io/npm/v/react-native-linear-gradient.svg
 [4]: https://www.npmjs.com/package/react-native-linear-gradient
 [5]: https://img.shields.io/npm/dm/react-native-linear-gradient.svg
+[6]: https://rn-gradient.vercel.app

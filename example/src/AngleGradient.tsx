@@ -6,12 +6,20 @@ import {styles} from './styles';
 
 const AngleGradient = () => {
   const [angle, setAngle] = useState(135);
+  const [angleCenterX, setAngleCenterX] = useState(0.5);
+  const [angleCenterY, setAngleCenterY] = useState(0.5);
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => setAngle(Math.floor(Math.random() * 360))}>
+      <Pressable
+        onPress={e => {
+          const {locationX, locationY} = e.nativeEvent;
+          setAngleCenterX(locationX / styles.gradient.width);
+          setAngleCenterY(locationY / styles.gradient.height);
+        }}>
         <LinearGradient
           angle={angle}
+          angleCenter={{x: angleCenterX, y: angleCenterY}}
           colors={['red', 'blue']}
           style={styles.gradient}
           useAngle={true}
@@ -27,8 +35,9 @@ const AngleGradient = () => {
           step={1}
           value={angle}
         />
-        <Text>Slide to change the angle</Text>
         <Text>Angle: {angle}</Text>
+        <Text style={styles.hintText}>Slide to change the angle</Text>
+        <Text style={styles.hintText}>Tap to change angle center</Text>
       </View>
     </View>
   );

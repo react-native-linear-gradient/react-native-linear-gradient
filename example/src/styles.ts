@@ -11,6 +11,9 @@ export const styles = StyleSheet.create({
     margin: 4,
     width: 100,
   },
+  hintText: {
+    fontSize: 12,
+  },
   rightContainer: {
     flex: 1,
     marginLeft: 12,

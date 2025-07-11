@@ -1518,7 +1518,7 @@ PODS:
     - React-logger (= 0.75.5)
     - React-perflogger (= 0.75.5)
     - React-utils (= 0.75.5)
-  - RNLinearGradient (3.0.0-alpha.1):
+  - RNLinearGradient (3.0.0-beta.2):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1808,7 +1808,7 @@ SPEC CHECKSUMS:
   React-utils: 43588634a9eca9915486154b143a0da615cfd893
   ReactCodegen: 43d3ebb0cb9c6ffc92a254d31749fd29d69844a2
   ReactCommon: ee80ae3d276a9f1daa059169405b97c600dcba45
-  RNLinearGradient: e83b29e76faffd5f03bc6145298dfa81fef4c02e
+  RNLinearGradient: 139c52eea3c7fbbd28723ffcee3b14ee503b0a73
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   Yoga: 1dd9dabb9df8fe08f12cd522eae04a2da0e252eb
 

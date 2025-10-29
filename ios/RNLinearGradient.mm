@@ -8,7 +8,6 @@
 #import <react/renderer/components/RNLinearGradientSpec/Props.h>
 #import <react/renderer/components/RNLinearGradientSpec/RCTComponentViewHelpers.h>
 
-#import "RCTFabricComponentsPlugins.h"
 #endif
 
 #import <React/RCTConvert.h>

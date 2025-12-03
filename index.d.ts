@@ -19,6 +19,6 @@ declare module 'react-native-linear-gradient' {
     angle?: number;
   }
 
-  export default class LinearGradient extends React.Component<LinearGradientProps> {
-  }
+  declare const LinearGradient: React.ComponentClass<LinearGradientProps>;
+  export default LinearGradient;
 }

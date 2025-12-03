@@ -15,7 +15,7 @@ buildscript {
             mavenCentral()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:7.2.1'
+            classpath 'com.android.tools.build:gradle:8.5.0'
             if (isNewArchitectureEnabled()) {
                 classpath 'com.facebook.react:react-native-gradle-plugin'
             }
@@ -29,11 +29,46 @@ if (isNewArchitectureEnabled()) {
     apply plugin: "com.facebook.react"
 }
 
+def resolveReactNativeDirectory() {
+    def reactNativeLocation = safeExtGet("REACT_NATIVE_NODE_MODULES_DIR", null)
+    if (reactNativeLocation != null) {
+        return file(reactNativeLocation)
+    }
+
+    // Fallback to node resolver for custom directory structures like monorepos.
+    def reactNativePackage = file(
+            providers.exec {
+                workingDir(rootDir)
+                commandLine("node", "--print", "require.resolve('react-native/package.json')")
+            }.standardOutput.asText.get().trim()
+    )
+    if (reactNativePackage.exists()) {
+        return reactNativePackage.parentFile
+    }
+
+    throw new GradleException("[react-native-linear-gradient] Unable to resolve react-native location in node_modules. Your app should define `REACT_NATIVE_NODE_MODULES_DIR` extension property in `app/build.gradle` with a path to react-native in node_modules.")
+}
+
+def reactNativeRootDir = resolveReactNativeDirectory()
+def reactNativeProperties = new Properties()
+file("$reactNativeRootDir/ReactAndroid/gradle.properties").withInputStream { reactNativeProperties.load(it) }
+
+def REACT_NATIVE_VERSION = reactNativeProperties.getProperty("VERSION_NAME")
+def REACT_NATIVE_MINOR_VERSION = REACT_NATIVE_VERSION.startsWith("0.0.0-") ? 1000 : REACT_NATIVE_VERSION.split("\\.")[1].toInteger()
+
 android {
-    compileSdkVersion safeExtGet('compileSdkVersion', 31).toInteger()
+    compileSdkVersion safeExtGet('compileSdkVersion', 34).toInteger()
+
+    def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')[0].toInteger()
+    if (agpVersion >= 7) {
+        namespace "com.rnlineargradient"
+    }
+    if (agpVersion >= 8) {
+        buildFeatures.buildConfig true
+    }
     defaultConfig {
-        minSdkVersion safeExtGet('minSdkVersion', 21)
-        targetSdkVersion safeExtGet('targetSdkVersion', 31)
+        minSdkVersion safeExtGet('minSdkVersion', 23)
+        targetSdkVersion safeExtGet('targetSdkVersion', 34)
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
     }
     sourceSets {
@@ -51,20 +86,27 @@ android {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
-    maven {
-        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-        url "$rootDir/../node_modules/react-native/android"
-    }
-    maven {
-        // Android JSC is installed from npm
-        url "$rootDir/../node_modules/jsc-android/dist"
+    if (REACT_NATIVE_MINOR_VERSION <= 70) {
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url "$rootDir/../node_modules/react-native/android"
+        }
+        maven {
+            // Android JSC is installed from npm
+            url "$rootDir/../node_modules/jsc-android/dist"
+        }
     }
     google()
 }
 
 dependencies {
-    //noinspection GradleDynamicVersion
-    implementation 'com.facebook.react:react-native:+'  // From node_modules
+    if (REACT_NATIVE_MINOR_VERSION <= 70) {
+        //noinspection GradleDynamicVersion
+        implementation 'com.facebook.react:react-native:+'  // From node_modules
+    } else if (project == rootProject) {
+        implementation("com.facebook.react:react-android:$REACT_NATIVE_VERSION")
+    } else {
+        implementation("com.facebook.react:react-android")
+    }
 }

@@ -34,10 +34,11 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@types/react-native": "^0.70.14",
-    "flow-bin": "^0.182.0",
-    "react": "18.1.0",
-    "react-native": "0.70.15"
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "flow-bin": "^0.238.0",
+    "react": "18.3.1",
+    "react-native": "0.75.5"
   },
   "peerDependencies": {
     "react": "*",

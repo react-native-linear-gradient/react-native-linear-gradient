@@ -42,11 +42,12 @@ The following code will produce something like this:
 import LinearGradient from 'react-native-linear-gradient';
 
 // Within your render function
-<LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
-  <Text style={styles.buttonText}>
-    Sign in with Facebook
-  </Text>
-</LinearGradient>
+<LinearGradient
+  colors={['#4c669f', '#3b5998', '#192f6a']}
+  style={styles.linearGradient}
+>
+  <Text style={styles.buttonText}>Sign in with Facebook</Text>
+</LinearGradient>;
 
 // Later on in your styles..
 var styles = StyleSheet.create({
@@ -54,7 +55,7 @@ var styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 15,
     paddingRight: 15,
-    borderRadius: 5
+    borderRadius: 5,
   },
   buttonText: {
     fontSize: 18,
@@ -72,10 +73,13 @@ var styles = StyleSheet.create({
 Using the styles from above, set `start` and `end` like this to make the gradient go from left to right, instead of from top to bottom:
 
 ```javascript
-<LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
-  <Text style={styles.buttonText}>
-    Sign in with Facebook
-  </Text>
+<LinearGradient
+  start={{ x: 0, y: 0 }}
+  end={{ x: 1, y: 0 }}
+  colors={['#4c669f', '#3b5998', '#192f6a']}
+  style={styles.linearGradient}
+>
+  <Text style={styles.buttonText}>Sign in with Facebook</Text>
 </LinearGradient>
 ```
 
@@ -85,7 +89,11 @@ On iOS you can use the `MaskedViewIOS` to display text with a gradient. The tric
 
 ```jsx
 <MaskedViewIOS maskElement={<Text style={styles.text} />}>
-  <LinearGradient colors={['#f00', '#0f0']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
+  <LinearGradient
+    colors={['#f00', '#0f0']}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+  >
     <Text style={[styles.text, { opacity: 0 }]} />
   </LinearGradient>
 </MaskedViewIOS>
@@ -97,7 +105,7 @@ Check out the [example app](https://github.com/react-native-linear-gradient/reac
 
 ![Example with extra props](https://raw.githubusercontent.com/react-native-community/react-native-linear-gradient/HEAD/images/example-animated.gif)
 
-*This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS*
+_This gif was created using [licecap](http://www.cockos.com/licecap/) - a great piece of free OSS_
 
 ### Transparent Gradient
 
@@ -135,13 +143,13 @@ An optional array of numbers defining the location of each gradient color stop, 
 
 ```javascript
 <LinearGradient
-  start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
-  locations={[0,0.5,0.6]}
+  start={{ x: 0.0, y: 0.25 }}
+  end={{ x: 0.5, y: 1.0 }}
+  locations={[0, 0.5, 0.6]}
   colors={['#4c669f', '#3b5998', '#192f6a']}
-  style={styles.linearGradient}>
-  <Text style={styles.buttonText}>
-    Sign in with Facebook
-  </Text>
+  style={styles.linearGradient}
+>
+  <Text style={styles.buttonText}>Sign in with Facebook</Text>
 </LinearGradient>
 ```
 

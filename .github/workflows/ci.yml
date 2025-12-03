@@ -17,6 +17,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: yarn --frozen-lockfile
       - run: yarn tsc --noEmit
+      - run: yarn prettier --check .
       - run: yarn flow
       - working-directory: example/
         run: |

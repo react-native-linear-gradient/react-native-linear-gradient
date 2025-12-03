@@ -1,4 +1,5 @@
 import React from 'react';
+import type {PropsWithChildren} from 'react';
 import {
   ImageBackground,
   SafeAreaView,
@@ -18,16 +19,18 @@ import LinearGradient from 'react-native-linear-gradient';
 
 const pkg = require('../package.json');
 
-const Section: React.FC<{
+type SectionProps = PropsWithChildren<{
   title: string;
-}> = ({children, title}) => {
+}>;
+
+function Section({children, title}: SectionProps): React.JSX.Element {
   return (
     <View style={styles.sectionContainer}>
       <Text style={[styles.sectionTitle]}>{title}</Text>
       {children}
     </View>
   );
-};
+}
 
 const App = () => {
   const rnVersion = pkg.dependencies['react-native'];

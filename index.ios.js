@@ -7,6 +7,35 @@ import { processColor } from 'react-native';
 
 import NativeLinearGradient, { type Props } from './src';
 
+const isNewArch = () => global.nativeFabricUIManager != null;
+
+const convertColors = (colors) => {
+  if (!Array.isArray(colors)) {
+    console.error(
+      `LinearGradient: 'colors' prop must be an array of color values. ` +
+        `Received: ${
+          typeof colors === 'object' ? JSON.stringify(colors) : colors
+        } (${typeof colors})`,
+    );
+    return [];
+  }
+
+  if (colors.length < 2) {
+    console.warn(
+      `LinearGradient: 'colors' prop should contain at least 2 colors. ` +
+        `Received ${colors.length} color(s).`,
+    );
+  }
+
+  // New Architecture (Fabric) handles color conversion automatically in the C++ layer
+  if (isNewArch()) {
+    return colors;
+  }
+
+  // Old architecture (Paper) needs pre-processed colors (processColor)
+  return colors.map(processColor);
+};
+
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
     console.warn(
@@ -46,6 +75,7 @@ export default class LinearGradient extends Component<Props> {
       angle,
       ...otherProps
     } = this.props;
+
     if ((colors && locations) && (colors.length !== locations.length)) {
       console.warn('LinearGradient colors and locations props should be arrays of the same length');
     }
@@ -56,7 +86,7 @@ export default class LinearGradient extends Component<Props> {
         {...otherProps}
         startPoint={convertPoint('start', start)}
         endPoint={convertPoint('end', end)}
-        colors={colors.map(processColor)}
+        colors={convertColors(colors)}
         locations={locations ? locations.slice(0, colors.length) : null}
         useAngle={useAngle}
         angleCenter={convertPoint('angleCenter', angleCenter)}

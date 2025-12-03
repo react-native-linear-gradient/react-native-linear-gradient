@@ -7,6 +7,8 @@ import { processColor, StyleSheet, View } from 'react-native';
 
 import NativeLinearGradient, { type Props } from './src';
 
+const isNewArch = () => global.nativeFabricUIManager != null;
+
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
     console.warn(
@@ -20,6 +22,33 @@ const convertPoint = (name, point) => {
     };
   }
   return point;
+};
+
+const convertColors = (colors) => {
+  if (!Array.isArray(colors)) {
+    console.error(
+      `LinearGradient: 'colors' prop must be an array of color values. ` +
+        `Received: ${
+          typeof colors === 'object' ? JSON.stringify(colors) : colors
+        } (${typeof colors})`,
+    );
+    return [];
+  }
+
+  if (colors.length < 2) {
+    console.warn(
+      `LinearGradient: 'colors' prop should contain at least 2 colors. ` +
+        `Received ${colors.length} color(s).`,
+    );
+  }
+
+  // New Architecture (Fabric) handles color conversion automatically in the C++ layer
+  if (isNewArch()) {
+    return colors;
+  }
+
+  // Old architecture (Paper) needs pre-processed colors (processColor)
+  return colors.map(processColor);
 };
 
 /**
@@ -85,7 +114,7 @@ export default class LinearGradient extends Component<Props> {
       <View ref={this.gradientRef} {...otherProps} style={style}>
         <NativeLinearGradient
           style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
-          colors={colors.map(processColor)}
+          colors={convertColors(colors)}
           startPoint={convertPoint('start', start)}
           endPoint={convertPoint('end', end)}
           locations={locations ? locations.slice(0, colors.length) : null}

@@ -27,6 +27,18 @@ yarn add react-native-linear-gradient
 
 Or, using npm: `npm install react-native-linear-gradient`
 
+
+## ✨ Gradient Generator Tool
+Designing and experimenting with gradient colors manually can be time-consuming. This tool makes it easy to:
+
+- Generate **random** gradients
+- Create **custom** gradients with your own colors
+- Instantly copy JSX-ready `<LinearGradient />` code
+
+You can try the tool here: [https://rn-gradient.vercel.app](https://rn-gradient.vercel.app)
+
+
+
 ## Examples
 
 [react-native-login](https://github.com/brentvatne/react-native-login) is a

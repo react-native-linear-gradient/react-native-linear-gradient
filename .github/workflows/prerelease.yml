@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GH_PAT }}
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -43,7 +43,7 @@ jobs:
             npm version ${{ github.event.inputs.type }} --preid ${{ github.event.inputs.preid }}
           fi
       - run: git push --follow-tags
-      - run: echo "VERSION=$(npm pkg get version --workspaces=false | tr -d \")" >> $GITHUB_ENV
+      - run: echo "VERSION=$(npm pkg get version --workspaces=false | xargs)" >> $GITHUB_ENV
       - run: gh release create v${VERSION} -d --generate-notes -p -t ${VERSION}
         env:
           GH_TOKEN: ${{ github.token }}

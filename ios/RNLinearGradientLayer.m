@@ -1,16 +1,14 @@
 #import "RNLinearGradientLayer.h"
 
-#include <math.h>
 #import <UIKit/UIKit.h>
+#include <math.h>
 
 @implementation RNLinearGradientLayer
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
 
-    if (self)
-    {
+    if (self) {
         self.needsDisplayOnBoundsChange = YES;
         self.masksToBounds = YES;
         _startPoint = CGPointMake(0.5, 0.0);
@@ -22,26 +20,22 @@
     return self;
 }
 
-- (void)setColors:(NSArray<id> *)colors
-{
+- (void)setColors:(NSArray<id> *)colors {
     _colors = colors;
     [self setNeedsDisplay];
 }
 
-- (void)setLocations:(NSArray<NSNumber *> *)locations
-{
+- (void)setLocations:(NSArray<NSNumber *> *)locations {
     _locations = locations;
     [self setNeedsDisplay];
 }
 
-- (void)setStartPoint:(CGPoint)startPoint
-{
+- (void)setStartPoint:(CGPoint)startPoint {
     _startPoint = startPoint;
     [self setNeedsDisplay];
 }
 
-- (void)setEndPoint:(CGPoint)endPoint
-{
+- (void)setEndPoint:(CGPoint)endPoint {
     _endPoint = endPoint;
     [self setNeedsDisplay];
 }
@@ -51,7 +45,7 @@
 
     // short circuit when height or width are 0. Fixes CGContext errors throwing
     if (self.bounds.size.height == 0 || self.bounds.size.width == 0) {
-      return;
+        return;
     }
 
     BOOL hasAlpha = NO;
@@ -68,10 +62,12 @@
             format = [UIGraphicsImageRendererFormat defaultFormat];
         }
         format.opaque = !hasAlpha;
-        UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:self.bounds.size format:format];
-        UIImage *image = [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull ref) {
-            [self drawInContext:ref.CGContext];
-        }];
+        UIGraphicsImageRenderer *renderer =
+            [[UIGraphicsImageRenderer alloc] initWithSize:self.bounds.size format:format];
+        UIImage *image =
+            [renderer imageWithActions:^(UIGraphicsImageRendererContext *_Nonnull ref) {
+              [self drawInContext:ref.CGContext];
+            }];
 
         self.contents = (__bridge id _Nullable)(image.CGImage);
         self.contentsScale = image.scale;
@@ -88,26 +84,22 @@
     }
 }
 
-- (void)setUseAngle:(BOOL)useAngle
-{
+- (void)setUseAngle:(BOOL)useAngle {
     _useAngle = useAngle;
     [self setNeedsDisplay];
 }
 
-- (void)setAngleCenter:(CGPoint)angleCenter
-{
+- (void)setAngleCenter:(CGPoint)angleCenter {
     _angleCenter = angleCenter;
     [self setNeedsDisplay];
 }
 
-- (void)setAngle:(CGFloat)angle
-{
+- (void)setAngle:(CGFloat)angle {
     _angle = angle;
     [self setNeedsDisplay];
 }
 
-+ (CGPoint) getStartCornerToIntersectFromAngle:(CGFloat)angle AndSize:(CGSize)size
-{
++ (CGPoint)getStartCornerToIntersectFromAngle:(CGFloat)angle AndSize:(CGSize)size {
     float halfHeight = size.height / 2.0;
     float halfWidth = size.width / 2.0;
     if (angle < 90)
@@ -120,8 +112,7 @@
         return CGPointMake(-halfWidth, halfHeight);
 }
 
-+ (CGPoint) getHorizontalOrVerticalStartPointFromAngle:(CGFloat)angle AndSize:(CGSize)size
-{
++ (CGPoint)getHorizontalOrVerticalStartPointFromAngle:(CGFloat)angle AndSize:(CGSize)size {
     float halfWidth = size.width / 2;
     float halfHeight = size.height / 2;
     if (angle == 0) {
@@ -139,8 +130,7 @@
     }
 }
 
-+ (CGPoint) getGradientStartPointFromAngle:(CGFloat)angle AndSize:(CGSize)size
-{
++ (CGPoint)getGradientStartPointFromAngle:(CGFloat)angle AndSize:(CGSize)size {
     // Bound angle to [0, 360)
     angle = fmodf(angle, 360);
     if (angle < 0)
@@ -149,7 +139,8 @@
     // Explicitly check for horizontal or vertical gradients, as slopes of
     // the gradient line or a line perpendicular will be undefined in that case
     if (fmodf(angle, 90) == 0)
-        return [RNLinearGradientLayer getHorizontalOrVerticalStartPointFromAngle:angle AndSize:size];
+        return [RNLinearGradientLayer getHorizontalOrVerticalStartPointFromAngle:angle
+                                                                         AndSize:size];
 
     // Get the equivalent slope of the gradient line as tan = opposite/adjacent = y/x
     float slope = tan(angle * M_PI / 180.0);
@@ -159,7 +150,8 @@
     float perpendicularSlope = -1 / slope;
 
     // Get the start corner to intersect relative to center, in cartesian space (+y = up)
-    CGPoint startCorner = [RNLinearGradientLayer getStartCornerToIntersectFromAngle:angle AndSize:size];
+    CGPoint startCorner = [RNLinearGradientLayer getStartCornerToIntersectFromAngle:angle
+                                                                            AndSize:size];
 
     // Compute b (of y = mx + b) to get the equation for the perpendicular line
     float b = startCorner.y - perpendicularSlope * startCorner.x;
@@ -171,8 +163,7 @@
     return CGPointMake(startX, startY);
 }
 
-- (void)drawInContext:(CGContextRef)ctx
-{
+- (void)drawInContext:(CGContextRef)ctx {
     [super drawInContext:ctx];
 
     CGContextSaveGState(ctx);
@@ -185,14 +176,10 @@
 
     locations = malloc(sizeof(CGFloat) * self.colors.count);
 
-    for (NSInteger i = 0; i < self.colors.count; i++)
-    {
-        if (self.locations.count > i)
-        {
+    for (NSInteger i = 0; i < self.colors.count; i++) {
+        if (self.locations.count > i) {
             locations[i] = self.locations[i].floatValue;
-        }
-        else
-        {
+        } else {
             locations[i] = (1.0 / (self.colors.count - 1)) * i;
         }
     }
@@ -209,40 +196,31 @@
 
     CGPoint start, end;
 
-    if (_useAngle)
-    {
+    if (_useAngle) {
         // Angle is in bearing degrees (North = 0, East = 90)
         // convert it to cartesian (N = 90, E = 0)
         float angle = (90 - _angle);
-        CGPoint relativeStartPoint = [RNLinearGradientLayer getGradientStartPointFromAngle:angle AndSize:size];
+        CGPoint relativeStartPoint = [RNLinearGradientLayer getGradientStartPointFromAngle:angle
+                                                                                   AndSize:size];
 
         // Get true angleCenter
-        CGPoint angleCenter = CGPointMake(
-            _angleCenter.x * size.width,
-            _angleCenter.y * size.height
-        );
+        CGPoint angleCenter =
+            CGPointMake(_angleCenter.x * size.width, _angleCenter.y * size.height);
         // Translate to center on angle center
         // Flip Y coordinate to convert from cartesian
-        start = CGPointMake(
-            angleCenter.x + relativeStartPoint.x,
-            angleCenter.y - relativeStartPoint.y
-        );
+        start =
+            CGPointMake(angleCenter.x + relativeStartPoint.x, angleCenter.y - relativeStartPoint.y);
         // Reflect across the center to get the end point
-        end = CGPointMake(
-            angleCenter.x - relativeStartPoint.x,
-            angleCenter.y + relativeStartPoint.y
-        );
-    }
-    else
-    {
+        end =
+            CGPointMake(angleCenter.x - relativeStartPoint.x, angleCenter.y + relativeStartPoint.y);
+    } else {
         start = CGPointMake(self.startPoint.x * size.width, self.startPoint.y * size.height);
         end = CGPointMake(self.endPoint.x * size.width, self.endPoint.y * size.height);
     }
 
-    CGContextDrawLinearGradient(ctx, gradient,
-                                start,
-                                end,
-                                kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation);
+    CGContextDrawLinearGradient(ctx, gradient, start, end,
+                                kCGGradientDrawsBeforeStartLocation |
+                                    kCGGradientDrawsAfterEndLocation);
     CGGradientRelease(gradient);
     CGColorSpaceRelease(colorSpace);
 

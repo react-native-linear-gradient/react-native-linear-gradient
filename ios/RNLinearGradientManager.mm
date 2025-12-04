@@ -8,13 +8,11 @@ RCT_EXPORT_MODULE();
 
 @synthesize bridge = _bridge;
 
-- (UIView *)view
-{
-  return [[RNLinearGradient alloc] init];
+- (UIView *)view {
+    return [[RNLinearGradient alloc] init];
 }
 
-- (dispatch_queue_t)methodQueue
-{
+- (dispatch_queue_t)methodQueue {
     return dispatch_get_main_queue();
 }
 

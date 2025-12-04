@@ -13,21 +13,21 @@ const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
     console.warn(
       `LinearGradient '${name}' property should be an object with fields 'x' and 'y', ` +
-      'Array type is deprecated.'
+        'Array type is deprecated.',
     );
 
     return {
       x: point[0],
-      y: point[1]
+      y: point[1],
     };
   }
   return point;
 };
 
-const convertColors = (colors) => {
+const convertColors = colors => {
   if (!Array.isArray(colors)) {
     console.error(
-      `LinearGradient: 'colors' prop must be an array of color values. ` +
+      "LinearGradient: 'colors' prop must be an array of color values. " +
         `Received: ${
           typeof colors === 'object' ? JSON.stringify(colors) : colors
         } (${typeof colors})`,
@@ -37,7 +37,7 @@ const convertColors = (colors) => {
 
   if (colors.length < 2) {
     console.warn(
-      `LinearGradient: 'colors' prop should contain at least 2 colors. ` +
+      "LinearGradient: 'colors' prop should contain at least 2 colors. " +
         `Received ${colors.length} color(s).`,
     );
   }
@@ -56,7 +56,7 @@ const convertColors = (colors) => {
  *
  * @param {number} defaultValue
  */
-const validNumber = (defaultValue) => (value) => {
+const validNumber = defaultValue => value => {
   return typeof value === 'number' ? value : defaultValue;
 };
 
@@ -87,8 +87,10 @@ export default class LinearGradient extends Component<Props> {
       ...otherProps
     } = this.props;
 
-    if ((colors && locations) && (colors.length !== locations.length)) {
-      console.warn('LinearGradient colors and locations props should be arrays of the same length');
+    if (colors && locations && colors.length !== locations.length) {
+      console.warn(
+        'LinearGradient colors and locations props should be arrays of the same length',
+      );
     }
 
     // inherit container borderRadius until this issue is resolved:
@@ -107,13 +109,13 @@ export default class LinearGradient extends Component<Props> {
       validRadius(flatStyle.borderBottomRightRadius),
       validRadius(flatStyle.borderBottomRightRadius),
       validRadius(flatStyle.borderBottomLeftRadius),
-      validRadius(flatStyle.borderBottomLeftRadius)
+      validRadius(flatStyle.borderBottomLeftRadius),
     ];
 
     return (
       <View ref={this.gradientRef} {...otherProps} style={style}>
         <NativeLinearGradient
-          style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
+          style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
           colors={convertColors(colors)}
           startPoint={convertPoint('start', start)}
           endPoint={convertPoint('end', end)}

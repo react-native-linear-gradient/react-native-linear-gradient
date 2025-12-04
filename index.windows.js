@@ -11,12 +11,12 @@ const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
     console.warn(
       `LinearGradient '${name}' property should be an object with fields 'x' and 'y', ` +
-      'Array type is deprecated.'
+        'Array type is deprecated.',
     );
 
     return {
       x: point[0],
-      y: point[1]
+      y: point[1],
     };
   }
   return point;
@@ -48,12 +48,20 @@ export default class LinearGradient extends Component<Props> {
       style,
       ...otherProps
     } = this.props;
-    if ((colors && locations) && (colors.length !== locations.length)) {
-      console.warn('LinearGradient colors and locations props should be arrays of the same length');
+    if (colors && locations && colors.length !== locations.length) {
+      console.warn(
+        'LinearGradient colors and locations props should be arrays of the same length',
+      );
     }
 
     return (
-      <View ref={(component) => { this.gradientRef = component; }} {...otherProps} style={style}>
+      <View
+        ref={component => {
+          this.gradientRef = component;
+        }}
+        {...otherProps}
+        style={style}
+      >
         <NativeLinearGradient
           style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
           colors={colors.map(processColor)}

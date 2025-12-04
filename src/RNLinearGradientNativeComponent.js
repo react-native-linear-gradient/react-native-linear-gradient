@@ -1,11 +1,11 @@
 // @flow strict-local
 
-import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
-import type {HostComponent} from 'react-native';
+import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
+import type { HostComponent } from 'react-native';
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
-import type {ColorValue} from 'react-native/Libraries/StyleSheet/StyleSheet';
-import type {Float} from 'react-native/Libraries/Types/CodegenTypes';
-import type {PointValue} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+import type { ColorValue } from 'react-native/Libraries/StyleSheet/StyleSheet';
+import type { Float } from 'react-native/Libraries/Types/CodegenTypes';
+import type { PointValue } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 export type Props = $ReadOnly<{|
   ...ViewProps,
@@ -19,4 +19,6 @@ export type Props = $ReadOnly<{|
   borderRadii?: $ReadOnlyArray<Float>,
 |}>;
 
-export default (codegenNativeComponent<Props>('RNLinearGradient'): HostComponent<Props>);
+export default (codegenNativeComponent<Props>(
+  'RNLinearGradient',
+): HostComponent<Props>);

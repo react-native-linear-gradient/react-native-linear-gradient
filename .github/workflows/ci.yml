@@ -54,7 +54,7 @@ jobs:
         working-directory: android/
         run: gradle build
   build-ios-oldarch:
-    runs-on: macos-15
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -68,11 +68,17 @@ jobs:
           key: ${{ runner.os }}-pods-oldarch-${{ hashFiles('ios/Podfile') }}
           restore-keys: |
             ${{ runner.os }}-pods-oldarch-
+      - uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: ${{ runner.os }}-deriveddata-oldarch-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-deriveddata-oldarch-
       - working-directory: ios/
         run: pod install
       - run: xcodebuild -workspace "ios/RNLinearGradient.xcworkspace" -scheme "RNLinearGradient" -sdk iphonesimulator
   build-ios-newarch:
-    runs-on: macos-15
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -86,11 +92,17 @@ jobs:
           key: ${{ runner.os }}-pods-newarch-${{ hashFiles('ios/Podfile') }}
           restore-keys: |
             ${{ runner.os }}-pods-newarch-
+      - uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: ${{ runner.os }}-deriveddata-newarch-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-deriveddata-newarch-
       - working-directory: ios/
         run: RCT_NEW_ARCH_ENABLED=1 pod install
       - run: xcodebuild -workspace "ios/RNLinearGradient.xcworkspace" -scheme "RNLinearGradient" -sdk iphonesimulator
   integration-rn72:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v5
@@ -101,7 +113,6 @@ jobs:
         with:
           cache: 'yarn'
           node-version: 20
-      - run: echo "y" | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager "ndk;23.1.7779620"
       - run: yarn --frozen-lockfile
       - run: npx react-native@0.72.17 init rn72 --version 0.72.17 --skip-install
       - working-directory: rn72/
@@ -110,6 +121,5 @@ jobs:
           yarn add link:./..
       - working-directory: rn72/android/
         run: |
-          echo "ndk.dir=${ANDROID_SDK_ROOT}/ndk/23.1.7779620" > local.properties
           echo "android.enableJetifier=false" >> gradle.properties
           ./gradlew build

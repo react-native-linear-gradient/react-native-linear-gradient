@@ -53,6 +53,11 @@
   "codegenConfig": {
     "name": "RNLinearGradientSpec",
     "type": "components",
-    "jsSrcsDir": "src"
+    "jsSrcsDir": "src",
+    "ios": {
+      "componentProvider": {
+        "RNLinearGradient": "RNLinearGradient"
+      }
+    }
   }
 }

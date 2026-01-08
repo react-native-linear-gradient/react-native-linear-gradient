@@ -155,7 +155,6 @@ using namespace facebook::react;
 static NSArray<UIColor *> *
 convertCxxVectorColorsToNSArrayColors(const std::vector<facebook::react::SharedColor> &colors) {
     size_t size = colors.size();
-    NSLog(@"%zu", size);
     NSMutableArray *result = [NSMutableArray new];
     for (size_t i = 0; i < size; i++) {
         UIColor *color = RCTUIColorFromSharedColor(colors[i]);

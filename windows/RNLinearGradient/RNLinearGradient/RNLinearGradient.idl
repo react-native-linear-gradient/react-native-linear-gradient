@@ -1,8 +1,0 @@
-namespace RNLinearGradient {
-    [default_interface]
-    runtimeclass RNLinearGradientModule : Windows.UI.Xaml.Controls.Panel {
-        RNLinearGradientModule(Microsoft.ReactNative.IReactContext context);
-        void UpdateProperties(Microsoft.ReactNative.IJSValueReader reader);
-        void DispatchCommand(String commandId, Microsoft.ReactNative.IJSValueReader commandArgsReader);
-    };
-}

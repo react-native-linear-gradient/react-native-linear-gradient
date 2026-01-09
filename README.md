@@ -212,6 +212,7 @@ For other troubleshooting issues, go to [React Native Troubleshooting](https://r
 ## Other platforms
 
 - Web: [react-native-web-community/react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient)
+- Windows: Support was removed in v3.0 due to lack of New Architecture compatibility and maintenance. Windows users can continue using [v2.x](https://www.npmjs.com/package/react-native-linear-gradient/v/2.8.3).
 
 ## License
 

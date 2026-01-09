@@ -9,9 +9,8 @@
     "ios",
     "jest",
     "src",
-    "index.android.js",
     "index.d.ts",
-    "index.ios.js",
+    "index.js",
     "RNLinearGradient.podspec"
   ],
   "scripts": {

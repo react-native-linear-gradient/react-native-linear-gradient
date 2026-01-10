@@ -1,24 +1,45 @@
-/**
- * @providesModule LinearGradient
- * @flow
- */
-import React, { Component, createRef } from 'react';
-import { Platform, processColor, StyleSheet, View } from 'react-native';
+import React, { Component, createRef, RefObject, ReactNode } from 'react';
+import {
+  Platform,
+  processColor,
+  ProcessedColorValue,
+  StyleSheet,
+  View,
+  ViewProps,
+  StyleProp,
+  ViewStyle,
+  ColorValue,
+} from 'react-native';
 
-import NativeLinearGradient, {
-  type Props as NativeProps,
-} from './RNLinearGradientNativeComponent';
+import NativeLinearGradient from './RNLinearGradientNativeComponent';
 
-type Props = $ReadOnly<{|
-  ...NativeProps,
-  start?: { x: number, y: number },
-  end?: { x: number, y: number },
-  children?: React$Node,
-|}>;
+export type Point = { x: number; y: number };
 
-const isNewArch = () => global.nativeFabricUIManager != null;
+export interface LinearGradientProps extends ViewProps {
+  /** Array of colors to display, e.g. `['red', '#fff']` or `['#f0f', '#0ff']` */
+  colors: readonly ColorValue[];
+  /** Start position of the gradient. Default: `{ x: 0.5, y: 0.0 }` (top center) */
+  start?: Point;
+  /** End position of the gradient. Default: `{ x: 0.5, y: 1.0 }` (bottom center) */
+  end?: Point;
+  /** Array of color stop positions (0 to 1), must match length of `colors` */
+  locations?: readonly number[];
+  /** Use `angle` and `angleCenter` instead of `start` and `end` */
+  useAngle?: boolean;
+  /** Center point for angle-based gradient. Default: `{ x: 0.5, y: 0.5 }` */
+  angleCenter?: Point;
+  /** Angle in degrees for gradient direction (requires `useAngle: true`) */
+  angle?: number;
+  children?: ReactNode;
+  style?: StyleProp<ViewStyle>;
+}
 
-const convertPoint = (name, point) => {
+const isNewArch = () => (global as any).nativeFabricUIManager != null;
+
+const convertPoint = (
+  name: string,
+  point: Point | [number, number] | undefined,
+): Point | undefined => {
   if (Array.isArray(point)) {
     console.warn(
       `LinearGradient '${name}' property should be an object with fields 'x' and 'y', ` +
@@ -33,7 +54,11 @@ const convertPoint = (name, point) => {
   return point;
 };
 
-const convertColors = colors => {
+type ProcessedColors = (ProcessedColorValue | null | undefined)[];
+
+const convertColors = (
+  colors: readonly ColorValue[],
+): readonly ColorValue[] | ProcessedColors => {
   if (!Array.isArray(colors)) {
     console.error(
       "LinearGradient: 'colors' prop must be an array of color values. " +
@@ -62,12 +87,12 @@ const convertColors = colors => {
 
 /**
  * Checks if value is a valid number. Otherwise, defaults to defaultValue.
- *
- * @param {number} defaultValue
  */
-const validNumber = defaultValue => value => {
-  return typeof value === 'number' ? value : defaultValue;
-};
+const validNumber =
+  (defaultValue: number) =>
+  (value: unknown): number => {
+    return typeof value === 'number' ? value : defaultValue;
+  };
 
 const styles = StyleSheet.create({
   absoluteFill: {
@@ -79,16 +104,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class LinearGradient extends Component<Props> {
-  props: Props;
-  gradientRef = createRef<any>();
+export default class LinearGradient extends Component<LinearGradientProps> {
+  gradientRef: RefObject<any> = createRef();
 
   static defaultProps = {
     start: { x: 0.5, y: 0.0 },
     end: { x: 0.5, y: 1.0 },
   };
 
-  setNativeProps(props: Props) {
+  setNativeProps(props: Partial<LinearGradientProps>): void {
     this.gradientRef.current?.setNativeProps(props);
   }
 
@@ -125,8 +149,9 @@ export default class LinearGradient extends Component<Props> {
     // Android requires a View wrapper to support borderRadius
     // https://github.com/facebook/react-native/issues/3198
     if (Platform.OS === 'android') {
-      const flatStyle = StyleSheet.flatten(style) || {};
-      const borderRadius = flatStyle.borderRadius || 0;
+      const flatStyle = StyleSheet.flatten(style) ?? {};
+      const borderRadius =
+        typeof flatStyle.borderRadius === 'number' ? flatStyle.borderRadius : 0;
       const validRadius = validNumber(borderRadius);
 
       // Format for Android's Path.addRoundRect():
@@ -146,7 +171,7 @@ export default class LinearGradient extends Component<Props> {
         <View ref={this.gradientRef} {...otherProps} style={style}>
           <NativeLinearGradient
             style={styles.absoluteFill}
-            {...gradientProps}
+            {...(gradientProps as any)}
             borderRadii={borderRadiiPerCorner}
           />
           {children}
@@ -159,8 +184,8 @@ export default class LinearGradient extends Component<Props> {
       <NativeLinearGradient
         ref={this.gradientRef}
         {...otherProps}
-        style={style}
-        {...gradientProps}
+        style={style as any}
+        {...(gradientProps as any)}
       >
         {children}
       </NativeLinearGradient>

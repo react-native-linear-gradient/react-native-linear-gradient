@@ -61,3 +61,5 @@ ios/*.xcworkspace
 ios/Podfile
 ios/Podfile.lock
 ios/PrivacyInfo.xcprivacy
+
+dist/

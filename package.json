@@ -2,18 +2,19 @@
   "name": "react-native-linear-gradient",
   "version": "3.0.0-beta.2",
   "description": "A <LinearGradient> element for React Native",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "android",
+    "dist",
     "ios",
     "jest",
     "src",
-    "index.d.ts",
     "index.js",
     "RNLinearGradient.podspec"
   ],
   "scripts": {
+    "build": "tsc",
     "lint": "eslint ."
   },
   "repository": {
@@ -37,7 +38,6 @@
     "@react-native/eslint-config": "0.75.5",
     "@types/react": "^18.2.6",
     "eslint": "^8.57.0",
-    "flow-bin": "^0.238.0",
     "prettier": "2.8.8",
     "react": "18.3.1",
     "react-native": "0.75.5",

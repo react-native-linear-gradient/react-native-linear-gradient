@@ -1,7 +1,5 @@
 [ignore]
-; We fork some components by platform
-.*/*[.]android.js
-.*/*[.]ios.js
+.*/src/LinearGradient.js
 
 ; Ignore "BUCK" generated dirs
 <PROJECT_ROOT>/\.buckd/

@@ -21,6 +21,7 @@ jobs:
       - run: yarn prettier --check .
       - run: yarn lint
       - run: yarn flow check
+      - run: yarn react-native codegen
       - working-directory: example/
         run: |
           yarn --frozen-lockfile

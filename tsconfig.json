@@ -2,11 +2,18 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
-    "noEmit": true,
+    "lib": ["ES2016"],
+    "jsx": "react",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
   },
-  "exclude": ["example/"]
+  "include": ["src/**/*"],
+  "exclude": ["example/", "dist/", "node_modules/"]
 }

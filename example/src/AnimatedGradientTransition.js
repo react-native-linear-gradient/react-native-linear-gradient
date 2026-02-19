@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {Animated, Easing} from 'react-native';
-import _ from 'lodash';
+import React, { Component } from 'react';
+import { Animated, Easing } from 'react-native';
 
+import _ from 'lodash';
+import PropTypes from 'prop-types';
 import NativeLinearGradient from 'react-native-linear-gradient';
 
 class LinearGradient extends Component {
@@ -29,7 +29,7 @@ class LinearGradient extends Component {
   }
 
   render() {
-    const {children, ...props} = this.props;
+    const { children, ...props } = this.props;
     const colorsArray = this._generateColorsArray(props);
     const nativeLinearProps = _.omit(props, Object.keys(colorsArray));
 
@@ -135,7 +135,7 @@ class AnimatedGradientTransition extends Component {
   }
 
   _getInterpolatedColors() {
-    const {colors, prevColors, animatedColors} = this.state;
+    const { colors, prevColors, animatedColors } = this.state;
 
     return animatedColors.map((animatedColor, index) => {
       return animatedColor.interpolate({
@@ -168,7 +168,7 @@ class AnimatedGradientTransition extends Component {
   }
 
   render() {
-    const {children, ...props} = this.props;
+    const { children, ...props } = this.props;
     const interpolatedColors = this._getInterpolatedColors();
     const animatedColorsProps = this._generateColorsProps(interpolatedColors);
 

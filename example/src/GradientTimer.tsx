@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {AppState, Pressable, Text, View} from 'react-native';
-import {styles} from './styles';
-import LinearGradient from 'react-native-linear-gradient';
+import React, { useEffect, useState } from 'react';
+import { AppState, Pressable, Text, View } from 'react-native';
+
 import Slider from '@react-native-community/slider';
+import LinearGradient from 'react-native-linear-gradient';
+
+import { styles } from './styles';
 
 const incrementColor = (color: string, step: number) => {
   const intColor = parseInt(color.substring(1), 16);
@@ -64,8 +66,8 @@ const GradientTimer = () => {
         <Text>
           Timer: {Math.abs(delay)} ms{delay <= 0 && ' [Paused]'}
         </Text>
-        <Text style={{color: colorTop}}>{colorTop}</Text>
-        <Text style={{color: colorBottom}}>{colorBottom}</Text>
+        <Text style={{ color: colorTop }}>{colorTop}</Text>
+        <Text style={{ color: colorBottom }}>{colorBottom}</Text>
       </View>
     </View>
   );

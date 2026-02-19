@@ -1,5 +1,4 @@
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   ImageBackground,
   SafeAreaView,
@@ -10,12 +9,14 @@ import {
   View,
 } from 'react-native';
 
-import SimpleGradient from './SimpleGradient';
+import type { PropsWithChildren } from 'react';
+import LinearGradient from 'react-native-linear-gradient';
+
 import AngleGradient from './AngleGradient';
 import AnimatedGradient from './AnimatedGradient';
 import GradientButtons from './GradientButtons';
 import GradientTimer from './GradientTimer';
-import LinearGradient from 'react-native-linear-gradient';
+import SimpleGradient from './SimpleGradient';
 
 const pkg = require('../package.json');
 
@@ -23,7 +24,7 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
+function Section({ children, title }: SectionProps): React.JSX.Element {
   return (
     <View style={styles.sectionContainer}>
       <Text style={[styles.sectionTitle]}>{title}</Text>
@@ -48,7 +49,8 @@ const App = () => {
       <ImageBackground
         source={require('react-native/Libraries/NewAppScreen/components/logo.png')}
         style={styles.titleContainer}
-        imageStyle={styles.logo}>
+        imageStyle={styles.logo}
+      >
         <View style={styles.badge}>
           <Text style={styles.badgeText}>
             React Native {rnVersion} ({jsEngine}; {uiManager})
@@ -57,7 +59,8 @@ const App = () => {
         <LinearGradient
           colors={['#ffffff00', '#fff']}
           locations={[0.5, 1]}
-          style={styles.titleGradient}>
+          style={styles.titleGradient}
+        >
           <Text style={styles.titleText}>react-native-linear-gradient</Text>
         </LinearGradient>
       </ImageBackground>

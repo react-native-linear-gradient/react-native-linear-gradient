@@ -1,13 +1,22 @@
 import React from 'react';
-import {Alert, Platform, Pressable, StyleSheet, Text, View} from 'react-native';
+import {
+  Alert,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+
 import LinearGradient from 'react-native-linear-gradient';
-import {styles} from './styles';
+
+import { styles } from './styles';
 
 const LinearGradientButton: React.FC<{
   colors: string[];
   onPress: () => void;
   title: string;
-}> = ({colors, onPress, title}) => {
+}> = ({ colors, onPress, title }) => {
   return (
     <Pressable onPress={onPress}>
       <LinearGradient colors={colors} style={buttonStyles.button}>

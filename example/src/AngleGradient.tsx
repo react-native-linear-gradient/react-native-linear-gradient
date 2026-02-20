@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
-import {Pressable, Text, View} from 'react-native';
+import React, { useState } from 'react';
+import { Pressable, Text, View } from 'react-native';
+
 import Slider from '@react-native-community/slider';
 import LinearGradient from 'react-native-linear-gradient';
-import {styles} from './styles';
+
+import { styles } from './styles';
 
 const AngleGradient = () => {
   const [angle, setAngle] = useState(135);

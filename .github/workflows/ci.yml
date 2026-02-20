@@ -24,6 +24,8 @@ jobs:
       - working-directory: example/
         run: |
           yarn --frozen-lockfile
+          yarn prettier --check .
+          yarn lint
           yarn test
   build-android-oldarch:
     runs-on: ubuntu-latest

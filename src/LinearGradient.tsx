@@ -1,14 +1,14 @@
-import React, { Component, createRef, RefObject, ReactNode } from 'react';
+import React, { Component, createRef, ReactNode, RefObject } from 'react';
 import {
+  ColorValue,
   Platform,
   processColor,
   ProcessedColorValue,
+  StyleProp,
   StyleSheet,
   View,
   ViewProps,
-  StyleProp,
   ViewStyle,
-  ColorValue,
 } from 'react-native';
 
 import NativeLinearGradient from './RNLinearGradientNativeComponent';

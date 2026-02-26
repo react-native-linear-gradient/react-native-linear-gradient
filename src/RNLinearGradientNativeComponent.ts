@@ -1,10 +1,8 @@
-import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
-import type { HostComponent } from 'react-native';
-import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
-import type { ColorValue } from 'react-native/Libraries/StyleSheet/StyleSheet';
-import type { Float } from 'react-native/Libraries/Types/CodegenTypes';
+import type { ColorValue, HostComponent, ViewProps } from 'react-native';
 // @ts-expect-error PointValue is exported in Flow but not in TypeScript definitions
 import type { PointValue } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+import type { Float } from 'react-native/Libraries/Types/CodegenTypes';
+import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 
 export interface NativeProps extends ViewProps {
   startPoint?: PointValue;
